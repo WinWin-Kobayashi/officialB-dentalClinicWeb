@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if($_SESSION['first_name'] == null){
+    if($_SESSION['first_name'] == null){   
         header('location:login.php');
     }
 ?>
@@ -58,7 +58,8 @@
 
         <div class="home-left">
             <div class="home-text">
-                <div class="slide">
+                <div class="slide">                 
+                    <!-- the variable wrappen in in the php tag below displays the data from the "login.php" -->
                     <div class="welcome">Welcome, <?php echo $_SESSION['first_name']; ?>,</div>
                 </div>
     

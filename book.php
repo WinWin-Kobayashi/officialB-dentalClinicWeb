@@ -1,10 +1,17 @@
+<?php 
+    session_start();
+
+    // echo $_SESSION['active_gmail'];
+    // echo $_SESSION['birthdate'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
     <link rel="stylesheet" href="book.css">
     <style>
-        select{
+        select {
             width: 100%;
             height: 100%;
             background: transparent;
@@ -17,57 +24,114 @@
             padding: 20px 45px 20px 20px;
         }
 
+        .wrapper .hide{
+            display: none;
+        }
     </style>
 </head>
 <body>
-   
 <div class="wrapper">
-        <form id="appointmentForm" action="register-health.php">
-            <h1>Book Appointment</h1>
-            <div class="row">
-                <div class="input-box">
-                    <input type="date" placeholder="Date">
+    <form id="appointmentForm" action="" method="POST">
+        <h1>Book Appointment</h1>
+
+       <!-- TRIAL -->
+       <div class="row hide">
+                <div class="input-box ">
+                    <input type="text" value="<?php echo $_SESSION['first_name']?>" required name="first_name" readonly>
                 </div>
-                <div class="input-box">
-                    <input type="time" placeholder="Time">
+                <div class="input-box ">
+                    <input type="text" value="<?php echo $_SESSION['last_name']?>" required name="last_name" readonly>
                 </div>
+
+                <div class="input-box ">
+                    <input type="text" value="<?php echo $_SESSION['active_gmail']?>" required name="active_gmail" readonly>
+                </div>
+
+                <div class="input-box ">
+                    <input type="text" value="<?php echo $_SESSION['contact_number']?>" required name="contact_number" readonly>
+                </div>
+
+        </div>
+        <!-- TRIAL -->
+
+        <div class="row">
+            <div class="input-box">
+                <input type="date" placeholder="Date" required name="date">
             </div>
-
-            <!-- <div class="input-box">
-                <input type="text" placeholder="Select Service">
-            </div> -->
-
-            <select class="input-box drop-down" id="services" required name="services" placeholder="Select Service">
-                <option value="" disabled selected>Select Service</option>
-                <option value="Dental Checkup">Dental Checkup</option>
-                <option value="Tooth Extraction">Tooth Extraction</option>
-                <option value="Dental Cleaning">Dental Cleaning</option>
-            </select>
-
-            <div class="row">
-                <button type="button" class="btn-cancel" id="cancelButton">Cancel</button>
-                <button type="button" class="btn-okay" id="okayButton">Okay</button>
+            <div class="input-box">
+                <input type="time" placeholder="Time" required name="time">
             </div>
-        </form>
-    </div>
+        </div>
 
-    <script>
-        // Get references to the Cancel and Okay buttons
-        const cancelButton = document.getElementById("cancelButton");
-        const okayButton = document.getElementById("okayButton");
+        <select class="input-box drop-down" id="service" required name="service" placeholder="Select Service">
+            <option value="" disabled selected>Select Service</option>
+            <option value="Dental Checkup">Dental Checkup</option>
+            <option value="Tooth Extraction">Tooth Extraction</option>
+            <option value="Dental Cleaning">Dental Cleaning</option>
+        </select>
 
-        // Add event listeners to handle button clicks
-        cancelButton.addEventListener("click", () => {
-            // Redirect to the home page when Cancel is clicked
-            window.location.href = "index-after.php"; // Replace "home.html" with the actual URL of your home page
-        });
+        <div class="row">
+            <button type="button" class="btn-cancel" id="cancelButton">Cancel</button>
+            <button type="submit" class="btn-okay" id="okayButton" required name="submit_book-info">Okay</button>
+        </div>
+    </form>
+</div>
 
-        okayButton.addEventListener("click", () => {
-            // Redirect to the confirmation page when Okay is clicked
-            window.location.href = "pay-appointment.php"; // Replace "confirmation.html" with the actual URL of your confirmation page
-        });
-    </script>
+<script>
+    // Get references to the Cancel and Okay buttons
+    const cancelButton = document.getElementById("cancelButton");
 
-
+    // Add event listeners to handle button clicks
+    cancelButton.addEventListener("click", () => {
+        // Redirect to the home page when Cancel is clicked
+        window.location.href = "index-after.php"; // Replace "home.html" with the actual URL of your home page
+    });
+</script>
 </body>
 </html>
+
+<?php 
+    // SUBMIT DATE AND TIME TO APPOINTMENTS TABLE
+    if (isset($_POST['submit_book-info'])) {
+        // Get form data
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $service = $_POST['service'];
+        $first_name = $_POST['first_name']; 
+        $last_name = $_POST['last_name']; 
+        $active_gmail = $_POST['active_gmail']; 
+        $contact_number = $_POST['contact_number']; 
+
+        // Connect to the database
+        $mysqli = new mysqli('localhost', 'root', '', 'dental_clinic_db');
+
+        // Check for database connection errors
+        if ($mysqli->connect_error) {
+            die("Connection failed: " . $mysqli->connect_error);
+        }
+
+        // Sanitize the form data
+        $date = $mysqli->real_escape_string($date);
+        $time = $mysqli->real_escape_string($time);
+        $service = $mysqli->real_escape_string($service);
+        $first_name = $mysqli->real_escape_string($first_name);
+        $last_name = $mysqli->real_escape_string($last_name);
+        $email = $mysqli->real_escape_string($email);
+        $contact_number = $mysqli->real_escape_string($contact_number);
+
+        // Insert record into the database
+        $insert = $mysqli->query("INSERT INTO appointments(time, date, first_name, last_name, service, active_gmail, contact_number) VALUES ('$time', '$date', '$first_name', '$last_name', '$service', '$active_gmail', '$contact_number')");
+
+        // Check if the insertion was successful
+        if ($insert) {
+            header('location: pay-appointment.php');
+            exit; // Exit to prevent further execution
+        } else {
+            echo "Error: " . $mysqli->error;
+        }
+
+        // Close the database connection
+        $mysqli->close();
+    }
+
+?>

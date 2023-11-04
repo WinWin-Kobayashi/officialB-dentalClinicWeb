@@ -16,7 +16,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'dental_clinic_db') or die ('Una
         <form action="login.php" method="POST">
             <h1>Login</h1>
             <div class="input-box">
-                <input type="text" placeholder="Email" name="email" required="">
+                <input type="text" placeholder="Email" name="active_gmail" required="">
                 <i class='bx bxs-user'></i>
             </div>
 
@@ -48,21 +48,30 @@ $conn = mysqli_connect('localhost', 'root', '', 'dental_clinic_db') or die ('Una
     if(isset($_POST['login']))  
     {
         //get form data >>>
-        $email = $_POST['email'];
+        $active_gmail = $_POST['active_gmail'];
         $password = $_POST['password'];
 
         //encrypt password >>>
         $password = md5($password);
 
-        //get data from patients_table1 >>>
-        $select = mysqli_query($conn, "SELECT *  FROM patients_table1 WHERE active_gmail = '$email' AND password = '$password' ");
-
-        $first_name = $_POST['first_name']; //NOTE: this is a variable that stores the first_name (retrieved from the db table) of the corresponding email and password
+        //get all data from patients_table1 >>>
+        $select = mysqli_query($conn, "SELECT *  FROM patients_table1 WHERE active_gmail = '$active_gmail' AND password = '$password' ");
+        
+        // $first_name = $_POST['first_name']; 
+        //NOTE: this is a variable that stores the first_name (retrieved from the db table) of the corresponding email and password
+        
+        //the gotten data from the query is stored here;
         $row = mysqli_fetch_array($select);
 
         if(is_array($row)){
+            $_SESSION['id'] = $row['id'];
             $_SESSION['first_name'] = $row['first_name'];
-            $_SESSION['email'] = $row['email'];
+            $_SESSION['last_name'] = $row['last_name'];
+            $_SESSION['birthdate'] = $row['birthdate'];
+            $_SESSION['gender'] = $row['gender'];
+            $_SESSION['address'] = $row['address'];
+            $_SESSION['contact_number'] = $row['contact_number'];
+            $_SESSION['active_gmail'] = $row['active_gmail'];
             $_SESSION['password'] = $row['password'];
         }else{
             echo '<script type = "text/javascript">';
@@ -72,7 +81,8 @@ $conn = mysqli_connect('localhost', 'root', '', 'dental_clinic_db') or die ('Una
         }
     }
 
-    if(isset($_SESSION["first_name"])){
+    // if true
+    if(isset($_SESSION["first_name"])){     //passes the current user's first_name to "index-after.php"
         header("Location:index-after.php");
     }
 

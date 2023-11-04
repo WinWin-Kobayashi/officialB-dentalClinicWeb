@@ -15,6 +15,7 @@ $mail = new PHPMailer(true);
 
 $error = NULL;
 
+// SUBMIT REGISTRATION
 if(isset($_POST['submit_registration']))
 {
     //get form data
@@ -164,6 +165,9 @@ if(isset($_POST['submit_vk'])){
 // else{
 //     die("Something went wrong");
 // }
+
+
+
 
 ?>
 
