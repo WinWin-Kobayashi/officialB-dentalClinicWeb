@@ -1,0 +1,80 @@
+@import url('globalStyle.css');
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--v-dark-purple);
+    background: var(--v-light-purple);
+}
+
+.wrapper{
+    width: 520px;
+    background: white;
+    /* background: transparent; */
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: var(--box-shadow);
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper h3{
+    margin-top: 10px;
+    font-size: var(--small-font);
+    text-align: center;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    /* background: orange; */
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    /* background: transparent; */
+    border: none;
+    outline: none;
+    border: 1px solid var(--dark-purple);
+    border-radius: 15px;
+    font-size: var(--small-font);
+    color: var(--v-dark-purple);
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: var(--dark-purple);
+}
+
+.wrapper .btn-verify{
+    width: 100%;
+    height: 45px;
+    background: var(--dark-purple);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16.5px;
+    color: white;
+    font-weight: 600;
+}
+
+.wrapper .btn-verify:hover{
+    transform: scale(1.015);
+    transition: all 0.5s ease;
+    background: var(--dark-pink);
+}
+
+.wrapper .btn-verify:active{
+    transition: all 0.5s ease;
+    background: var(--pink);
+}

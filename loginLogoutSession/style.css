@@ -1,0 +1,24 @@
+form{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 30px;
+    text-align: center;
+}
+
+.textbox, .button{
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 3px;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    margin-top: -10px;
+}

@@ -1,0 +1,38 @@
+@import url('globalStyle.css');
+/* LOGIN PAGE (start)--------------------------------- */
+body{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--v-dark-purple);
+    background: var(--v-light-purple);
+  
+}
+
+.wrapper{
+    width: 50%;
+    background: white;
+    /* background: transparent; */
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: var(--box-shadow);
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+label{
+    font-size: var(--medium-font);
+}
+
+.wrapper .retriever{
+    margin-top: 1rem;
+}
+
+br{
+    height: 20px;
+}
+

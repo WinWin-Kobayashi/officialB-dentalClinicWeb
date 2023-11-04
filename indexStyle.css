@@ -1,0 +1,626 @@
+/* GLOBAL ------------------------------ */
+
+@import url("globalStyle.css");
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding: var(--scroll-padding, 5rem);
+    overflow-x: hidden;
+}
+
+section{
+    border: 2px solid white;
+}
+
+body{
+    background: var(--white);
+    color: var(--d-dark-purple);
+}
+
+span{
+    color: var(--v-dark-purple);
+    transition: all 0.45s ease;
+}
+
+span:hover{
+    text-shadow: 0 0 1px var(--pink), 0 0 2px var(--pink);
+    color: var(--pink);
+    cursor: pointer;
+}
+
+section{
+    padding: 0 10% 120px;
+}
+
+/* GLOBAL ------------------------------ */
+
+/* HEADER ------------------------------ */
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--v-light-purple);
+    /* background: transparent; */
+    padding: 20px 15%;
+    border-bottom: 1px solid transparent;
+    transition: all 0.45s ease;
+    padding-left: 8.5%;
+    padding-right: 8.5%;
+    border-bottom: 1px solid rgba(184, 58, 184, 0.116);
+}
+
+header.sticky{
+    background: var(--v-light-purple);
+    border-bottom: 1px solid var(--light-purple);
+    padding: 12px 15%;
+}
+
+.comp-logo img{
+    width: 33px;
+}
+
+.comp-name{
+    color: var(--v-dark-purple);
+    font-weight: 700;
+    top: -30px;
+    padding-left: 9px;
+}
+
+.comp{
+    display: flex;
+    justify-items: center;
+}
+
+.navlist{
+    display: flex;
+}
+
+.navlist a{
+    color: var(--v-dark-purple);
+    font-size: var(--small-font);
+    font-weight:  600;
+    margin: 0 25px;
+    transition: all 0.45s ease;
+}
+
+.navlist a:hover{
+    color: var(--pink);
+}
+
+.navlist a.active {
+    color: var(--pink);
+}
+
+.navlist li a.active{
+    color: var(--pink);
+}
+
+#menu-icon{
+    font-size: 35px;
+    color: var(--text-color);
+    z-index: 10001;
+    cursor: pointer;
+    margin-left: 25px;
+    display: none;
+}
+
+/* login button */
+.btn-login-con{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -3.5px;
+}
+
+.btn-login{
+    font-size: var(--small-font);
+    display: inline-block;
+    padding: 12px 35px;
+    background: var(--light-purple);
+    border-radius: 50px 50px 50px 50px;
+    color: var(--v-dark-purple);
+    font-size: var(--small-font);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover{
+    transform: scale(1.025);
+    transition: all 100ms ease;
+    background: var(--dark-purple);
+    color: white;
+}
+
+.btn-login:active{
+    transition: all 30ms ease;
+    background: var(--dark-pink);
+}
+
+#profile-wrapper{
+    display: flex;
+    flex-direction: row;
+    background: none;
+    color: var(--v-dark-purple);
+    border: 0.5px solid var(--dark-purple);
+    padding: 11.5px 15px 11.5px 15px;
+    border-radius: 30rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* #profile-wrapper h4{
+    margin-left: 7px;
+} */
+
+#profile-wrapper:hover{
+    background: var(--dark-purple);
+    color: white;
+}
+
+#profile-wrapper:active{
+    background: var(--v-dark-purple);
+}
+
+/* HEADER ------------------------------ */
+
+/* HOME ----------------------------- */
+.home{
+    padding-top: 12%;
+    position: relative;
+    height: 85vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.home-text{
+    /* border: 1px solid red; */
+    line-height: 1.1;
+    margin-top: 3%;
+}
+
+.home-text2 p{
+    color: var(--v-dark-purple);
+    font-size: var(--small-font);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    margin-top: 1.5%;
+}
+
+.slide{
+    font-size: var(--big-font);
+    color: var(--v-dark-purple);
+    font-weight: 600;
+    /* border: 1px solid black; */
+} 
+
+h1 span{
+    font-size: var(--big-font);
+    font-weight: 800;
+} 
+
+/* book an appointment button */
+.button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    font-size: var(--small-font);
+    display: inline-block;
+    padding: 25px 42px;
+    background: var(--dark-purple);
+    border-radius: 70px 70px 70px 70px;
+    color: var(--white);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-top: 5%;
+}
+
+.button .btn:hover {
+    /* transform: scale(0.96);
+    box-shadow: 0 0 2px var(--light-purple), 0 0 5px var(--light-purple); */
+
+    transform: scale(1.025);
+    transition: all 0.45s ease;
+    background: var(--v-dark-purple);
+    color: white;
+}
+
+.button .btn:active{
+    background: var(--dark-pink);
+}
+
+.check{
+    position: relative;
+    margin-left: 33%;
+    margin-top: -13%;
+}
+
+.home-right{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4.5%;
+}
+
+.cont{  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 1%;
+    padding-right: 10%;
+    margin-bottom: 7%;
+}
+
+.num{
+    font-size: 32px;
+    color: var(--v-dark-purple);
+    font-weight: 800;
+    overflow: visible;
+}
+
+.num h3{
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.num h5{
+    font-size: var(--small-font);
+    text-align: center;
+}
+
+/*---------------------- About Us (Just an image for now)  */
+
+/* .about-img{
+    background-image: url(img/wallpaper.png);
+    height: 85vh;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+} */
+
+.about{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about video{
+    background-repeat: no-repeat;
+}
+
+
+
+.services{
+    height: 295vh;
+    /* margin-top: 50px; */
+
+}
+
+.services h3{
+    text-align: center;
+    font-size: 40px;
+    color: var(--dark-purple);
+    font-weight: 800;
+    margin-top: 2rem;
+}
+
+
+.card-grid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    height: 353px;
+    margin-top: 60px;
+    grid-gap: 70px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.card-grid > div{
+    background-color: #8752CA;
+    height: 100%;
+    width: 228px;
+    border-radius: 20px;
+}
+
+.card-grid > div:first-child,
+.card-grid > div:nth-child(2){
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    flex-direction: column;
+    text-align: center;
+    color: var(--v-light-purple);
+    padding: 50px 20px 20px 20px;
+}
+
+.img1 img{
+    width: 131px;
+    height: 91px;
+    flex-shrink: 0;
+}
+
+.card2 .img2 img{
+    width: 131px;
+    position: relative;
+    margin-top: -1rem;
+}
+
+
+.card3 h4, .card3 p{
+    position: relative;
+    top: -16px;
+}
+
+
+.card1 h4{
+    margin: 20px 0;
+}
+
+.card2 h4{
+    margin: 20px 0;
+}
+
+.card2 h4{
+    margin-top: -4px;
+   
+}
+
+.card-grid h4{
+    font-weight: 700;
+    font-size: var(--small-font);
+}
+
+
+
+.card-grid > div:nth-child(3),
+.card-grid > div:last-child{
+    background-color: #D4BEEF;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    flex-direction: column;
+    text-align: center;
+    color: var(--v-dark-purple);
+    padding: 50px 20px 20px 20px;
+}
+
+.img3 img{
+    width: 105px;
+}
+
+.card3 h4{
+    margin: 20px 0;
+}
+
+
+.img4 img{
+    width: 90px;
+}
+
+.card4 h4{
+    margin: 20px 0;
+}
+
+.grid-container {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    grid-gap: 105px;
+  }
+  .grid-item {
+    padding: 20px;
+    font-size: var(--medium-font);
+    color: var(--v-dark-purple);
+    text-align: center;
+    /* border: 1px solid black; */
+  }
+
+  .grid-item h4{
+    padding-top: 1.4rem;
+  }
+
+  .hamburger i{
+    font-size:0;
+  }
+
+section .contact{
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid black;
+}
+
+@media only screen and (max-width: 1000px){
+    .card-grid{
+        grid-template-columns: auto auto auto;
+    }
+
+    .grid-container{
+        margin-top: 80vh;
+    }
+
+    .navlist a{
+        font-size: 14px;
+    }
+
+    .btn-login{
+        padding: 8px 30px;
+        font-size: 14px;
+        margin-left: 20px;
+        transition: all 0.55s ease;
+    }
+
+    .btn-login:hover{
+        transform: scale(0.96);
+        background: pink;
+    }
+
+    li{
+        width: 100px;
+    }
+    
+    .welcome{
+        font-size: 30px;
+    }
+    
+    .slide{
+        font-size: 35px;
+    }
+
+    .home-text2 p{
+        font-size: 16px;
+        width: 80%;
+    }
+
+    .btn{
+        padding: 10px 25px;
+    }
+
+    
+}
+
+@media only screen and (max-width: 850px){
+    .card-grid{
+        grid-template-columns: auto auto;
+
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .navlist,
+    .btn-login{
+        display: none;
+    }
+
+    .hamburger i{
+        font-size:30px;
+        position: absolute;
+        right: 40px;
+        top: 20px;
+      }
+}
+
+@media only screen and (max-width: 560px){
+    .card-grid{
+        grid-template-columns: auto;
+        padding: 0 auto;
+        width: 100%;
+        height: 200vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid-container{
+        margin-top: 20vh;
+    }
+}
+
+.hidden{
+    opacity: 0;
+    transition: all 5s;
+}
+
+.show{
+    opacity: 1;
+}
+
+/* ---CONTACTS------ */
+
+.contact{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-contact{
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--small-font);
+    color: var(--v-dark-purple);
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.grid-contact .row h4,
+.grid-contact .row img{
+    padding: 1.5px 7px 1.5px 0px;
+}
+
+.mayclin img{
+    background-repeat: no-repeat;
+}
+
+/* REGISTER PAGE (START)--------------------------------- */
+/* REGISTER PAGE (END)--------------------------------- */
+
+ /* Dropdown Button */
+ /* .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    float: right;
+  } */
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+   
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: var(--v-dark-purple);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background: var(--light-purple);}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;} 

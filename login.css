@@ -1,0 +1,122 @@
+@import url('globalStyle.css');
+/* LOGIN PAGE (start)--------------------------------- */
+.login-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--v-dark-purple);
+    background: var(--v-light-purple);
+
+    background: url('img/wallpaper.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper{
+    width: 420px;
+    background: white;
+    /* background: transparent; */
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: var(--box-shadow);
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    /* background: orange; */
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid var(--dark-purple);
+    border-radius: 15px;
+    font-size: var(--small-font);
+    color: var(--v-dark-purple);
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: var(--dark-purple);
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--medium-font);
+}
+
+.wrapper .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 15.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input{
+    accent-color: var(--dark-purple);
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: var(--v-dark-purple);
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.wrapper .btn-login-page{
+    width: 100%;
+    height: 45px;
+    background: var(--dark-purple);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16.5px;
+    color: white;
+    font-weight: 600;
+}
+
+.wrapper .btn-login-page:hover{
+    transform: scale(1.015);
+    transition: all 0.5s ease;
+    background: var(--dark-pink);
+}
+
+.wrapper .register-link{
+    font-size: 16.5px;
+    text-align: center;
+    /* margin-top: 20px; */
+    margin: 20px 0 15px;
+}
+
+.register-link p a{
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.register-link p a:hover{
+    text-decoration: underline;
+}
+
+.register-link p a:active{
+    color: var(--pink);
+}
+/* LOGIN PAGE (end)--------------------------------- */

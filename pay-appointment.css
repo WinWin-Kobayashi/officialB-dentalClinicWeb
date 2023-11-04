@@ -1,0 +1,132 @@
+@import url("globalStyle.css");
+
+.row{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    height: 55px;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--v-dark-purple);
+    background: var(--v-light-purple);
+}
+
+.wrapper{
+    width: 850px;
+    background: white;
+    border-radius: 10px;
+    padding: 35px 50px 35px 50px;
+    box-shadow: var(--box-shadow);
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper p{
+    margin-top: 15px;
+    font-size: var(--medium-font);
+    text-align: center;
+}
+
+.wrapper p span{
+    font-weight: 700;
+    color: #0085FF; 
+}
+
+.wrapper .steps-container{
+    margin-top: 35px;
+}
+
+.wrapper .steps-container .step h4{
+    font-size: var(--small-font);
+}
+
+.wrapper .steps-container h3{
+    color: #C3153F; 
+    font-size: var(--medium-font);
+}
+
+.wrapper .steps-container .step{
+    margin-top: 20px;
+}
+
+.steps-container .step .step-content{
+    margin-top: 15px;
+    line-height: normal; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.wrapper .btn-cancel, .wrapper .btn-okay{
+    width: calc(50% - 5px); /* Set the button width to 50% with a 5px gap in the middle */
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16.5px;
+    color: white;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.wrapper .btn-cancel{
+    background: var(--dark-purple);
+    margin-right: 5px; /* Add a margin to the right of the cancel button */
+}
+
+.wrapper .btn-okay{
+    background: var(--dark-pink);
+    margin-left: 5px; /* Add a margin to the left of the okay button */
+}
+
+.step .step-content button{
+    padding: 7px 12px 7px 12px;
+    border-radius: 10px;
+    border: none;
+    background: var(--dark-purple);
+    color: white;
+    font-size: 15px;
+}
+
+.step .step-content h5{
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+/* ADD HOVER AND ACTIVE EFFECT ON BUTTONS */
+.wrapper .btn-okay:hover,
+.wrapper .btn-cancel:hover,
+.wrapper .btn-okay:active,
+.wrapper .btn-cancel:active{
+    transform: scale(1.015);
+    transition: all 0.5s ease;
+}
+
+.wrapper .btn-okay:hover{
+    background: var(--pink);
+}
+
+.wrapper .btn-cancel:hover{
+    background: var(--v-dark-purple);
+}
+
+
+.step .step-content button:hover{
+    text-decoration: underline;
+    transform: scale(1.005);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
