@@ -88,7 +88,7 @@
     <!-- <section class="about-img" id="about"></section> -->
     <section class="about" id="about">
         <div class="about-vid">
-            <video width="1366px" controls autoplay muted>
+            <video width="1366px" controls autoplay muted loop>
                 <source src="img/ad (online-video-cutter.com).mp4" type="video/mp4">
                 <!--Below is a likely backup file if the web browser doesn't support an mp4 file-->
                 <!-- <source src="allVideos/Mental Health Awareness PerDev Project.webm" type="video/webm"> -->
