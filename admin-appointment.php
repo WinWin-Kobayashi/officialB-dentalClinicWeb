@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="admin-appointment.css">
 </head>
 <body>
+    <?php include('admin-header.php');?>
     <div class="calendar-container">
         <div class="wrapper">
         <header>
