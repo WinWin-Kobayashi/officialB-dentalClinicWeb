@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $id = $_GET['id']; //gets the appointment id from the book.php page 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,11 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="" id="pay-appointment">
+        <form action="" id="pay-appointment" method="POST" enctype="multipart/form-data">
+
+            <!-- confirms if the id Appointment id is passed -->
+            <h1><?php echo $id;?></h1>
+
             <h1>Pay Appointment</h1>
             <p>Your appointment will be confirmed during operating hours after you have
                 <br> payed the appointment fee which is <span>P300</span>.
@@ -29,16 +37,16 @@
                 <div class="step">
                     <h4>2. Upload a screenshot here as proof of payment.</h4>
                     <div class="step-content">
-                        <button id="upload-file">Choose a File</button>
-                        <h5>No File Chosen</h5>
+                        <input type="file" name="image" accept="image/*" required>
+                        <button type="submit" name="upload">Upload</button>
                     </div>
                 </div>
                 
             </div>
 
             <div class="row">
-                <button type="button" class="btn-cancel" id="cancelButton">Cancel</button>
-                <button type="button" class="btn-okay" id="okayButton">Okay</button>
+                <button type="button" class="btn-cancel" id="cancelButton" name="cancel">Cancel</button>
+                <button type="submit" class="btn-okay" id="okayButton" required name="submit-payment">Okay</button>
             </div>
            
         </form> 
@@ -46,7 +54,6 @@
         <script>
             // Get references to the Cancel and Okay buttons
             const cancelButton = document.getElementById("cancelButton");
-            const okayButton = document.getElementById("okayButton");
 
             // Add event listeners to handle button clicks
             cancelButton.addEventListener("click", () => {
@@ -54,11 +61,28 @@
                 window.location.href = "index-after.php"; // Replace "home.html" with the actual URL of your home page
             });
 
-            okayButton.addEventListener("click", () => {
-                // Redirect to the confirmation page when Okay is clicked
-                window.location.href = "appointment-request-sent.php"; // Replace "confirmation.html" with the actual URL of your confirmation page
-            });
+          
         </script>
     </div>
 </body>
 </html>
+
+<?php
+    // submit payment
+    if(isset($_POST['submit-payment'])){
+        // connect to db
+        $mysqli = new mysqli('localhost', 'root', '', 'dental_clinic_db');
+
+        //needs to also insert image
+        $update = $mysqli->query("UPDATE appointments SET status = 'Pending' WHERE id = '$id' LIMIT 1");
+
+        if($update){
+            header('location:appointment-request-sent.php');
+        }else{
+            echo $mysqli->error;
+        }
+    }
+
+    
+?>
+

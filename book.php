@@ -1,8 +1,5 @@
 <?php 
     session_start();
-
-    // echo $_SESSION['active_gmail'];
-    // echo $_SESSION['birthdate'];
 ?>
 
 <!DOCTYPE html>
@@ -116,15 +113,24 @@
         $service = $mysqli->real_escape_string($service);
         $first_name = $mysqli->real_escape_string($first_name);
         $last_name = $mysqli->real_escape_string($last_name);
-        $email = $mysqli->real_escape_string($email);
+        $active_gmail = $mysqli->real_escape_string($active_gmail);
         $contact_number = $mysqli->real_escape_string($contact_number);
 
         // Insert record into the database
         $insert = $mysqli->query("INSERT INTO appointments(time, date, first_name, last_name, service, active_gmail, contact_number) VALUES ('$time', '$date', '$first_name', '$last_name', '$service', '$active_gmail', '$contact_number')");
 
+        // EXTRACT THE ID FROM THIS CURRENT INSERTED DATA
+        $select = mysqli_query($mysqli, "SELECT id from appointments WHERE active_gmail = '$active_gmail' AND service = '$service' ");
+        $row = mysqli_fetch_array($select);
+        if(is_array($row)){
+            $id = $row['id'];
+            // echo $id;
+        }
+
         // Check if the insertion was successful
         if ($insert) {
-            header('location: pay-appointment.php');
+            // header("location: pay-appointment.php?id=$id");
+            header("location: pay-appointment.php?id=$id&date=$date&time=$time&service=$service");
             exit; // Exit to prevent further execution
         } else {
             echo "Error: " . $mysqli->error;
