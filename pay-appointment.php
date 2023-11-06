@@ -2,6 +2,7 @@
     session_start();
     $id = $_GET['id']; //gets the appointment id from the book.php page 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +38,10 @@
                 <div class="step">
                     <h4>2. Upload a screenshot here as proof of payment.</h4>
                     <div class="step-content">
-                        <input type="file" name="image" accept="image/*" required>
-                        <button type="submit" name="upload">Upload</button>
+
+                        <label for="image">Image : </label>
+                        <input type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br>
+                        <button type = "submit" name = "submit">Submit</button>
                     </div>
                 </div>
                 
@@ -83,6 +86,63 @@
         }
     }
 
+    require 'connection.php';
+
+    if(isset($_POST["submit"])){
+
+        // $name = $_POST["name"];
+        if($_FILES["image"]["error"] == 4){
+            echo
+            "<script> alert('Image Does Not Exist'); </script>"
+            ;
+        }
+        else{
+            $fileName = $_FILES["image"]["name"];
+            $fileSize = $_FILES["image"]["size"];
+            $tmpName = $_FILES["image"]["tmp_name"];
+
+            $validImageExtension = ['jpg', 'jpeg', 'png'];
+            $imageExtension = explode('.', $fileName);
+            $imageExtension = strtolower(end($imageExtension));
+
+            if ( !in_array($imageExtension, $validImageExtension) ){
+            echo
+            "
+            <script>
+                alert('Invalid Image Extension');
+            </script>
+            ";
+            }
+
+            else if($fileSize > 1000000){
+            echo
+            "
+            <script>
+                alert('Image Size Is Too Large');
+            </script>
+            ";
+            }
+
+            else{
+            $newImageName = uniqid();
+            $newImageName .= '.' . $imageExtension;
+
+            move_uploaded_file($tmpName, 'screenshots/' . $newImageName);
+            // $query = "INSERT INTO tb_upload VALUES('', '', '$newImageName')";
+            $query = "UPDATE appointments SET screenshot = '$newImageName' WHERE id = '$id' LIMIT 1";
+            // UPDATE appointments SET status = 'Pending' WHERE id = '$id' LIMIT 1
+            mysqli_query($conn, $query);
+            echo
+
+            "
+            <script>
+                alert('Successfully Added');
+            </script>
+            ";
+
+            }
+        }
+    }
     
 ?>
 
