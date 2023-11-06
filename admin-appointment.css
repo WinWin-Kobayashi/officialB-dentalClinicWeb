@@ -1,19 +1,30 @@
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
 }
-/* body{
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  justify-content: center;
-  min-height: 100vh;
-  background: #9B59B6;
-} */
+
+:root{
+  --white: #ffff;
+  --v-light-purple: #F4EFFB;
+  --light-purple: #D4BEEF;
+  --v-dark-purple: #531A62;
+  --dark-purple: #8752CA;
+  --small-font: 18px;
+  --big-font: 65px;
+  --medium-large-font: 26px;
+  --medium-font: 20px;
+  --medium-large-font: 40px;
+  --h2-font: 3rem;
+  --pink: rgb(252, 104, 207);
+  --dark-pink: #C553CF;
+  --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
 .wrapper{
   width: 400px;
   background: #fff;
@@ -99,21 +110,25 @@ header .current-date{
   background: #9B59B6;
 }
 .days li:not(.active):hover::before{
-  background: #f2f2f2;
+    transition: all 0.5s ease;
+    background: var(--dark-purple);
 }
+
 
 
 /* SIDELIST */
 .appointment-container {
-  position: absolute;
+  z-index: 1000;
+  /* position: absolute; */
   height: 100%;
-  width: 550px;
+  width: 570px;
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #f2f2f2;
+  background: var(--v-light-purple);
   padding-top: 50px;
-  padding-left: 50px;
+  padding-left: 20px;
+  /* border: 1px solid black; */
 }
 
 /* OTHER STYLE */
@@ -121,5 +136,12 @@ header .current-date{
 .calendar-container {
   position: absolute;
   top: 100px;
-  left: 300px;
+  left: 350px;
+  /* margin-left: 5rem; */
+}
+
+.appointment-container  .filtered-data{
+  /* margin-right: 3rem; */
+  /* position: absolute; */
+  right: 1rem;
 }

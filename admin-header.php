@@ -1,5 +1,5 @@
 <!-- HEADER -->
-<header>
+<header class="admin-header" style="border: 1px solid black; width: 20%;">
 
 <div class="comp">
     <a href="#" class="comp-logo">
