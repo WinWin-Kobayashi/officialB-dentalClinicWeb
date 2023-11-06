@@ -7,44 +7,7 @@
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-
-        <div class="comp">
-            <a href="#" class="comp-logo">
-                <img src="img/mayollogo.png" alt="">
-            </a>
-            <a href="#" class="comp-name"><h2><span>Admin Dashboard</span></h2></a>
-        </div>
-
-        <ul class="navlist">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Appointments</a></li>
-            <li><a href="#services">Patients</a></li>
-            <li><a href="#contact">Logs</a></li>
-        </ul>
-
-        <div class="bx bx-menu" id="menu-icon">
-            
-        </div>
-
-        <div class="hamburger">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-
-        <div class="dropdown">
-            <button class="user-profile dropbtn" id="profile-wrapper" onclick="myFunction()" >
-                <i class='bx bxs-user'></i>
-                <!-- <h4>User Name</h4> -->
-            </button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="book-history.php">Booking History</a>
-                <a href="treatment-record.php">My Treatments</a>
-                <a href="#" id="logout-btn">Logout</a>
-            </div>
-        </div>
-
-    </header>
+    <?php include('admin-header.php');?>
 
     <section id="home">
         <div class="row">
