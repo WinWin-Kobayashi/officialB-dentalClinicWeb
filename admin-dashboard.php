@@ -11,6 +11,14 @@
 
     <?php include('admin-header.php');?>
 
+    <!-- for error on appointment status -->
+    <?php if (isset($_GET['error'])) { ?>
+        <script>
+            alert("<?php echo $_GET['error']; ?>");
+        </script>
+    <?php } ?>
+
+
     <section id="home">
         <div class="row">
             <div class="confirmed-appointments-container">Confirmed Appointments</div>
@@ -57,9 +65,12 @@
                                 <td>' . $row['service'] . '</td>
                                 <td>' . $row['status'] . '</td>
                                 <td>
-                                    <button>Confirm</button>
-                                    <button>Reschedule</button>
-                                    <button>Cancel</button>
+                                    <form method="post" action="lib/appointment-status.php">
+                                        <input type="hidden" name="appointmentId" value="' . $row['id'] . '">
+                                        <button type="submit" name="cancel">Cancel</button>
+                                        <button>Reschedule</button>
+                                        <button type="submit" name="accept">Accept</button>
+                                    </form>
                                 </td>
                             </tr>';
                         }
