@@ -1,3 +1,5 @@
+<?php include('connection.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,16 +50,16 @@
             <?php
 
                 // MAKE SURE TO CHANGE YOUR DATABASE VALUES IF NECESSARY; ERROR USUALLY OCCUR HERE
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "dental_clinic_db";
+                // $servername = "localhost";
+                // $username = "root";
+                // $password = "";
+                // $dbname = "dental_clinic_db";
 
-                $conn = new mysqli($servername, $username, $password, $dbname);
+                // $conn = new mysqli($servername, $username, $password, $dbname);
 
-                if ($conn-> connect_error) {
-                    die("Connection error: ". $conn->connect_error);
-                }
+                // if ($conn-> connect_error) {
+                //     die("Connection error: ". $conn->connect_error);
+                // }
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Retrieve the user's selected date from the form
                     $date = $_POST['appointment'];
