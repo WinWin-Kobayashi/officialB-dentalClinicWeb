@@ -1,0 +1,13 @@
+.patients-container {
+    z-index: 1000;
+    /* position: absolute; */
+    height: 100%;
+    width: 570px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--v-light-purple);
+    padding-top: 50px;
+    padding-left: 20px;
+    /* border: 1px solid black; */
+}
