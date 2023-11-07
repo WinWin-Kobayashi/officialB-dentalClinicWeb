@@ -35,6 +35,7 @@
                         <thead class="thead">
                             <tr>
                                 <th>Id</th>
+                                <th scope="col">Fullname</th>
                                 <th scope="col">Date Created</th>
                                 <th scope="col">Appointment Date</th>
                                 <th scope="col">Appointment Time</th>
@@ -49,7 +50,8 @@
                         while ($row = mysqli_fetch_assoc($result)) {
                             echo '<tr>
                                 <td>' . $row['id'] . '</td>
-                                <td>' . $row['date_created'] . '</td>
+                                <td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>
+                                <td>' . date('Y-m-d', strtotime($row['date_created'])) . '</td>
                                 <td>' . $row['date'] . '</td>
                                 <td>' . date('h:i A', strtotime($row['time'])) . '</td>
                                 <td>' . $row['service'] . '</td>
