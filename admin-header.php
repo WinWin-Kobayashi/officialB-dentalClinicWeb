@@ -11,7 +11,7 @@
 <ul class="navlist">
     <li><a href="admin-dashboard.php">Home</a></li>
     <li><a href="admin-appointment.php">Appointments</a></li>
-    <li><a href="#services">Patients</a></li>
+    <li><a href="admin-patients.php">Patients</a></li>
     <li><a href="#contact">Logs</a></li>
 </ul>
 
