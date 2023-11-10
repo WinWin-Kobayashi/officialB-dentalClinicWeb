@@ -36,9 +36,9 @@
                     <!-- Dropdown for filtering by status -->
                     <label for="statusFilter">Filter by Status:</label>
                     <select id="statusFilter" name="status" onchange="this.form.submit()">
-                        <option value="Pending" <?php echo ($_GET['status'] == 'Pending') ? 'selected' : ''; ?>>Pending</option>
-                        <option value="Cancelled" <?php echo ($_GET['status'] == 'Cancelled') ? 'selected' : ''; ?>>Cancelled</option>
-                        <option value="Accepted" <?php echo ($_GET['status'] == 'Accepted') ? 'selected' : ''; ?>>Accepted</option>
+                        <option value="Pending" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Pending') ? 'selected' : ''; ?>>Pending</option>
+                        <option value="Cancelled" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Cancelled') ? 'selected' : ''; ?>>Cancelled</option>
+                        <option value="Accepted" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Accepted') ? 'selected' : ''; ?>>Accepted</option>
                     </select>
                 </form>
 
@@ -51,7 +51,7 @@
                     $statusFilter = 'Pending';
 
                     // Check if a specific status is selected in the dropdown
-                    if (isset($_GET['status']) && in_array($_GET['status'], ['Pending', 'Canceled', 'Accepted'])) {
+                    if (isset($_GET['status']) && in_array($_GET['status'], ['Pending', 'Cancelled', 'Accepted'])) {
                         $statusFilter = $_GET['status'];
                     }
 
@@ -83,14 +83,14 @@
                                     <td>' . date('h:i A', strtotime($row['time'])) . '</td>
                                     <td>' . $row['service'] . '</td>
                                     <td>' . $row['status'] . '</td>
-                                    <td>
+                                    ' . (($row['status'] == 'Pending') ? '<td>
                                         <form method="post" action="lib/appointment-status.php">
                                             <input type="hidden" name="appointmentId" value="' . $row['id'] . '">
                                             <button type="submit" name="cancel">Cancel</button>
                                             <button>Reschedule</button>
                                             <button type="submit" name="accept">Accept</button>
                                         </form>
-                                    </td>
+                                    </td>' : '') . '
                                 </tr>';
                             }
 

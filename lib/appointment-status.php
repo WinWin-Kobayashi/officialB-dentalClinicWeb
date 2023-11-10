@@ -12,10 +12,10 @@ if (isset($_POST['appointmentId'])) {
         $checkResult = mysqli_query($conn, $checkQuery);
 
         if ($checkResult && $row = mysqli_fetch_assoc($checkResult)) {
-            if ($row['status'] !== 'Canceled') {
-                $query = "UPDATE appointments SET status = 'Canceled' WHERE id = $appointmentId";
+            if ($row['status'] !== 'Cancelled') {
+                $query = "UPDATE appointments SET status = 'Cancelled' WHERE id = $appointmentId";
             } else {
-                header("Location: ../admin-dashboard.php?error=Appointment is already Canceled");
+                header("Location: ../admin-dashboard.php?error=Appointment is already Cancelled");
                 exit();
             }
         }
@@ -25,10 +25,10 @@ if (isset($_POST['appointmentId'])) {
         $checkResult = mysqli_query($conn, $checkQuery);
 
         if ($checkResult && $row = mysqli_fetch_assoc($checkResult)) {
-            if ($row['status'] !== 'Canceled') {
+            if ($row['status'] !== 'Cancelled') {
                 $query = "UPDATE appointments SET status = 'Accepted' WHERE id = $appointmentId";
             } else {
-                header("Location: ../admin-dashboard.php?error=Cannot update a Canceled appointment");
+                header("Location: ../admin-dashboard.php?error=Cannot update a Cancelled appointment");
                 exit();
             }
         }
