@@ -1,13 +1,41 @@
 .patients-container {
-    z-index: 1000;
-    /* position: absolute; */
-    height: 100%;
-    width: 570px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: var(--v-light-purple);
-    padding-top: 50px;
-    padding-left: 20px;
-    /* border: 1px solid black; */
+    position: absolute;
+    top: 0px;
+    left: 300px;
+}
+
+
+.appointment-header {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.appointment-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.appointment-details th, .appointment-details td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.appointment-details th {
+    background-color: #f5f5f5;
+}
+
+.accept-btn, .reschedule-btn, .decline-btn {
+    background-color: #007ACC;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+.accept-btn:hover, .reschedule-btn:hover, .decline-btn:hover {
+    background-color: #005D99;
 }

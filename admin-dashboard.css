@@ -1,11 +1,11 @@
 @import url('globalStyle.css');
 
-body{
+/* body{
     display: flex;
     flex-direction: row;
     justify-content: center;
     height: 100vh;
-}
+} */
 
 .row {
     display: flex;
@@ -104,3 +104,9 @@ tbody tr td{
     background: var(--pink);
 }
 
+
+.dashboard-container {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+}
