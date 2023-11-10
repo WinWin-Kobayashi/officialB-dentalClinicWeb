@@ -91,7 +91,7 @@
                                     ' . (($row['status'] == 'Pending') ? '<td>
                                         <button onclick="redirectToPage(\'cancel\', ' . $row['id'] . ')">Cancel</button>
                                         <button onclick="redirectToPage(\'reschedule\', ' . $row['id'] . ')">Reschedule</button>
-                                        <button onclick="acceptAppointment(<?php echo $row['id']; ?>)">Accept</button>
+                                        <button onclick="acceptAppointment(' . $row['id'] . ')">Accept</button>
                                     </td>' : '') . '
                                 </tr>';
                             }
@@ -115,9 +115,8 @@
     <script>
     //Make the AJAX request
         function acceptAppointment(appointmentId) {
-            // Make the AJAX request to accept-appointment.php
-            $.post('accept-appointment.php', { appointmentId: appointmentId }, function (response) {
-                // Display the response on the page (you can update this part as needed)
+            var url = 'lib/accept-appointment.php';
+            $.post(url, { appointmentId: appointmentId }, function (response) {
                 alert(response);
             });
         }
