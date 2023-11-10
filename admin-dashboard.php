@@ -6,6 +6,11 @@
     <?php include('globalHead.php'); ?>
     <link rel="stylesheet" href="admin-dashboard.css">
     <!-- <link rel="stylesheet" href="indexStyle.css"> -->
+    <style>
+       body{
+         background: var(--v-light-purple);
+       }
+    </style>
 </head>
 <body>
 
@@ -43,36 +48,36 @@
                 </form>
 
                 <div class="appointment-req-table">
-                <?php
+                    <?php
+                    // Check for connection 
+                    if ($conn) {
+                        // Default status filter value
+                        $statusFilter = 'Pending';
 
-                // Check for connection 
-                if ($conn) {
-                     // Default status filter value
-                    $statusFilter = 'Pending';
+                        // Check if a specific status is selected in the dropdown
+                        if (isset($_GET['status']) && in_array($_GET['status'], ['Pending', 'Cancelled', 'Accepted'])) {
+                            $statusFilter = $_GET['status'];
+                        }
 
-                    // Check if a specific status is selected in the dropdown
-                    if (isset($_GET['status']) && in_array($_GET['status'], ['Pending', 'Cancelled', 'Accepted'])) {
-                        $statusFilter = $_GET['status'];
-                    }
+                        $query = "SELECT * FROM appointments WHERE status = '$statusFilter'";
+                        $result = mysqli_query($conn, $query);
 
-                    $query = "SELECT * FROM appointments WHERE status = '$statusFilter'";
-                    $result = mysqli_query($conn, $query);
-                    if ($result) {
-                        echo '<table class="table">
-                            <thead class="thead">
-                                <tr>
-                                    <th>Id</th>
-                                    <th scope="col">Fullname</th>
-                                    <th scope="col">Date Created</th>
-                                    <th scope="col">Appointment Date</th>
-                                    <th scope="col">Appointment Time</th>
-                                    <th scope="col">Service</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
+                        if ($result) {
+                            echo '<table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th scope="col">Fullname</th>
+                                        <th scope="col">Date Created</th>
+                                        <th scope="col">Appointment Date</th>
+                                        <th scope="col">Appointment Time</th>
+                                        <th scope="col">Service</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>';
+                                <tbody>';
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '<tr>
@@ -84,29 +89,49 @@
                                     <td>' . $row['service'] . '</td>
                                     <td>' . $row['status'] . '</td>
                                     ' . (($row['status'] == 'Pending') ? '<td>
-                                        <form method="post" action="lib/appointment-status.php">
-                                            <input type="hidden" name="appointmentId" value="' . $row['id'] . '">
-                                            <button type="submit" name="cancel">Cancel</button>
-                                            <button>Reschedule</button>
-                                            <button type="submit" name="accept">Accept</button>
-                                        </form>
+                                        <button onclick="redirectToPage(\'cancel\', ' . $row['id'] . ')">Cancel</button>
+                                        <button onclick="redirectToPage(\'reschedule\', ' . $row['id'] . ')">Reschedule</button>
+                                        <button onclick="acceptAppointment(<?php echo $row['id']; ?>)">Accept</button>
                                     </td>' : '') . '
                                 </tr>';
                             }
 
                             echo '</tbody></table>';
-                            } else {
-                                echo 'Error: ' . mysqli_error($conn);
-                            }
+                        } else {
+                            echo 'Error: ' . mysqli_error($conn);
+                        }
                     } else {
                         echo 'Database connection failed: ' . mysqli_connect_error();
-                        }
-                        // close connetions
-                        //mysqli_close($conn);
-                    ?>
+                    }
+                    // close connections
+                    // mysqli_close($conn);
+                ?>
 
-                </div>
+            </div>
         </section>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+    //Make the AJAX request
+        function acceptAppointment(appointmentId) {
+            // Make the AJAX request to accept-appointment.php
+            $.post('accept-appointment.php', { appointmentId: appointmentId }, function (response) {
+                // Display the response on the page (you can update this part as needed)
+                alert(response);
+            });
+        }
+        function redirectToPage(action, appointmentId) {
+            var url;
+            if (action === 'cancel') {
+                url = 'lib/cancel-appointment.php';
+            } else if (action === 'reschedule') {
+                url = 'lib/reschedule-appointment.php';
+            }
+            url += '?appointmentId=' + appointmentId;
+
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>

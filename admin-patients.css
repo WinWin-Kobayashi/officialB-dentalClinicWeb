@@ -1,3 +1,5 @@
+@import url('globalStyle.css');
+
 .patients-container {
     position: absolute;
     top: 0px;

@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <?php include('globalHead.php'); ?>
     <link rel="stylesheet" href="admin-patients.css">
+    <style>
+       body{
+         background: var(--v-light-purple);
+       }
+    </style>
 </head>
 <body>
     <?php include('admin-header.php'); ?>

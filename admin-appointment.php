@@ -3,9 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <?php include('globalHead.php'); ?>
     <!-- Google Font Link for Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
@@ -109,8 +107,8 @@
                                         // echo "<td>" . date('F j', strtotime($row['date'])) . "</td>";
                                         // echo "<td>" . "<button>Reschedule</button>" . "<button>Cancel</button>" . "</td>";
                                         echo "<td style='display: flex; flex-direction: row; width: 95%; justify-content: flex-end;'>
-                                                <button style='font-size: var(--small-font); padding: 5px 10px 5px 10px; color: white; background: #FF6099; border: none; border-radius: 5px; cursor: pointer;'>Cancel</button>
-                                                <button style='margin-left: 10px; font-size: var(--small-font); padding: 5px 10px 5px 10px; color: var(--v-dark-purple); background: #FFF27D; border: none; border-radius: 5px; cursor: pointer;'>Reschedule</button>
+                                                <button onclick=\"redirectToPage('cancel', {$row['id']})\" style='font-size: var(--small-font); padding: 5px 10px 5px 10px; color: white; background: #FF6099; border: none; border-radius: 5px; cursor: pointer;'>Cancel</button>
+                                                <button onclick=\"redirectToPage('reschedule', {$row['id']})\" style='margin-left: 10px; font-size: var(--small-font); padding: 5px 10px 5px 10px; color: var(--v-dark-purple); background: #FFF27D; border: none; border-radius: 5px; cursor: pointer;'>Reschedule</button>
                                              </td>";
                                     echo "</tr>";
                                 }
@@ -127,6 +125,20 @@
     </div>
 
     <script src="script/calendar.js" defer></script>
+    <script>
+        function redirectToPage(action, appointmentId) {
+            var url;
+            if (action === 'cancel') {
+                url = 'lib/cancel-appointment.php';
+            } else if (action === 'reschedule') {
+                url = 'lib/reschedule-appointment.php';
+            }
+
+            url += '?appointmentId=' + appointmentId;
+
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
 
