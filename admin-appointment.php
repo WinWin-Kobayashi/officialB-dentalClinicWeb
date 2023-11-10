@@ -63,6 +63,9 @@
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Retrieve the user's selected date from the form
                     $date = $_POST['appointment'];
+                    } else {
+                        $date = date("Y-m-d");
+                    }
 
                     // time range
                     $start_time = strtotime("09:00:00");
@@ -76,7 +79,7 @@
                     }
 
                     // query database and generate the data
-                    $sql = "SELECT * FROM appointments WHERE date = ?";
+                    $sql = "SELECT * FROM appointments WHERE date = ? AND status = 'Accepted'";
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("s", $date);
                     $stmt->execute();
@@ -119,9 +122,6 @@
                     }
 
                     $stmt->close();
-                }
-
-                $conn->close();
             ?>
         </div>
     </div>
