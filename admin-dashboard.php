@@ -2,6 +2,8 @@
 
 <?php
 
+// Count accpted and cancelled
+
 $sqlAccepted = "SELECT COUNT(*) AS acceptedCount FROM appointments WHERE status = 'Accepted'";
 $resultAccepted = $conn->query($sqlAccepted);
 $sqlCancelled = "SELECT COUNT(*) AS cancelledCount FROM appointments WHERE status = 'Cancelled'";
