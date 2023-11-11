@@ -47,7 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->addAddress($toEmail);
 
             $mail->Subject = 'Appointment Rescheduled';
-            $mail->Body = "Your appointment has been rescheduled to $newDate at $newTime.";
+            $mail->Body = "Your appointment has been rescheduled to $newDate at $newTime. Please click the link below to confirm or decline the appointment:
+
+            ACCEPT:
+            http://localhost/officialB-dentalClinicWeb/confirm.php?appointmentId=$appointmentId&action=accept
+            
+            DECLINE:
+            http://localhost/officialB-dentalClinicWeb/confirm.php?appointmentId=$appointmentId&action=decline ";
 
             if (!$mail->send()) {
                 echo 'Error sending email: ' . $mail->ErrorInfo;
