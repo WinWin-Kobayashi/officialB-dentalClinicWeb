@@ -10,68 +10,118 @@
 .row {
     display: flex;
     flex-direction: row;
-    margin-top: 8%;
+    margin-top: 2.5%;
     justify-content: space-between;
-    width: 1235px;
+    width: 1060px;
+    margin-left: 9.5rem;
+}
+
+
+
+select{
+    width: 100px;
+    background: white;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 3px 5px 3px 5px;
+    border: none;
+    margin-left: 3px;
+}
+
+
+.ap-req-con-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 98%;
+}
+
+.ap-req-con-row .selection{
+    display: inline-block;
+}
+
+.ap-req-con-row .selection{
+    margin-top: 5px;
 }
 
 .row .confirmed-appointments-container {
-    width: 857px;
+    width: 740px;
     height: 269px;
     background: var(--light-purple);
     border-radius: 15px;
+    
 }
 
 .row .numbers-container {
-    width: 315px;
+    width: 290px;
     height: 269px;
     background: var(--light-purple);
     border-radius: 15px;
 }
 
 .appointment-requests-container{
-    width: 1235px;
+    width: 1060px;
     height: 296px;
     flex-shrink: 0;
     background: var(--light-purple);
     margin-top: 2.3rem;
     border-radius: 15px;
+    margin-left: 9.5rem;
 }
 
 .appointment-requests-container h3{
-    padding: 15px 15px;
+    padding: 7px 0px 10px 7px;
     color: var(--v-dark-purple);
-    border: 1px solid black;
     display: inline-block;
 }
 
 /* TABLE DESIGN */
+h3{
+    font-size: 18px;
+    margin-top: 1rem;
+    margin-left: 1rem;;
+    text-align: center;
+}
+
+
+.table{
+    width: 98%;
+    border-collapse: collapse;
+    margin-left: 10px;
+    overflow-y: scroll;
+}
+
+
 .table-container .table{
     border: 1px solid var(--dark-purple);
     border-collapse: collapse;
     border-radius: 30px;
 }
 
-.table-container{
-    margin-top: 1.7rem;
-    display: flex;
-    justify-content: center;
-}
 
 thead tr th{
     width: 190px;
     text-align: center;
-    font-size: var(--small-font);
+    font-size: 18px;
+    background: var(--v-dark-purple);
+    color: white;
+    padding: 5px;
+    border: 2px solid var(--v-dark-purple)
 }
 
 tbody tr td{
     text-align: center;
+    border: 1px solid var(--dark-purple);
+    background: white;
+    color: var(--v-dark-purple);
+    padding: 5px;
 
 }
 
 /* Add these styles to create column lines */
 .table-container .table td {
-    border: 1px solid var(--dark-purple);
+    border: 1px solid var(--v-dark-purple);
     padding: 10px;
     text-align: center;
     font-size: var(--small-font);
@@ -106,7 +156,69 @@ tbody tr td{
 
 
 .dashboard-container {
-    position: absolute;
-    top: 0px;
-    left: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+
+    margin-left: 3rem;
 }
+
+.action{
+
+    display: flex; flex-direction: row; justify-content: space-between;
+
+}
+
+.button{
+    padding: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    margin-left: 6px;
+}
+
+#cancel{
+    background: #FF6099;
+    color: white;
+}
+
+
+
+#accept{
+    background: #90F2AC;
+    color: #0E6116;
+}
+
+
+
+#reschedule{
+    background: #FFF27D;
+    color: #531A62;
+}
+
+
+
+#cancel:hover{
+    background: #d92668;
+    color: white;
+}
+
+
+
+#accept:hover{
+    background: #0e8730;
+    color: white;
+}
+
+
+
+#reschedule:hover{
+    background: #ffe628;
+    color: #531A62;
+}
+
+
+

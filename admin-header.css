@@ -1,0 +1,64 @@
+@import url('globalStyle.css');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+img{
+    width: 50px;
+}
+
+.comp{
+    margin-top: 20px;
+    display: flex;
+    /* border: 1px solid black; */
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin-left: 15px;
+}
+
+.comp a img{
+    margin-top: 20px;
+}
+
+.comp .comp-name{
+    margin-left: 7px;
+}
+
+.sidebar{
+    position: fixed;
+    width: 200px;
+    background: var(--light-purple);
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    height: 100%;
+    font-size: 20px;
+}
+
+.navlist{
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+.navlist li {
+    padding: 5px 0px 5px 25px;
+    /* border: 1px solid black; */
+    
+}
+
+.navlist li:hover {
+    background: var(--dark-purple);
+    color: white;
+}
+
+.navlist li a:hover{
+    color: white;
+}
+
+span{
+    color: var(--v-dark-purple);
+}
+

@@ -39,6 +39,7 @@ if ($resultAccepted && $resultCancelled) {
          background: var(--v-light-purple);
        }
     </style>
+
 </head>
 <body>
 
@@ -47,11 +48,14 @@ if ($resultAccepted && $resultCancelled) {
     <div class="dashboard-container">
         <section id="home">
             <div class="row">
+                <!-- confirmed appointments box -->
                 <div class="confirmed-appointments-container">Confirmed Appointments
                     <div class="appointment-req-table">
                         
                         </div>
                 </div>
+
+                <!-- numbers box -->
                 <div class="numbers-container">
                     <div class="cancellations">Cancelled: 
                         <?php echo $cancelledCount; ?>
@@ -62,17 +66,28 @@ if ($resultAccepted && $resultCancelled) {
                 </div>
             </div>
 
+            <!-- appointments req container -->
             <div class="appointment-requests-container">
-                <h3>Appointment Requests ( <?php echo $pendingCount; ?> )</h3>
-                <form method="get" action="admin-dashboard.php">
-                    <!-- Dropdown for filtering by status -->
-                    <label for="statusFilter">Filter by Status:</label>
-                    <select id="statusFilter" name="status" onchange="this.form.submit()">
-                        <option value="Pending" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Pending') ? 'selected' : ''; ?>>Pending</option>
-                        <option value="Cancelled" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Cancelled') ? 'selected' : ''; ?>>Cancelled</option>
-                        <option value="Accepted" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Accepted') ? 'selected' : ''; ?>>Accepted</option>
-                    </select>
-                </form>
+               
+
+                <div class="ap-req-con-row">
+                    <h3>Appointment Requests ( <?php echo $pendingCount; ?> )</h3>
+
+                    <div class="selection">
+                        <form method="get" action="admin-dashboard.php" >
+                            <!-- Dropdown for filtering by status -->
+                            <label for="statusFilter">Filter by Status:</label>
+                            <select id="statusFilter" name="status" onchange="this.form.submit()">
+                                <option value="Pending" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Pending') ? 'selected' : ''; ?>>Pending</option>
+                                <option value="Cancelled" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Cancelled') ? 'selected' : ''; ?>>Cancelled</option>
+                                <option value="Accepted" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Accepted') ? 'selected' : ''; ?>>Accepted</option>
+                            </select>
+                        </form>
+                    </div>
+              
+
+                </div>
+               
 
                 <div class="appointment-req-table">
                     <?php
@@ -89,36 +104,35 @@ if ($resultAccepted && $resultCancelled) {
                         $query = "SELECT * FROM appointments WHERE status = '$statusFilter'";
                         $result = mysqli_query($conn, $query);
 
-                        if ($result) {
-                            echo '<table class="table">
+                        if ($result) { ?>
+                        <div class="table-div">
+                            <table class="table">
                                 <thead class="thead">
                                     <tr>
-                                        <th>Id</th>
-                                        <th scope="col">Fullname</th>
-                                        <th scope="col">Date Created</th>
-                                        <th scope="col">Appointment Date</th>
-                                        <th scope="col">Appointment Time</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">App... Date</th>
+                                        <th scope="col">App... Time</th>
                                         <th scope="col">Service</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
 
-                                <tbody>';
+                                <tbody> <?php ;
+
+
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo '<tr>
-                                    <td>' . $row['id'] . '</td>
                                     <td>' . $row['first_name'] . ' ' . $row['last_name'] . '</td>
-                                    <td>' . date('Y-m-d', strtotime($row['date_created'])) . '</td>
-                                    <td>' . $row['date'] . '</td>
+                                    <td>' . date('F j, Y', strtotime($row['date'])) . '</td>
                                     <td>' . date('h:i A', strtotime($row['time'])) . '</td>
                                     <td>' . $row['service'] . '</td>
                                     <td>' . $row['status'] . '</td>
-                                    ' . (($row['status'] == 'Pending') ? '<td>
-                                        <button onclick="redirectToPage(\'cancel\', ' . $row['id'] . ')">Cancel</button>
-                                        <button onclick="redirectToPage(\'reschedule\', ' . $row['id'] . ')">Reschedule</button>
-                                        <button onclick="acceptAppointment(' . $row['id'] . ')">Accept</button>
+                                    ' . (($row['status'] == 'Pending') ? '<td class="action" ">
+                                        <button class="button" id="cancel"  onclick="redirectToPage(\'cancel\', ' . $row['id'] . ')">Cancel</button>
+                                        <button class="button" id="reschedule" onclick="redirectToPage(\'reschedule\', ' . $row['id'] . ')">Reschedule</button>
+                                        <button class="button" id="accept" onclick="acceptAppointment(' . $row['id'] . ')">Accept</button>
                                     </td>' : '') . '
                                 </tr>';
                             }
