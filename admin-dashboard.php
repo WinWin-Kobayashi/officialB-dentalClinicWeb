@@ -138,6 +138,9 @@ if ($resultAccepted && $resultCancelled) {
             var url = 'lib/accept-appointment.php';
             $.post(url, { appointmentId: appointmentId }, function (response) {
                 alert(response);
+                setTimeout(function() {
+                    window.location.reload();
+                }, 100);
             });
         }
         function redirectToPage(action, appointmentId) {
