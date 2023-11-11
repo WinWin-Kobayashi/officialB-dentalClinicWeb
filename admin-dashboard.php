@@ -8,15 +8,20 @@ $sqlAccepted = "SELECT COUNT(*) AS acceptedCount FROM appointments WHERE status 
 $resultAccepted = $conn->query($sqlAccepted);
 $sqlCancelled = "SELECT COUNT(*) AS cancelledCount FROM appointments WHERE status = 'Cancelled'";
 $resultCancelled = $conn->query($sqlCancelled);
+$sqlPending = "SELECT COUNT(*) AS pendingCount FROM appointments WHERE status = 'Pending'";
+$resultPending = $conn->query($sqlPending );
 $acceptedCount = 0;
 $cancelledCount = 0;
+$pendingCount = 0;
 
 if ($resultAccepted && $resultCancelled) {
     $rowAccepted = $resultAccepted->fetch_assoc();
     $rowCancelled = $resultCancelled->fetch_assoc();
+    $rowPending = $resultPending->fetch_assoc();
 
     $acceptedCount = $rowAccepted['acceptedCount'];
     $cancelledCount = $rowCancelled['cancelledCount'];
+    $pendingCount = $rowPending['pendingCount'];
 } else {
     echo "Error: " . $sqlAccepted . "<br>" . $conn->error;
 }
@@ -58,7 +63,7 @@ if ($resultAccepted && $resultCancelled) {
             </div>
 
             <div class="appointment-requests-container">
-                <h3>Appointment Requests</h3>
+                <h3>Appointment Requests ( <?php echo $pendingCount; ?> )</h3>
                 <form method="get" action="admin-dashboard.php">
                     <!-- Dropdown for filtering by status -->
                     <label for="statusFilter">Filter by Status:</label>
