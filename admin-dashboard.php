@@ -1,5 +1,26 @@
 <?php include('connection.php'); ?>
 
+<?php
+
+$sqlAccepted = "SELECT COUNT(*) AS acceptedCount FROM appointments WHERE status = 'Accepted'";
+$resultAccepted = $conn->query($sqlAccepted);
+$sqlCancelled = "SELECT COUNT(*) AS cancelledCount FROM appointments WHERE status = 'Cancelled'";
+$resultCancelled = $conn->query($sqlCancelled);
+$acceptedCount = 0;
+$cancelledCount = 0;
+
+if ($resultAccepted && $resultCancelled) {
+    $rowAccepted = $resultAccepted->fetch_assoc();
+    $rowCancelled = $resultCancelled->fetch_assoc();
+
+    $acceptedCount = $rowAccepted['acceptedCount'];
+    $cancelledCount = $rowCancelled['cancelledCount'];
+} else {
+    echo "Error: " . $sqlAccepted . "<br>" . $conn->error;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +47,10 @@
                 </div>
                 <div class="numbers-container">
                     <div class="cancellations">Cancelled: 
-                        <div class="appointment-req-table">
-                        
-                        </div>
+                        <?php echo $cancelledCount; ?>
                     </div>
                     <div class="accepted">Accepted:
+                        <?php echo $acceptedCount; ?>
                     </div>
                 </div>
             </div>
