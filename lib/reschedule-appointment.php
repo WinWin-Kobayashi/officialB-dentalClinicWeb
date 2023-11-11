@@ -26,12 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $updateResult = mysqli_query($conn, $updateQuery);
 
     if ($updateResult) {
-        $getEmailQuery = "SELECT active_gmail FROM appointments WHERE id = $appointmentId";
-        $emailResult = mysqli_query($conn, $getEmailQuery);
+        $getAppointmentQuery = "SELECT active_gmail, first_name FROM appointments WHERE id = $appointmentId";
+        $appointmentResult = mysqli_query($conn, $getAppointmentQuery);
 
-        if ($emailResult) {
-            $emailRow = mysqli_fetch_assoc($emailResult);
-            $toEmail = $emailRow['active_gmail'];
+        if ($appointmentResult) {
+            $appointmentData = mysqli_fetch_assoc($appointmentResult);
+            $toEmail = $appointmentData['active_gmail'];
+            $userName = $appointmentData['first_name'];
 
             // Send email using PHPMailer
             $mail = new PHPMailer;
@@ -46,14 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->setFrom('fakemayoldental@gmail.com', 'Fake Mayol Dental Clinic');
             $mail->addAddress($toEmail);
 
+            $mail->isHTML(true);
             $mail->Subject = 'Appointment Rescheduled';
-            $mail->Body = "Your appointment has been rescheduled to $newDate at $newTime. Please click the link below to confirm or decline the appointment:
-
-            ACCEPT:
-            http://localhost/officialB-dentalClinicWeb/confirm.php?appointmentId=$appointmentId&action=accept
-            
-            DECLINE:
-            http://localhost/officialB-dentalClinicWeb/confirm.php?appointmentId=$appointmentId&action=decline ";
+            $mail->Body = "Dear $userName,<br><br>Your appointment has been rescheduled to $newDate at $newTime. Please click the link below to confirm or decline the appointment:
+            <br>
+            <a href='http://localhost/officialB-dentalClinicWeb/confirm.php?appointmentId=$appointmentId&action=accept'>Accept</a>
+            <a href='http://localhost/officialB-dentalClinicWeb/confirm.php?appointmentId=$appointmentId&action=decline'>Decline</a>";
 
             if (!$mail->send()) {
                 echo 'Error sending email: ' . $mail->ErrorInfo;
@@ -68,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Error updating appointment: ' . mysqli_error($conn);
     }
 }
-
 if (isset($_GET['appointmentId'])) {
     $appointmentId = $_GET['appointmentId'];
 
