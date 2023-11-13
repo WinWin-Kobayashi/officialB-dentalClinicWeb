@@ -47,12 +47,12 @@ img{
     padding: 5px 0px 5px 25px;
 }
 
-ul li:hover {
+.navlist li:hover {
     background: var(--dark-purple);
     color: #fff;
 }
 
-ul li:hover a {
+.navlist li:hover a {
     color: #fff;
 }
 
