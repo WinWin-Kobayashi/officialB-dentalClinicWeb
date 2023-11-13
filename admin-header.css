@@ -45,20 +45,19 @@ img{
 
 .navlist li {
     padding: 5px 0px 5px 25px;
-    /* border: 1px solid black; */
-    
 }
 
-.navlist li:hover {
+ul li:hover {
     background: var(--dark-purple);
-    color: white;
+    color: #fff;
 }
 
-.navlist li a:hover{
-    color: white;
+ul li:hover a {
+    color: #fff;
 }
 
 span{
     color: var(--v-dark-purple);
 }
+
 

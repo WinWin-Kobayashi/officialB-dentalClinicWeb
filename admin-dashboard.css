@@ -92,6 +92,12 @@ h3{
     overflow-y: scroll;
 }
 
+.table-div{
+    overflow: hidden;
+  overflow-y: scroll;
+  height: 220px; /* change this to desired height */
+}
+
 
 .table-container .table{
     border: 1px solid var(--dark-purple);
@@ -219,6 +225,15 @@ tbody tr td{
     background: #ffe628;
     color: #531A62;
 }
+
+th.fixed {
+    top: 0;
+    z-index: 1000;
+    position: sticky;
+    padding: 5px;
+    border: 1px solid white;
+}
+  
 
 
 

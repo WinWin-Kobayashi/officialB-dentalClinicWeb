@@ -109,12 +109,12 @@ if ($resultAccepted && $resultCancelled) {
                             <table class="table">
                                 <thead class="thead">
                                     <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">App... Date</th>
-                                        <th scope="col">App... Time</th>
-                                        <th scope="col">Service</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Actions</th>
+                                        <th class="fixed" scope="col">Name</th>
+                                        <th class="fixed" scope="col">App... Date</th>
+                                        <th class="fixed" scope="col">App... Time</th>
+                                        <th class="fixed" scope="col">Service</th>
+                                        <th class="fixed" scope="col">Status</th>
+                                        <th class="fixed"scope="col">Actions</th>
                                     </tr>
                                 </thead>
 
