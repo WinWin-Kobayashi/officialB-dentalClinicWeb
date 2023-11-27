@@ -46,9 +46,3 @@
    
 </body>
 </html>
-
-    <!-- $birthdate = $_POST['birthdate'];
-    $gender = $_POST['gender'];
-    $address = $_POST['address'];
-    $contact_number = $_POST['contact_number'];
-    $active_gmail = $_POST['active_gmail']; -->

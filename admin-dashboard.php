@@ -110,8 +110,8 @@ if ($resultAccepted && $resultCancelled) {
                                 <thead class="thead">
                                     <tr>
                                         <th class="fixed" scope="col">Name</th>
-                                        <th class="fixed" scope="col">App... Date</th>
-                                        <th class="fixed" scope="col">App... Time</th>
+                                        <th class="fixed" scope="col">Date</th>
+                                        <th class="fixed" scope="col">Time</th>
                                         <th class="fixed" scope="col">Service</th>
                                         <th class="fixed" scope="col">Status</th>
                                         <th class="fixed"scope="col">Actions</th>

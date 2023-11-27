@@ -1,0 +1,37 @@
+@import url('../globalStyle.css');
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--v-dark-purple);
+    background: var(--v-light-purple);
+}
+
+.wrapper{
+    width: 420px;
+    background: white;
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: var(--box-shadow);
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+select{
+    padding: 5px 15px 5px 15px;
+    border: 1px solid var(--dark-purple);
+    border-radius: 5px;
+    font-size: var(--small-font);
+    color: var(--v-dark-purple);
+    margin-left: 7px;
+}
+
+label{
+    font-size: 25px;
+}
+

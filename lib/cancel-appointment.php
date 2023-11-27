@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include('../globalHead.php') ?>
+    <link rel='stylesheet' href='cancel-appointment.css'> 
+</head>
+<body>
+    
+</body>
+</html>
 <?php
 include '../connection.php';
 
@@ -73,17 +83,22 @@ if (isset($_GET['appointmentId'])) {
     if ($result) {
         $appointment = mysqli_fetch_assoc($result);
 
-        echo '<form method="post" action="">
-            <input type="hidden" name="appointmentId" value="' . $appointmentId . '">
-            <label for="cancelReason">Reason:</label>
-            <select id="cancelReason" name="cancelReason" required>
-                <option value="Overbook">Overbook</option>
-                <option value="No doctor">No doctor</option>
-                <option value="Other">Other</option>
-            </select>
-            <button type="submit" name="submit">Cancel</button>
-        </form>';
-    } else {
+        echo '
+        <body>
+            <div class="wrapper">
+                <form method="post" action="">
+                    <input type="hidden" name="appointmentId" value="' . $appointmentId . '">
+                    <label for="cancelReason">Reason:</label>
+                    <select id="cancelReason" name="cancelReason" required>
+                        <option value="Overbook">Overbook</option>
+                        <option value="No doctor">No doctor</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <button type="submit" name="submit">Cancel</button>
+                </form>
+            </div>
+        </body>';
+        } else {
         echo 'Error fetching appointment details: ' . mysqli_error($conn);
     }
 } else {

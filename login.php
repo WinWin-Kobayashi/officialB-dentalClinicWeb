@@ -82,7 +82,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'dental_clinic_db') or die ('Una
     }
 
     // if true
-    if(isset($_SESSION["first_name"])){     //passes the current user's first_name to "index-after.php"
+    if(isset($_SESSION["first_name"])){     //the superglobal variable's value can be used in other pages without needing to re-declare 
         header("Location:index-after.php");
     }
 
