@@ -66,6 +66,9 @@ if ($resultAccepted && $resultCancelled) {
                     <div class="accepted">Accepted:
                         <?php echo $acceptedCount; ?>
                     </div>
+                        <div margin: auto;">
+                            <canvas id="appointmentChart" height="50"></canvas>
+                        </div>
                 </div>
             </div>
 
@@ -157,6 +160,7 @@ if ($resultAccepted && $resultCancelled) {
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="script/bar-chart.js" defer></script>
+    <script src="script/pie.js" defer></script>
     <script>
     //Make the AJAX request
         function acceptAppointment(appointmentId) {
@@ -180,5 +184,35 @@ if ($resultAccepted && $resultCancelled) {
             window.location.href = url;
         }
     </script>
+    <script>
+    // Fetch Data
+    fetch('lib/pie-data.php')
+      .then(response => response.json())
+      .then(data => {
+        const defaultValues = {
+          'Pending': 0,
+          'Accepted': 0,
+          'Cancelled': 0,
+        };
+
+        const statusCounts = { ...defaultValues, ...data };
+        const labels = Object.keys(statusCounts);
+        const counts = Object.values(statusCounts);
+
+        // Create Pie
+        const ctx = document.getElementById('appointmentChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: labels,
+            datasets: [{
+              data: counts,
+              backgroundColor: ['#FFF27D', '#90F2AC', '#FF6099'], // pie color
+            }],
+          },
+        });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
 </body>
 </html>
