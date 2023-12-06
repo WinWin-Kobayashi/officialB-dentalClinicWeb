@@ -41,15 +41,15 @@ if ($resultAccepted && $resultCancelled) {
          background: var(--v-light-purple);
        }
 
-       #modal{
-	padding: 1rem;
-	top: 50%;
-	left: 50%;
-	translate: -50% -50%;
-	background: white;
-	border-radius: 0.25rem;
-	z-index: 10;
-}
+       #acceptRequest{
+            padding: 1rem;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            background: white;
+            border-radius: 0.25rem;
+            z-index: 10;
+        }
     </style>
 
 </head>
@@ -131,7 +131,7 @@ if ($resultAccepted && $resultCancelled) {
                                         <th class="fixed" scope="col">Time</th>
                                         <th class="fixed" scope="col">Service</th>
                                         <th class="fixed" scope="col">Status</th>
-                                        <th class="fixed"scope="col">Actions</th>
+                                        <th class="fixed" scope="col">Actions</th>
                                     </tr>
                                 </thead>
 
@@ -146,7 +146,7 @@ if ($resultAccepted && $resultCancelled) {
                                     <td>' . date('h:i A', strtotime($row['time'])) . '</td>
                                     <td>' . $row['service'] . '</td>
                                     <td>' . $row['status'] . '</td>
-                                    ' . (($row['status'] == 'Pending') ? '<td class="action" ">
+                                    ' . (($row['status'] == 'Pending') ? '<td class="action">
                                         <button class="button" id="cancel"  onclick="redirectToPage(\'cancel\', ' . $row['id'] . ')">Cancel</button>
                                         <button class="button" id="reschedule" onclick="redirectToPage(\'reschedule\', ' . $row['id'] . ')">Reschedule</button>
                                         <button class="button" id="accept" onclick="openModal(' . $row['id'] . ')">Accept</button>

@@ -1,6 +1,6 @@
-<dialog id="modal">
+<dialog id="acceptRequest">
     <div>This is a modal</div>
-    <form id="appointmentForm" method="POST">
+    <form id="appointmentRequestForm" method="POST">
         <input type="text" id="appointmentIdInput" name="appointmentId" readonly>
         <br>
         <input type="text" id="firstNameInput" name="firstName" placeholder="First Name" readonly>
@@ -25,7 +25,7 @@
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: new URLSearchParams(new FormData(document.getElementById('appointmentForm'))),
+                body: new URLSearchParams(new FormData(document.getElementById('appointmentRequestForm'))),
             })
             .then(response => response.text())
             .then(data => {
@@ -41,7 +41,7 @@
     });
 
     // Open/Close Modal + get patient data base on ID
-    const modal = document.getElementById("modal");
+    const accept_request = document.getElementById("acceptRequest");
 
     function openModal(appointmentId) {
         document.getElementById('appointmentIdInput').value = appointmentId;
@@ -71,10 +71,10 @@
 
         xhr.send('appointmentId=' + encodeURIComponent(appointmentId));
 
-        modal.showModal();
+        accept_request.showModal();
     }
 
     function closeModal() {
-        modal.close();
+        accept_request.close();
     }
 </script>

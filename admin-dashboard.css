@@ -216,7 +216,7 @@ tbody tr td{
 
 th.fixed {
     top: 0;
-    z-index: 1000;
+    z-index: 5;
     position: sticky;
     padding: 5px;
     border: 1px solid white;
