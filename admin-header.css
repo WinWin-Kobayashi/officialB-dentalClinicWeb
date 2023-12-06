@@ -29,7 +29,7 @@ img{
 
 .sidebar{
     position: fixed;
-    width: 200px;
+    width: 220px;
     background: var(--light-purple);
     display: flex;
     flex-direction: column;
@@ -42,9 +42,18 @@ img{
     margin-left: 0px;
     margin-top: 10px;
 }
+.material-icon {
+    margin-right: 10px; 
+}
 
 .navlist li {
     padding: 5px 0px 5px 25px;
+}
+
+.navlist li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .navlist li:hover {

@@ -1,5 +1,4 @@
 <?php include('connection.php'); ?>
-<?php require_once('lib/accept-appointment.php'); ?>
 
 <?php
 
