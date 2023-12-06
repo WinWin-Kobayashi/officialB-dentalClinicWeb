@@ -1,24 +1,27 @@
-<dialog id="reschedAppointment" class="modal">
-    <div>Reschedule</div>
+<dialog id="cancelAppointment" class="modal">
+    <div>Cancel Me Senpai</div>
     <form method="post" action="">
         <input type="hidden" name="appointmentId" value="' . $appointmentId . '">
-        <label for="newDate">New Date:</label>
-        <input type="date" id="newDate" name="newDate" required>
-        <label for="newTime">New Time:</label>
-        <input type="time" id="newTime" name="newTime" required>
-        <button type="submit" name="submit">Reschedule</button>
-        <button onclick="closeReschedModal()" type="button">Close</button>
+        <label for="cancelReason">Reason:</label>
+        <select id="cancelReason" name="cancelReason" required>
+            <option value="Overbook">Overbook</option>
+            <option value="No doctor">No doctor</option>
+             <option value="Other">Other</option>
+        </select>
+        <br>
+        <button type="submit" name="submit">Cancel</button>
+        <button onclick="closeCancelModal()" type="button">Close</button>
     </form>
 </dialog>
 
 <script>
-    const resched = document.getElementById("reschedAppointment");
+    const cancel = document.getElementById("cancelAppointment");
 
-    function openReschedModal() {
-        resched.showModal();
+    function openCancelModal() {
+        cancel.showModal();
     }
 
-    function closeReschedModal() {
-        resched.close();
+    function closeCancelModal() {
+        cancel.close();
     }
 </script>

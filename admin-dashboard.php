@@ -146,7 +146,7 @@ if ($resultAccepted && $resultCancelled) {
                                     <td>' . $row['service'] . '</td>
                                     <td>' . $row['status'] . '</td>
                                     ' . (($row['status'] == 'Pending') ? '<td class="action">
-                                        <button class="button" id="cancel"  onclick="redirectToPage(\'cancel\', ' . $row['id'] . ')">Cancel</button>
+                                        <button class="button" id="cancel"  onclick="openCancelModal(' . $row['id'] . ')">Cancel</button>
                                         <button class="button" id="reschedule" onclick="openReschedModal(' . $row['id'] . ')">Reschedule</button>
                                         <button class="button" id="accept" onclick="openAcceptModal(' . $row['id'] . ')">Accept</button>
                                     </td>' : '') . '
@@ -169,6 +169,7 @@ if ($resultAccepted && $resultCancelled) {
     </div>
     <?php require_once('modal/accept-request.php');?>
     <?php require_once('modal/resched-appointment.php');?>
+    <?php require_once('modal/cancel-appointment.php');?>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="script/bar-chart.js" defer></script>

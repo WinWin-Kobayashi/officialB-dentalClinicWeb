@@ -18,6 +18,10 @@ $result = $stmt->get_result();
 // Check if a row is returned
 if ($result->num_rows > 0) {
     $appointmentDetails = $result->fetch_assoc();
+
+    //Format time
+    $appointmentDetails['formatted_time'] = date('h:i', strtotime($appointmentDetails['time']));
+    
     echo json_encode($appointmentDetails);
 } else {
     echo json_encode(array('error' => 'Appointment not found'));

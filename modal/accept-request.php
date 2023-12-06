@@ -1,7 +1,7 @@
 <dialog id="acceptRequest" class="modal">
     <div>This is a modal</div>
     <form id="appointmentRequestForm" method="POST">
-        <input type="text" id="appointmentIdInput" name="appointmentId" readonly>
+        <input type="hidden" id="appointmentIdInput" name="appointmentId" readonly>
         <br>
         <input type="text" id="firstNameInput" name="firstName" placeholder="First Name" readonly>
         <br>
