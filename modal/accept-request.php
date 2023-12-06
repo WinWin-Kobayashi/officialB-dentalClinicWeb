@@ -1,4 +1,4 @@
-<dialog id="acceptRequest">
+<dialog id="acceptRequest" class="modal">
     <div>This is a modal</div>
     <form id="appointmentRequestForm" method="POST">
         <input type="text" id="appointmentIdInput" name="appointmentId" readonly>
@@ -9,7 +9,7 @@
         <br>
         <img id="screenshotImg" alt="Screenshot" style="max-width: 100%; max-height: 200px;">
         <br>
-        <button onclick="closeModal()" type="button">Close</button>
+        <button onclick="closeAcceptModal()" type="button">Close</button>
         <button type="submit" id="submitBtn">Submit</button>
     </form>
 </dialog>
@@ -43,7 +43,7 @@
     // Open/Close Modal + get patient data base on ID
     const accept_request = document.getElementById("acceptRequest");
 
-    function openModal(appointmentId) {
+    function openAcceptModal(appointmentId) {
         document.getElementById('appointmentIdInput').value = appointmentId;
 
         const xhr = new XMLHttpRequest();
@@ -74,7 +74,7 @@
         accept_request.showModal();
     }
 
-    function closeModal() {
+    function closeAcceptModal() {
         accept_request.close();
     }
 </script>

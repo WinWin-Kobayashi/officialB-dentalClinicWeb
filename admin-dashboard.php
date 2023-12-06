@@ -40,7 +40,7 @@ if ($resultAccepted && $resultCancelled) {
          background: var(--v-light-purple);
        }
 
-       #acceptRequest{
+       .modal{
             padding: 1rem;
             top: 50%;
             left: 50%;
@@ -147,8 +147,8 @@ if ($resultAccepted && $resultCancelled) {
                                     <td>' . $row['status'] . '</td>
                                     ' . (($row['status'] == 'Pending') ? '<td class="action">
                                         <button class="button" id="cancel"  onclick="redirectToPage(\'cancel\', ' . $row['id'] . ')">Cancel</button>
-                                        <button class="button" id="reschedule" onclick="redirectToPage(\'reschedule\', ' . $row['id'] . ')">Reschedule</button>
-                                        <button class="button" id="accept" onclick="openModal(' . $row['id'] . ')">Accept</button>
+                                        <button class="button" id="reschedule" onclick="openReschedModal(' . $row['id'] . ')">Reschedule</button>
+                                        <button class="button" id="accept" onclick="openAcceptModal(' . $row['id'] . ')">Accept</button>
                                     </td>' : '') . '
                                 </tr>';
                             }
@@ -167,25 +167,25 @@ if ($resultAccepted && $resultCancelled) {
             </div>
         </section>
     </div>
-
     <?php require_once('modal/accept-request.php');?>
+    <?php require_once('modal/resched-appointment.php');?>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="script/bar-chart.js" defer></script>
     <script src="script/pie.js" defer></script>
     <script>
     //Make the AJAX request
-        function redirectToPage(action, appointmentId) {
-            var url;
-            if (action === 'cancel') {
-                url = 'lib/cancel-appointment.php';
-            } else if (action === 'reschedule') {
-                url = 'lib/reschedule-appointment.php';
-            }
-            url += '?appointmentId=' + appointmentId;
+        // function redirectToPage(action, appointmentId) {
+        //     var url;
+        //     if (action === 'cancel') {
+        //         url = 'lib/cancel-appointment.php';
+        //     } else if (action === 'reschedule') {
+        //         url = 'lib/reschedule-appointment.php';
+        //     }
+        //     url += '?appointmentId=' + appointmentId;
 
-            window.location.href = url;
-        }
+        //     window.location.href = url;
+        // }
     </script>
     <script>
     // Fetch Data
