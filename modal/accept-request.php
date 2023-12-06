@@ -1,7 +1,7 @@
 <dialog id="acceptRequest" class="modal">
     <div>This is a modal</div>
     <form id="appointmentRequestForm" method="POST">
-        <input type="hidden" id="appointmentIdInput" name="appointmentId" readonly>
+        <input type="hidden" id="acceptAppointmentId" name="acceptAppointmentId" readonly>
         <br>
         <input type="text" id="firstNameInput" name="firstName" placeholder="First Name" readonly>
         <br>
@@ -20,7 +20,7 @@
         document.getElementById('submitBtn').addEventListener('click', function (event) {
             event.preventDefault();
 
-            fetch('lib/accept-appointment.php', {
+            fetch('lib/acceptAppointment.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -44,7 +44,7 @@
     const accept_request = document.getElementById("acceptRequest");
 
     function openAcceptModal(appointmentId) {
-        document.getElementById('appointmentIdInput').value = appointmentId;
+        document.getElementById('acceptAppointmentId').value = appointmentId;
 
         const xhr = new XMLHttpRequest();
         xhr.open('POST', 'lib/getAppointmentDetails.php', true);
