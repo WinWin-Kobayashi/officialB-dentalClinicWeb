@@ -1,4 +1,5 @@
 <?php include('connection.php'); ?>
+<?php require_once('lib/accept-appointment.php'); ?>
 
 <?php
 
@@ -39,6 +40,16 @@ if ($resultAccepted && $resultCancelled) {
        body{
          background: var(--v-light-purple);
        }
+
+       #modal{
+	padding: 1rem;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	background: white;
+	border-radius: 0.25rem;
+	z-index: 10;
+}
     </style>
 
 </head>
@@ -66,8 +77,8 @@ if ($resultAccepted && $resultCancelled) {
                     <div class="accepted">Accepted:
                         <?php echo $acceptedCount; ?>
                     </div>
-                        <div margin: auto;">
-                            <canvas id="appointmentChart" height="50"></canvas>
+                        <div style="margin: auto;">
+                            <canvas id="appointmentChart"></canvas>
                         </div>
                 </div>
             </div>
@@ -138,7 +149,7 @@ if ($resultAccepted && $resultCancelled) {
                                     ' . (($row['status'] == 'Pending') ? '<td class="action" ">
                                         <button class="button" id="cancel"  onclick="redirectToPage(\'cancel\', ' . $row['id'] . ')">Cancel</button>
                                         <button class="button" id="reschedule" onclick="redirectToPage(\'reschedule\', ' . $row['id'] . ')">Reschedule</button>
-                                        <button class="button" id="accept" onclick="acceptAppointment(' . $row['id'] . ')">Accept</button>
+                                        <button class="button" id="accept" onclick="openModal(' . $row['id'] . ')">Accept</button>
                                     </td>' : '') . '
                                 </tr>';
                             }
@@ -158,20 +169,13 @@ if ($resultAccepted && $resultCancelled) {
         </section>
     </div>
 
+    <?php require_once('modal/accept-modal.php');?>
+    
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="script/bar-chart.js" defer></script>
     <script src="script/pie.js" defer></script>
     <script>
     //Make the AJAX request
-        function acceptAppointment(appointmentId) {
-            var url = 'lib/accept-appointment.php';
-            $.post(url, { appointmentId: appointmentId }, function (response) {
-                alert(response);
-                setTimeout(function() {
-                    window.location.reload();
-                }, 100);
-            });
-        }
         function redirectToPage(action, appointmentId) {
             var url;
             if (action === 'cancel') {

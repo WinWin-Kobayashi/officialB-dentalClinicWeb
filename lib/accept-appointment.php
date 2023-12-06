@@ -1,5 +1,5 @@
 <?php
-include '../connection.php';
+$conn = mysqli_connect("localhost", "root", "", "dental_clinic_db");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $appointmentId = $_POST['appointmentId'];
@@ -18,6 +18,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 echo 'Invalid request.';
-
-mysqli_close($conn);
 ?>
