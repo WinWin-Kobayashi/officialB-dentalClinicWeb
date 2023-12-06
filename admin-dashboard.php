@@ -2,28 +2,15 @@
 
 <?php
 
-// Count accpted and cancelled
-
-$sqlAccepted = "SELECT COUNT(*) AS acceptedCount FROM appointments WHERE status = 'Accepted'";
-$resultAccepted = $conn->query($sqlAccepted);
-$sqlCancelled = "SELECT COUNT(*) AS cancelledCount FROM appointments WHERE status = 'Cancelled'";
-$resultCancelled = $conn->query($sqlCancelled);
+// Count accepted and cancelled
 $sqlPending = "SELECT COUNT(*) AS pendingCount FROM appointments WHERE status = 'Pending'";
-$resultPending = $conn->query($sqlPending );
-$acceptedCount = 0;
-$cancelledCount = 0;
-$pendingCount = 0;
+$resultPending = $conn->query($sqlPending);
 
-if ($resultAccepted && $resultCancelled) {
-    $rowAccepted = $resultAccepted->fetch_assoc();
-    $rowCancelled = $resultCancelled->fetch_assoc();
+if ($resultPending) {
     $rowPending = $resultPending->fetch_assoc();
-
-    $acceptedCount = $rowAccepted['acceptedCount'];
-    $cancelledCount = $rowCancelled['cancelledCount'];
     $pendingCount = $rowPending['pendingCount'];
 } else {
-    echo "Error: " . $sqlAccepted . "<br>" . $conn->error;
+    $pendingCount = 0;
 }
 
 ?>
@@ -70,15 +57,9 @@ if ($resultAccepted && $resultCancelled) {
 
                 <!-- numbers box -->
                 <div class="numbers-container">
-                    <div class="cancellations">Cancelled: 
-                        <?php echo $cancelledCount; ?>
+                    <div style="margin: auto;">
+                        <canvas id="appointmentChart"></canvas>
                     </div>
-                    <div class="accepted">Accepted:
-                        <?php echo $acceptedCount; ?>
-                    </div>
-                        <div style="margin: auto;">
-                            <canvas id="appointmentChart"></canvas>
-                        </div>
                 </div>
             </div>
 
@@ -190,7 +171,7 @@ if ($resultAccepted && $resultCancelled) {
     </script>
     <script>
     // Fetch Data
-    fetch('lib/pie-data.php')
+    fetch('lib/getPieData.php')
       .then(response => response.json())
       .then(data => {
         const defaultValues = {

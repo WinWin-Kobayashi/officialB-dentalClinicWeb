@@ -1,5 +1,33 @@
 <?php include('connection.php'); ?>
 
+<?php
+
+// Count accpted and cancelled
+
+$sqlAccepted = "SELECT COUNT(*) AS acceptedCount FROM appointments WHERE status = 'Accepted'";
+$resultAccepted = $conn->query($sqlAccepted);
+$sqlCancelled = "SELECT COUNT(*) AS cancelledCount FROM appointments WHERE status = 'Cancelled'";
+$resultCancelled = $conn->query($sqlCancelled);
+$sqlPending = "SELECT COUNT(*) AS pendingCount FROM appointments WHERE status = 'Pending'";
+$resultPending = $conn->query($sqlPending );
+$acceptedCount = 0;
+$cancelledCount = 0;
+$pendingCount = 0;
+
+if ($resultAccepted && $resultCancelled) {
+    $rowAccepted = $resultAccepted->fetch_assoc();
+    $rowCancelled = $resultCancelled->fetch_assoc();
+    $rowPending = $resultPending->fetch_assoc();
+
+    $acceptedCount = $rowAccepted['acceptedCount'];
+    $cancelledCount = $rowCancelled['cancelledCount'];
+    $pendingCount = $rowPending['pendingCount'];
+} else {
+    echo "Error: " . $sqlAccepted . "<br>" . $conn->error;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +67,16 @@
                 </ul>
                 <ul class="days"></ul>
             </div>
+        </div>
+    </div>
+
+    // NEED STYLE TO DISPLAY
+    <div>
+        <div class="cancellations">Cancelled: 
+            <?php echo $cancelledCount; ?>
+        </div>
+        <div class="accepted">Accepted:
+            <?php echo $acceptedCount; ?>
         </div>
     </div>
 
