@@ -1,6 +1,14 @@
 <link rel="stylesheet" href="admin-header.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+<head>
+    <style>
+        .navlist li {
+             padding: 8.5px 0px 8.5px 25px;
+        }
+    </style>
+</head>
+
 <div class="sidebar">
     
     <div class="comp">
@@ -13,16 +21,37 @@
     <ul class="navlist">
         <li><a href="admin-dashboard.php">
             <i class="material-icons">home</i>
-            Home</a></li>
+            Home</a>
+        </li>
         <li><a href="admin-appointment.php">
             <i class="material-icons">event</i>
-            Appointments</a></li>
-        <li><a href="admin-patients.php">
+            Appointments</a>
+        </li>
+        <!-- <li><a href="admin-patients.php">
             <i class="material-icons">warning</i>
-            Baraw</a></li>
+            Baraw</a>
+        </li> -->
+
         <li><a href="admin-patRecHistory.php">
             <i class="material-icons">history</i>
-            Records & History</a></li>
+            Records & History</a>
+        </li>
+
+        <li><a href="admin-patients-list/add_patient_index.php">
+            <i class="material-icons">personal_injury</i>
+            Patients</a>
+        </li>
+
+        <li><a href="admin-treatment-records/add-treatment.php">
+            <i class="material-icons">timeline</i>
+            Dental Records</a>
+        </li>
+
+        <li><a href="admin-chat.php">
+            <i class="material-icons">message</i>
+            Chat</a>
+        </li>
+       
     </ul>
 
 </div>

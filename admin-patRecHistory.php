@@ -14,6 +14,18 @@
 
     <!-- to enable live search -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+    <style>
+        .table td .anchor3{
+            background: #1149a3;
+            color: rgb(226, 212, 229);
+        }
+
+        .table td .anchor3:hover{
+            background: rgb(57, 195, 229);
+            color: #531A62;
+        }
+    </style>
 </head>
 <body>
     <?php include('admin-header.php');?> 
@@ -42,13 +54,15 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th colspan="2">Actions</th>
+                    <th colspan="3">Actions</th>
                 </tr>
                 </thead>
             
                 <tbody id="showdata">
                 <?php  
-                        $sql = "SELECT * FROM patients_table1 WHERE verified = 1";
+
+                        // SELECT * FROM Customers ORDER BY Country DESC;
+                        $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC";
                         $query = mysqli_query($conn,$sql);
 
                         while($row = mysqli_fetch_assoc($query))
@@ -63,6 +77,7 @@
                             echo"<td>".$row['active_gmail']."</td>";
                             echo "<td><a class='anchor1' href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>";
                             echo "<td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>";
+                            echo "<td><a class='anchor3' href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>";
                         echo"</tr>";   
                         }
                     ?>

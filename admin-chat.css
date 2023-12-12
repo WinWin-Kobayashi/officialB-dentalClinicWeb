@@ -1,0 +1,9 @@
+@import url(globalStyle.css);
+
+body{
+    background: var(--v-light-purple);
+}
+
+h1{
+    margin-left: 15rem;
+}

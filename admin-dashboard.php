@@ -27,6 +27,7 @@ if ($resultPending) {
          background: var(--v-light-purple);
        }
 
+       /* styles the modal in the dashboard */
        .modal{
             padding: 1rem;
             top: 50%;
@@ -56,9 +57,9 @@ if ($resultPending) {
                 </div>
 
                 <!-- numbers box -->
-                <div class="numbers-container">
-                    <div style="margin: auto;">
-                        <canvas id="appointmentChart"></canvas>
+                <div class="numbers-container" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="position: relative; margin-top: -6.5rem; height: 266px; width: 266px;" >
+                        <canvas id="appointmentChart" ></canvas>
                     </div>
                 </div>
             </div>
@@ -111,6 +112,7 @@ if ($resultPending) {
                                         <th class="fixed" scope="col">Time</th>
                                         <th class="fixed" scope="col">Service</th>
                                         <th class="fixed" scope="col">Status</th>
+                                        <th class="fixed" scope="col">Screenshot</th>
                                         <th class="fixed" scope="col">Actions</th>
                                     </tr>
                                 </thead>
@@ -126,6 +128,7 @@ if ($resultPending) {
                                     <td>' . date('h:i A', strtotime($row['time'])) . '</td>
                                     <td>' . $row['service'] . '</td>
                                     <td>' . $row['status'] . '</td>
+                                    <td>' . $row['screenshot'] . '</td>
                                     ' . (($row['status'] == 'Pending') ? '<td class="action">
                                         <button class="button" id="cancel"  onclick="openCancelModal(' . $row['id'] . ')">Cancel</button>
                                         <button class="button" id="reschedule" onclick="openReschedModal(' . $row['id'] . ')">Reschedule</button>
