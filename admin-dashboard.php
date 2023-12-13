@@ -42,7 +42,7 @@ if ($resultPending) {
 </head>
 <body>
 
-    <?php include('admin-header.php');?>
+    <?php include('admin-sidebar.php');?>
 
     <div class="dashboard-container">
         <section id="home">
