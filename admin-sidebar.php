@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="admin-sidebar.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script src="script/sidebar-toggle.js"></script>
 <nav>
     <div class="logo-name">
         <div class="logo-image">
@@ -55,6 +54,10 @@
     </div>
 </nav>
 
-<div class="top">
-    <i class="material-icons sidebar-toggle">menu</i>
-</div>
+<!-- <section class="dashboard"> -->
+    <div class="top">
+        <i class="material-icons sidebar-toggle">menu</i>
+    </div>
+<!-- </section> -->
+
+<script src="script/sidebar-toggle.js"></script>
