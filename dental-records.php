@@ -10,21 +10,22 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="book-history.css">
+    <link rel="stylesheet" href="dental-records.css">
+
 </head>
 <body>
 
-    <h3>My Booking History</h3>
+    <h3>My Dental Records</h3>
     <div class="table-container">
         <table class="table">
             <thead class="thead">
                 <tr>
                     <th>Id</th>
-                    <th scope="col">Date Created</th>
-                    <th scope="col">Appointment Date</th>
-                    <th scope="col">Appointment Time</th>
-                    <th scope="col">Service</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Tooth</th>
+                    <th scope="col">Procedures Performed</th>
+                    <th scope="col">Amount Charged</th>
+                    <th scope="col">Amount Paid</th>
                 </tr>
             </thead>
 
@@ -36,26 +37,32 @@
 
                     $active_gmail =  $_SESSION['active_gmail'];
 
-                    $sql = "SELECT * FROM appointments WHERE active_gmail = '$active_gmail' ";
+                    $sql = "SELECT * FROM dental_records WHERE active_gmail = '$active_gmail' ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>";
                                 echo "<td>" . $row["id"] . "</td>";
-                                echo "<td>" . date("F d, Y \a\\t h:i A", strtotime($row["date_created"])) . "</td>";                                echo "<td>" . date('F j, Y', strtotime($row['date'])) . "</td>";
-                                echo "<td>" . date('h:i A', strtotime($row['time'])) . "</td>";
-                                echo "<td>" . $row["service"] . "</td>";
-                                echo "<td>" . $row["status"] . "</td>";
+                                echo "<td>" . date('F j, Y', strtotime($row['date'])) . "</td>";                           
+                                echo "<td>" . $row["tooth"] . "</td>";
+                                echo "<td>" . $row["procedures_performed"] . "</td>";
+                                echo "<td>" . $row["amount_charged"] . "</td>";
+                                echo "<td>" . $row["amount_paid"] . "</td>";
                             echo "</tr>";
                         }
                     } else {
-                        echo "No records found";
+                        $msg = "No records found";
                     }
                     $conn->close();
                 ?>
             </tbody>
         </table>
+       
     </div>
+    
+    <!-- display $msg (if no dental records are found) -->
+    <br>
+    <h1><?php echo $msg ?></h1>
 </body>
 </html>

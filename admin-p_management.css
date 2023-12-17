@@ -1,0 +1,189 @@
+@import url('globalStyle.css');
+  
+body{
+    background: var(--v-light-purple);
+}
+
+.patRecHistory-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    margin-left: 3rem;
+}
+
+.container{
+    width: 1060px;
+    height: 650px;
+    flex-shrink: 0;
+    margin-top: 2.3rem;
+    border-radius: 5px;
+    margin-left: 9.5rem;
+}
+
+.container .row-container{
+   margin-top: 1rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* border: 1px solid black; */
+}
+
+.one{
+    width: 15%;
+}
+
+.two{
+    width: 60%;
+}
+
+h1{
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--v-dark-purple);
+}
+
+/* style ADD PATIENT button container */
+.add_p p{
+    margin-top: 0.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* style ADD patient button */
+.add_p p a{
+    background: var(--dark-purple);
+    color: var(--v-light-purple);
+    text-align: center;
+    border-radius: 15px;
+    padding: 8px 15px 8px 15px;
+}
+
+/* style ADD patient button:hover */
+.add_p p a:hover{
+    background: var(--v-dark-purple);
+    color: var(--light-purple);
+}
+
+h3{
+    font-size: 21px;
+    text-align: center;
+    color: var(--v-dark-purple);
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid var(--dark-purple);
+    border-radius: 15px;
+    font-size: var(--small-font);
+    color: var(--v-dark-purple);
+    padding: 20px 45px 20px 20px;
+}
+
+/* TABLE DESIGN */
+.table{
+    width: 98%;
+    border-collapse: collapse;
+    margin-left: 10px;
+    overflow-y: scroll;
+}
+
+.table-div{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 220px; /* change this to desired height */
+}
+
+.table-container .table{
+    border: 1px solid var(--dark-purple);
+    border-collapse: collapse;
+    border-radius: 30px;
+}
+
+thead tr th{
+    width: 190px;
+    text-align: center;
+    font-size: 18px;
+    background: var(--v-dark-purple);
+    color: white;
+    padding: 5px;
+    border: 2px solid var(--v-dark-purple)
+}
+
+tbody tr td{
+    text-align: center;
+    border: 1px solid var(--dark-purple);
+    background: white;
+    color: var(--v-dark-purple);
+    padding: 5.6px;
+   
+}
+
+/* Add these styles to create column lines */
+.table-container .table td {
+    border: 1px solid var(--v-dark-purple);
+    padding: 10px;
+    text-align: center;
+    font-size: var(--small-font);
+    background: white;
+}
+
+.table-container .table th{
+    color: white;
+    background: var(--dark-purple);
+    padding: 10px;
+    text-align: center;
+    font-size: var(--small-font);
+}
+
+.table-container .table a{
+    color: var(--v-dark-purple);
+}
+
+/* STYLING THE BUTTONS */
+.table td a{
+    padding: 3px 5px 3px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.table td .anchor1{
+    background: #90F2AC;
+    color: #0E6116;
+}
+
+.table td .anchor1:hover{
+    background: #0e8730;
+    color: white;
+}
+
+.table td .anchor2{
+    background: #FFF27D;
+    color: #531A62;
+}
+
+.table td .anchor2:hover{
+    background: #ffe628;
+    color: #531A62;
+}
+
+.table td .anchor3{
+    background: #1149a3;
+    color: rgb(226, 212, 229);
+}
+
+.table td .anchor3:hover{
+    background: rgb(57, 195, 229);
+    color: #531A62;
+}

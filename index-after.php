@@ -44,9 +44,9 @@
                 <!-- <h4>User Name</h4> -->
             </button>
             <div id="myDropdown" class="dropdown-content">
-                <a href="book-history.php">Booking History</a>
-                <a href="treatment-record.php">My Treatments</a>
                 <a href="user-profile.php">My Profile</a>
+                <a href="book-history.php">Booking History</a>
+                <a href="dental-records.php">My Treatments</a>
                 <a href="logout.php" id="logout-btn">Logout</a>
             </div>
         </div>

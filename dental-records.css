@@ -1,0 +1,76 @@
+@import url("globalStyle.css");
+
+body{
+    background: var(--v-light-purple);
+    color: var(--v-dark-purple);
+}
+
+h3{
+    font-size: 25px;
+    margin-top: 1rem;
+    margin-left: 1rem;;
+    text-align: center;
+}
+
+.table-container .table{
+    border: 1px solid var(--dark-purple);
+    border-collapse: collapse;
+    border-radius: 30px;
+}
+
+.table-container{
+    margin-top: 1.7rem;
+    display: flex;
+    justify-content: center;
+}
+
+thead tr th{
+    width: 190px;
+    text-align: center;
+    font-size: var(--small-font);
+}
+
+tbody tr td{
+    text-align: center;
+
+}
+
+/* Add these styles to create column lines */
+.table-container .table td {
+    border: 1px solid var(--dark-purple);
+    padding: 10px;
+    text-align: center;
+    font-size: var(--small-font);
+    background: white;
+}
+
+.table-container .table th{
+    color: white;
+    background: var(--dark-purple);
+    padding: 10px;
+    text-align: center;
+    font-size: var(--small-font);
+}
+
+.table-container .table td button{
+    padding: 7px 12px 7px 12px;
+    border-radius: 10px;
+    border: none;
+    background: #FF6099;
+    color: white;
+    font-size: var(--small-font);
+}
+
+.table-container .table td button:hover{
+    background: #FF1F47;
+    cursor: pointer;
+}
+
+.table-container .table td button:active{
+    background: var(--pink);
+}
+
+h1{
+    text-align: center;
+    color:#c42c48;
+}

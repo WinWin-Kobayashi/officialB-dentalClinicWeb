@@ -20,12 +20,12 @@
 
     <ul class="navlist">
         <li><a href="admin-dashboard.php">
-            <i class="material-icons">home</i>
-            Home</a>
+            <i class="material-icons">home</i><p>
+            Home</p></a>
         </li>
         <li><a href="admin-appointment.php">
-            <i class="material-icons">event</i>
-            Appointments</a>
+            <i class="material-icons">event</i><p>
+            Appointments</p></a>
         </li>
         <!-- <li><a href="admin-patients.php">
             <i class="material-icons">warning</i>
@@ -33,23 +33,31 @@
         </li> -->
 
         <li><a href="admin-patRecHistory.php">
-            <i class="material-icons">history</i>
-            Records & History</a>
+            <i class="material-icons">history</i><p>
+            Records & History</p></a>
         </li>
 
         <li><a href="admin-patients-list/add_patient_index.php">
-            <i class="material-icons">personal_injury</i>
-            Patients</a>
+            <i class="material-icons">personal_injury</i><p>
+            Patients</p></a>
         </li>
 
+        <!-- dummy patients with style -->
+        <li><a href="admin-p_management.php">
+            <i class="material-icons">personal_injury</i><p>
+            Patients2</p></a>
+        </li>
+
+        
+
         <li><a href="admin-treatment-records/add-treatment.php">
-            <i class="material-icons">timeline</i>
-            Dental Records</a>
+            <i class="material-icons">timeline</i><p>
+            Dental Records</p></a>
         </li>
 
         <li><a href="admin-chat.php">
-            <i class="material-icons">message</i>
-            Chat</a>
+            <i class="material-icons">message</i><p>
+            Chat</p></a>
         </li>
        
     </ul>
