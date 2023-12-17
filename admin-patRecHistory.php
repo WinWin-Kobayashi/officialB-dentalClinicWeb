@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-    <?php include('admin-header.php');?> 
+    <?php include('admin-sidebar.php');?> 
 
     <div class="patRecHistory-container">
         <div class="container">

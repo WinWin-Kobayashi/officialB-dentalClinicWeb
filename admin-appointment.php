@@ -44,7 +44,7 @@ if ($resultAccepted && $resultCancelled) {
 </head>
 <body class='admin-appointment'>
 
-    <?php include('admin-header.php'); ?>
+    <?php include('admin-sidebar.php'); ?>
     
     <div class="calendar-container">
         <div class="wrapper">
