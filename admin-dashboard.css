@@ -158,13 +158,13 @@ tbody tr td{
     background: var(--pink);
 }
 
-.dashboard-container {
+/* .dashboard-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     height: 100vh;
     margin-left: 3rem;
-}
+} */
 
 .action{
     display: flex; flex-direction: row; justify-content: space-between;
@@ -232,3 +232,51 @@ th.fixed {
 
 
 
+
+
+/* TOP BAR */
+
+.dashboard{
+    position: relative;
+    left: 200px;
+    background-color: var(--panel-color);
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    padding: 10px 14px;
+    transition: var(--tran-05);
+}
+nav.close ~ .dashboard{
+    left: 73px;
+    width: calc(100% - 73px);
+}
+.dashboard .top{
+    position: fixed;
+    top: 0;
+    left: 250px;
+    display: flex;
+    width: calc(100% - 250px);
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background-color: var(--panel-color);
+    transition: var(--tran-05);
+    z-index: 10;
+}
+nav.close ~ .dashboard .top{
+    left: 73px;
+    width: calc(100% - 73px);
+}
+.dashboard .top .sidebar-toggle{
+    font-size: 26px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.top{
+    border-bottom: 1px solid var(--border-color);
+}
+
+.top img{
+    width: 40px;
+    border-radius: 50%;
+}
