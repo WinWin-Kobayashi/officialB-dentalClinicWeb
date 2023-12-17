@@ -23,10 +23,7 @@ if ($resultPending) {
     <!-- <link rel="stylesheet" href="indexStyle.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-       body{
-         background: var(--v-light-purple);
-       }
-
+       
        /* styles the modal in the dashboard */
        .modal{
             padding: 1rem;
@@ -37,19 +34,40 @@ if ($resultPending) {
             border-radius: 0.25rem;
             z-index: 10;
         }
+
+        .appointment-requests-container, .confirmed-appointments-container, .numbers-container, .row{
+            margin: auto;
+        }
+
+        .appointment-requests-container{
+            margin-top: 3rem;
+        }
+
+        #home{
+            display: flex;
+            flex-direction: column ;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        #dashboard{
+            background: var(--v-light-purple)
+        }
+        
     </style>
 
 </head>
-<body>
+<body ">
 
     <?php include('admin-sidebar.php');?>
 
-    <section class="dashboard">
+    <section class="dashboard" id="dashboard">
         <div class="dashboard-container">
-            <section id="home">
+            <section id="home" class="home">
                 <div class="row">
                     <!-- confirmed appointments box -->
-                    <div class="confirmed-appointments-container">Confirmed Appointments
+                    <div class="confirmed-appointments-container">
                         <div class="appointment-req-table">
                             <div style="width: 80%; margin: auto;">
                                 <canvas id="myBarChart" width="400" height="150"></canvas>
