@@ -33,6 +33,40 @@ if ($resultPending) {
             background: white;
             border-radius: 0.25rem;
             z-index: 10;
+            border: none;
+            padding: 1rem;
+            box-shadow: 0px 0px 10px grey;
+        }
+
+        .close-modal{
+            margin-top: 1rem;
+            width: 48%; padding: 5px; 
+            border: none; 
+            background: #FF6099; 
+            color: white; 
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .close-modal:hover{
+            background: #d92668;
+            color: white;
+        }
+
+        .okay-modal{
+            margin-top: 1rem;
+            width: 48%; padding: 5px; 
+            border: none; 
+            background: #90F2AC; 
+            color: #0E6116; 
+            border-radius: 5px;
+            font-size: 15px;
+            float: right;
+        }
+
+        .okay-modal:hover{
+            background: #0e8730;
+            color: white;
         }
 
         .appointment-requests-container, .confirmed-appointments-container, .numbers-container, .row{
@@ -49,12 +83,44 @@ if ($resultPending) {
             justify-content: center;
             align-items: center;
             margin: auto;
+            margin-top: 4rem;
         }
 
         #dashboard{
             background: var(--v-light-purple)
         }
+
+        .modal-container{
+            text-align: center;
+            color: var(--v-dark-purple);
+        }
         
+        input{
+            border: none;
+            font-size: 18px;
+            color: var(--v-dark-purple);
+            float: left;
+            margin-left: 5px;
+        }
+
+        .text{
+            font-size: 22px;
+        }
+
+        label{
+            font-size: 18px;
+            float: left;
+        }
+
+        #viewss{
+            background: #7859B7;
+            color: white;
+        }
+
+        #viewss:hover{
+            background: #4E308C;
+            color: white;
+        }
     </style>
 
 </head>
@@ -147,7 +213,7 @@ if ($resultPending) {
                                         <td>' . date('h:i A', strtotime($row['time'])) . '</td>
                                         <td>' . $row['service'] . '</td>
                                         <td>' . $row['status'] . '</td>
-                                        <td>' . $row['screenshot'] . '</td>
+                                        <td> <button class="button" id="viewss" onclick="openViewScreenshotModal(' . $row['id'] . ')">View</button></td>
                                         ' . (($row['status'] == 'Pending') ? '<td class="action">
                                             <button class="button" id="cancel"  onclick="openCancelModal(' . $row['id'] . ')">Cancel</button>
                                             <button class="button" id="reschedule" onclick="openReschedModal(' . $row['id'] . ')">Reschedule</button>
@@ -175,6 +241,8 @@ if ($resultPending) {
     <?php require_once('modal/accept-request.php');?>
     <?php require_once('modal/resched-appointment.php');?>
     <?php require_once('modal/cancel-appointment.php');?>
+    <?php require_once('modal/view-screenshot.php');?>
+
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="script/bar-chart.js" defer></script>

@@ -20,9 +20,9 @@
                 <td>" .$row['id']." </td>
                 <td>" .$row['first_name']. ' '. $row['last_name']."</td>
                 <td>" .$row['active_gmail']."</td>
-                <td><a href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>
-                <td><a href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>
-                <td><a href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>
+                <td><a class='anchor1' href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>
+                <td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>
+                <td><a class='anchor3'  href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>
               </tr>";
    }
     

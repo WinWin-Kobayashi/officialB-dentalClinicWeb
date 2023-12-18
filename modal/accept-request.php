@@ -1,17 +1,22 @@
 <dialog id="acceptRequest" class="modal">
-    <div>This is a modal</div>
-    <form id="appointmentRequestForm" method="POST">
-        <input type="hidden" id="acceptAppointmentId" name="acceptAppointmentId" readonly>
-        <br>
-        <input type="text" id="firstNameInput" name="firstName" placeholder="First Name" readonly>
-        <br>
-        <input type="text" id="lastNameInput" name="lastName" placeholder="Last Name" readonly>
-        <br>
-        <img id="screenshotImg" alt="Screenshot" style="max-width: 100%; max-height: 200px;">
-        <br>
-        <button onclick="closeAcceptModal()" type="button">Close</button>
-        <button type="submit" id="submitBtn">Submit</button>
-    </form>
+    <div class="modal-container">
+        <div class="text">Preview<div>
+        <form id="appointmentRequestForm" method="POST">
+            <input type="hidden" id="acceptAppointmentId" name="acceptAppointmentId" readonly>
+            <br>
+            <label for="firstNameInput"> <b>First Name:</b> </label>
+            <input type="text" id="firstNameInput" name="firstName" placeholder="First Name" readonly><br>
+            <label for="lastNameInput"> <b>Last Name:</b> </label>
+            <input type="text" id="lastNameInput" name="lastName" placeholder="Last Name" readonly>
+            <br><br>
+            <img id="screenshotImg" alt="Screenshot" style="max-width: 100%; max-height: 500px;">
+            <br>
+
+            <button onclick="closeAcceptModal()" type="button" class="close-modal">Close</button>
+            <button type="submit" id="submitBtn" class="okay-modal">Submit</button>
+
+        </form>
+    </div>
 </dialog>
 
 <script>
