@@ -25,6 +25,99 @@
             background: #4E308C;
             color: white;
         }
+
+        /* styles the modal in the tab Patient Records and History */
+       .modal{
+            padding: 1rem;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            background: white;
+            border-radius: 0.25rem;
+            z-index: 10;
+            border: none;
+            padding: 1rem;
+            box-shadow: 0px 0px 10px grey;
+        }
+
+        .close-modal-full{
+            margin-top: 1rem;
+            width: 100%;
+            padding: 5px; 
+            border: none; 
+            background: #FF6099; 
+            color: white; 
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .close-modal-full:hover{
+            background: #d92668;
+            color: white;
+        }
+
+        .modal-container{
+            text-align: center;
+            color: var(--v-dark-purple);
+        }
+
+        input{
+            border: none;
+            font-size: 18px;
+            color: var(--v-dark-purple);
+            float: left;
+            /* margin-left: 5px; */
+            width: 100%;
+        }
+
+        .text{
+            font-size: 22px;
+        }
+
+        label{
+            font-size: 18px;
+            float: left;
+            margin-top: 1rem;
+        }
+
+        #viewInfo{
+            background: #7859B7;
+            color: white;
+        }
+
+        #viewMedical{
+            background: #90F2AC;
+            color: #0E6116;
+        }
+
+        #viewBooking{
+            background: #FFF27D;
+            color: #531A62;
+        }
+
+        #viewInfo:hover{
+            background: #4E308C;
+            color: white;
+        }
+
+        #viewMedical:hover{
+            background: #0e8730;
+            color: white;
+        }
+
+        #viewBooking:hover{
+            background: #ffe628;
+            color: #531A62;
+        }
+
+        button{
+            padding: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 6px;
+        }
     </style>
 </head>
 <body>
@@ -75,15 +168,25 @@
                             echo"<td><h6>".$row['id']."</h6></td>";
                             echo"<td> <h6>".$row['first_name']. ' '. $row['last_name']."</h6> </td>";
                             echo"<td>".$row['active_gmail']."</td>";
-                            echo "<td><a class='anchor3' href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>";
-                            echo "<td><a class='anchor1' href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>";
+                            // echo "<td><a class='anchor3' href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>";
+                            // echo "<td><a class='anchor1' href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>";
+                            // echo "<td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>";
+                            echo "<td> <button class='button patientInfo' id='viewInfo' onclick='openviewPatientInfoModal(" . $row['id'] . ")'>Basic Info</button> </td>";
+                            echo "<td> <button class='button patientMedical' id='viewMedical' onclick='openviewMedicalInfoModal(" . $row['id'] . ")'>Medical Info</button> </td>";
+                            // echo "<td> <button class='button patientBooking' id='viewBooking' onclick='openviewBookingHistoryModal(" . $row['id'] . ")'>Booking History</button> </td>";
                             echo "<td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>";
-                        echo"</tr>";   
+
+                            echo"</tr>";   
                         }
                     ?>
                 </tbody>
             </table>
         </div>
+
+        <!-- include the modal files -->
+        <?php require_once('modal/view-patientInfo.php');?>
+        <?php require_once('modal/view-patientMedical.php');?>
+
 
         <!-- connected to searchajax.php -->
         <script>

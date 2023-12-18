@@ -20,8 +20,8 @@
                 <td>" .$row['id']." </td>
                 <td>" .$row['first_name']. ' '. $row['last_name']."</td>
                 <td>" .$row['active_gmail']."</td>
-                <td><a class='anchor3'  href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>
-                <td><a class='anchor1' href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>
+                <td><button class='button patientInfo' id='viewInfo' onclick='openviewPatientInfoModal(" . $row['id'] . ")'>Basic Info</button></td>
+                <td><button class='button patientMedical' id='viewMedical' onclick='openviewMedicalInfoModal(" . $row['id'] . ")'>Medical Info</button></td>
                 <td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>
               </tr>";
    }
