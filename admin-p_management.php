@@ -41,37 +41,127 @@
 
         /* customize edit icon */
         .d-flex .edit{
-            color: yellow;
+            color: orange;
         }
 
         /* customize edit icon hover */
         .d-flex .edit:hover{
-            color: orange;
+            color: yellow;
         }
 
         /* customize info icon */
          .d-flex .info{
-            color:#0E6116;
+            color:#85329C;
         }
 
         /* customize info icon hover*/
         .d-flex .info:hover{
-            color:yellowgreen;
+            color:#451651;
         }
 
          /* customize delete icon */
          .d-flex .delete{
-            color:red;
+            color:#C13232;
         }
 
         /* customize delete icon hover*/
         .d-flex .delete:hover{
-            color:maroon;
+            color:red;
+        }
+
+        /* styles the modal */
+       .modal{
+            padding: 1rem;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            background: white;
+            border-radius: 0.25rem;
+            z-index: 10;
+            border: none;
+            padding: 1rem;
+            box-shadow: 0px 0px 10px grey;
+        }
+
+        .close-modal{
+            margin-top: 1rem;
+            width: 48%; padding: 5px; 
+            border: none; 
+            background: #FF6099; 
+            color: white; 
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .close-modal:hover{
+            background: #d92668;
+            color: white;
+        }
+
+        .okay-modal{
+            margin-top: 1rem;
+            width: 48%; padding: 5px; 
+            border: none; 
+            background: #90F2AC; 
+            color: #0E6116; 
+            border-radius: 5px;
+            font-size: 15px;
+            float: right;
+        }
+
+        .okay-modal:hover{
+            background: #0e8730;
+            color: white;
+        }
+
+        .button{
+            padding: 5px 10px 5px 10px;
+            font-size: var(--small-font);
+            border: none;
+            border-radius: 8px;
+        }
+
+        .addPatient{
+            background: #7859B7;
+            color: white;
+        }
+
+        .addPatient:hover{
+            background: #4E308C;
+            color: white;
         }
 
 
+        input{
+            border: none;
+            font-size: 18px;
+            color: var(--v-dark-purple);
+            float: left;
+            margin-left: 5px;
+            width: 100%;
+            margin-top: 0.5rem;
+            border: 2px solid var(--dark-purple);
+            border-radius: 3px;
+            padding: 5px;
+        }
 
+        input:hover{
+            border: 2px solid var(--v-dark-purple);
+        }
 
+        input::active{
+            border: 2px solid var(--v-dark-purple);
+        }
+
+        select{
+            color: var(--v-dark-purple);
+        }
+
+        .text{
+            font-size: 22px;
+            color:  var(--v-dark-purple);
+            text-align: center;
+        }
 
     </style>
 </head>
@@ -95,9 +185,15 @@
                 </div>
             </div>
 
-            <div class="add_p">
-                <p> <a href="">Add patient</a></p>
+            <!-- include the add-patient modal -->
+            <?php require_once('modal/add-patient.php');?>
+
+            <!-- button to toggle add-patient modal -->
+            <div class="add_p" style="display: flex; align-items: center; justify-content: center;">
+                <button class='button addPatient' id='addPatient' onclick='openAddPatientModal()' style="margin-top: 0.5rem; margin-bottom: 1rem;">Add Patient</button>
             </div>
+
+            
            
             <!-- display patients_table1's data that are from verified accounts -->
             <table class="table table-striped">
@@ -113,8 +209,7 @@
                 <tbody id="showdata">
                 <?php  
 
-                        // SELECT * FROM Customers ORDER BY Country DESC;
-                        $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC";
+                        $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC LIMIT 7";
                         $query = mysqli_query($conn,$sql);
 
                         while($row = mysqli_fetch_assoc($query))
@@ -159,7 +254,10 @@
             });
             });
         </script>
+
     </div>
+
+   
 
 </body>
 </html>

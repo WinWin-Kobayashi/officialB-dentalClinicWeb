@@ -127,6 +127,7 @@ if ($resultPending) {
         label{
             font-size: 18px;
             float: left;
+            color: var(--v-dark-purple);
         }
 
         #viewss{
@@ -137,6 +138,10 @@ if ($resultPending) {
         #viewss:hover{
             background: #4E308C;
             color: white;
+        }
+
+        select{
+            color: var(--v-dark-purple);
         }
     </style>
 
