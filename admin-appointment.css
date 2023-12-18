@@ -114,8 +114,6 @@ header .current-date{
     background: var(--dark-purple);
 }
 
-
-
 /* SIDELIST */
 .appointment-container {
   z-index: 1000;

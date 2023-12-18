@@ -40,6 +40,11 @@ if ($resultAccepted && $resultCancelled) {
        body{
          background: var(--v-light-purple);
        }
+
+        .appointment-container {
+            z-index: 1;
+            width: 670px;
+        }
     </style>
 </head>
 <body class='admin-appointment'>
@@ -82,7 +87,7 @@ if ($resultAccepted && $resultCancelled) {
 
     <div class="appointment-container">
         <div class="filtered-data">
-            <h1 style="color: var(--v-dark-purple);">Accepted Appointments</h1>
+            <h1 style="color: var(--v-dark-purple); font-size: 25px; margin-top: 1rem;">Accepted Appointments</h1>
             <?php
 
                 // MAKE SURE TO CHANGE YOUR DATABASE VALUES IF NECESSARY; ERROR USUALLY OCCUR HERE
@@ -128,7 +133,7 @@ if ($resultAccepted && $resultCancelled) {
 
                     echo "<br>";
 
-                    echo "<h2 style='color: var(--v-dark-purple); border-bottom: 3px solid var(--v-dark-purple); display: inline-block'>" . date('F j, Y', strtotime($date)) . "</h2>";
+                    echo "<h2 style='color: var(--v-dark-purple); border-bottom: 3px solid var(--v-dark-purple); display: inline-block; font-size: 23px;'>" . date('F j, Y', strtotime($date)) . "</h2>";
 
 
                     // display tables with data
@@ -139,14 +144,14 @@ if ($resultAccepted && $resultCancelled) {
                             echo "<table style='background: var(--v-light-purple); background: var(--light-purple); width: 97%; padding: 15px; margin-top: 5px; margin-bottom: 5px; color: var(--v-dark-purple); border-radius: 10px; text-align: justify'>";
                                 // echo "<tr><th>First Name</th><th>Last Name</th><th>Time</th><th>Date</th></tr>";
                                 foreach ($table_data as $row) {
-                                    echo "<tr style='font-size: var(--small-font);'>";
+                                    echo "<tr style='font-size: 16px;'>";
                                     echo "<td> <b>" . date('h:i A', strtotime($row['time'])) . "</b> </td>";
-                                        echo "<td>" . $row['first_name'] . ' ' .$row['last_name'] .  "</td>";
+                                        echo "<td>" . $row['first_name'] . ' ' .$row['last_name'] . ' : <b> ' .$row['service'] . " </b> </td>";
                                         // echo "<td>" . date('F j', strtotime($row['date'])) . "</td>";
                                         // echo "<td>" . "<button>Reschedule</button>" . "<button>Cancel</button>" . "</td>";
                                         echo "<td style='display: flex; flex-direction: row; width: 95%; justify-content: flex-end;'>
-                                                <button onclick=\"redirectToPage('cancel', {$row['id']})\" style='font-size: var(--small-font); padding: 5px 10px 5px 10px; color: white; background: #FF6099; border: none; border-radius: 5px; cursor: pointer;'>Cancel</button>
-                                                <button onclick=\"redirectToPage('reschedule', {$row['id']})\" style='margin-left: 10px; font-size: var(--small-font); padding: 5px 10px 5px 10px; color: var(--v-dark-purple); background: #FFF27D; border: none; border-radius: 5px; cursor: pointer;'>Reschedule</button>
+                                                <button onclick=\"redirectToPage('cancel', {$row['id']})\" style='font-size: 18px; padding: 3px 6px 3px 6px; color: white; background: #FF6099; border: none; border-radius: 5px; cursor: pointer;'>Cancel</button>
+                                                <button onclick=\"redirectToPage('reschedule', {$row['id']})\" style='margin-left: 10px; font-size: var(--small-font); padding: 3px 6px 3px 6px; color: var(--v-dark-purple); background: #FFF27D; border: none; border-radius: 5px; cursor: pointer;'>Reschedule</button>
                                              </td>";
                                     echo "</tr>";
                                 }
@@ -179,5 +184,3 @@ if ($resultAccepted && $resultCancelled) {
     </script>
 </body>
 </html>
-
-<!-- <button style='padding: 5px 10px 5px 10px; color: var(--v-dark-purple); background: #FFF27D; border: none; border-radius: 5px; cursor: pointer;'>Reschedule</button> -->
