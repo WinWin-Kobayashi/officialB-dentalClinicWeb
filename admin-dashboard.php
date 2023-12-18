@@ -53,6 +53,23 @@ if ($resultPending) {
             color: white;
         }
 
+        .close-modal-full{
+            margin-top: 1rem;
+            width: 100%;
+            padding: 5px; 
+            border: none; 
+            background: #FF6099; 
+            color: white; 
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .close-modal-full:hover{
+            background: #d92668;
+            color: white;
+        }
+
+
         .okay-modal{
             margin-top: 1rem;
             width: 48%; padding: 5px; 

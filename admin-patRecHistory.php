@@ -17,13 +17,13 @@
 
     <style>
         .table td .anchor3{
-            background: #1149a3;
-            color: rgb(226, 212, 229);
+            background: #7859B7;
+            color: white;
         }
 
         .table td .anchor3:hover{
-            background: rgb(57, 195, 229);
-            color: #531A62;
+            background: #4E308C;
+            color: white;
         }
     </style>
 </head>
@@ -75,9 +75,9 @@
                             echo"<td><h6>".$row['id']."</h6></td>";
                             echo"<td> <h6>".$row['first_name']. ' '. $row['last_name']."</h6> </td>";
                             echo"<td>".$row['active_gmail']."</td>";
+                            echo "<td><a class='anchor3' href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>";
                             echo "<td><a class='anchor1' href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>";
                             echo "<td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>";
-                            echo "<td><a class='anchor3' href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>";
                         echo"</tr>";   
                         }
                     ?>
