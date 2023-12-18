@@ -2,7 +2,7 @@
     <div>View Screenshot</div>
     <form id="viewScreenshotForm" method="POST">
         <input type="hidden" id="viewScreenshotId" name="viewScreenshotId" readonly>
-        <img id="screenshotImg" alt="Screenshot" style="max-width: 100%; max-height: 200px;">
+        <img id="screenshotImgView" alt="Screenshot" style="max-width: 100%; max-height: 200px;">
         <br>
         <button onclick="closeViewScreenshotModal()" type="button">Close</button>
     </form>
@@ -54,7 +54,7 @@
                     document.getElementById('lastNameInput').value = appointmentDetails.last_name;
                     
                     // Display screenshot
-                    const screenshotImg = document.getElementById('screenshotImg');
+                    const screenshotImg = document.getElementById('screenshotImgView');
                     const screenshotPath = 'screenshots/' + appointmentDetails.screenshot;
                     screenshotImg.src = screenshotPath;
                 } else {
