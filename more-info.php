@@ -40,8 +40,7 @@
                 if(isset($_GET['active_gmail'])){
                     $active_gmail = $_GET['active_gmail'];
 
-                    $sql = "SELECT * FROM patients_table1 WHERE active_gmail = '$active_gmail' ";
-                    $query = mysqli_query($conn,$sql);
+                    $sql = "SELECT * FROM patients_table1 WHERE (first_name = '$first_name' AND last_name = '$last_name')";                    $query = mysqli_query($conn,$sql);
         
                     while($row = mysqli_fetch_assoc($query))
                     {

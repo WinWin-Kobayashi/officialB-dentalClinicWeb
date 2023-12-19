@@ -31,6 +31,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
         }
 
         /* customize all row icons*/
@@ -132,16 +133,15 @@
         }
 
 
-        input{
+        input, select{
             border: none;
             font-size: 18px;
             color: var(--v-dark-purple);
             float: left;
-            margin-left: 5px;
             width: 100%;
             margin-top: 0.5rem;
             border: 2px solid var(--dark-purple);
-            border-radius: 3px;
+            border-radius: 8px;
             padding: 5px;
         }
 
@@ -155,12 +155,60 @@
 
         select{
             color: var(--v-dark-purple);
+            padding: 2px;
         }
 
         .text{
             font-size: 22px;
             color:  var(--v-dark-purple);
             text-align: center;
+        }
+
+        .modal-view input{
+            border: none;
+            padding-left: 0px;
+            margin-top: 0px;
+        }
+
+        .close-modal-full{
+            margin-top: 1rem;
+            width: 100%;
+            padding: 5px; 
+            border: none; 
+            background: #FF6099; 
+            color: white; 
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .close-modal-full:hover{
+            background: #d92668;
+            color: white;
+        }
+
+        label{
+            font-size: 18px;
+            float: left;
+            margin-top: 1rem;
+        }
+
+        /* h3{
+            margin-top: 1rem;
+
+        } */
+
+        .row-container .input-box{
+           margin-top: 2rem;
+        }
+
+        #editPatientInfoForm input{
+            border: 2px solid var(--dark-purple);
+            padding: 3px;
+        }
+
+        .d-flex .bx{
+            margin-left: 7px;
+            margin-right: 7px;
         }
 
     </style>
@@ -173,27 +221,28 @@
             <h1>Manage Patients</h1>
 
             <div class="row-container">
-                <div class="row one">
+                <!-- <div class="row one">
                     <h3><b>Search Patient:</b></h3>
-                </div>
+                </div> -->
 
                 <div class="row two">
                     <!-- get user input -->
                     <div class="input-box">
-                        <input type="text" id="getName">
+                        <input type="text" id="getName" placeholder="Search patient">
                     </div>
                 </div>
             </div>
 
             <!-- include the add-patient modal -->
             <?php require_once('modal/add-patient.php');?>
+            <?php require_once('modal/view-patientInfo.php');?>
+            <?php require_once('modal/edit-patientInfo.php');?>
+            <?php require_once('modal/delete-patientInfo.php');?>
 
             <!-- button to toggle add-patient modal -->
             <div class="add_p" style="display: flex; align-items: center; justify-content: center;">
                 <button class='button addPatient' id='addPatient' onclick='openAddPatientModal()' style="margin-top: 0.5rem; margin-bottom: 1rem;">Add Patient</button>
             </div>
-
-            
            
             <!-- display patients_table1's data that are from verified accounts -->
             <table class="table table-striped">
@@ -209,7 +258,7 @@
                 <tbody id="showdata">
                 <?php  
 
-                        $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC LIMIT 7";
+                        $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC LIMIT 8";
                         $query = mysqli_query($conn,$sql);
 
                         while($row = mysqli_fetch_assoc($query))
@@ -225,9 +274,9 @@
                             echo "
                                 <td>
                                     <div class='d-flex'>
-                                        <a href='more-info.php?active_gmail=" . $email . "&first_name=" . $first_name . "&last_name=" . $last_name . "' class='link-dark'><i class='bx bx-info-circle info'></i></a>
-                                        <a href='edit.php?id=" . $row['id'] . "'><i class='bx bxs-edit edit'></i></a>
-                                        <a href='delete.php?id=" . $row['id'] . "'><i class='bx bxs-trash delete' ></i></a>
+                                        <i class='bx bx-info-circle info' id='viewInfo' onclick='openviewPatientInfoModal(" . $row['id'] . ")'></i>
+                                        <i class='bx bxs-edit edit' id='editInfo' onclick='openeditPatientInfoModal(" . $row['id'] . ")'></i>
+                                        <i class='bx bxs-trash delete' id='deleteInfo' onclick='opendeletePatientInfoModal(" . $row['id'] . ")'></i>
                                     </div>
                                 </td>";
                         echo"</tr>"; 
@@ -256,8 +305,6 @@
         </script>
 
     </div>
-
-   
 
 </body>
 </html>

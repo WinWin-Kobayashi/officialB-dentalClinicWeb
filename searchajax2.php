@@ -21,10 +21,10 @@
                         <td>" .$row['active_gmail']."</td>
                         <td>
                             <div class='d-flex'>
-                                <a href='more-info.php?active_gmail=" . $email . "&first_name=" . $first_name . "&last_name=" . $last_name . "' class='link-dark'><i class='bx bx-info-circle info'></i></a>
-                                <a href='edit.php?id=" . $row['id'] . "'><i class='bx bxs-edit edit'></i></a>
-                                <a href='delete.php?id=" . $row['id'] . "'><i class='bx bxs-trash delete' ></i></a>
-                            </div>
+                                <i class='bx bx-info-circle info' id='viewInfo' onclick='openviewPatientInfoModal(" . $row['id'] . ")'></i>
+                                <i class='bx bxs-edit edit' id='editInfo' onclick='openeditPatientInfoModal(" . $row['id'] . ")'></i>
+                                <i class='bx bxs-trash delete' id='deleteInfo' onclick='opendeletePatientInfoModal(" . $row['id'] . ")'></i>
+s                            </div>
                         </td>
                     </tr>"; // Closing </tr> tag added here
     }

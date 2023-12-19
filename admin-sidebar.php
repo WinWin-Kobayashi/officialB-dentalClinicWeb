@@ -1,5 +1,29 @@
+
+
 <link rel="stylesheet" href="admin-sidebar.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+    .menu-items li a .link-name,  .menu-items li a .material-icons{
+        color: var(--v-dark-purple);
+    }
+
+    .top .sidebar-toggle{
+        color: var(--v-dark-purple);
+    }
+
+    .menu-items li:hover{
+        background: var(--dark-purple);
+        border-radius: 5px;
+        transition: width 2s ease-in-out 1s;
+    }
+
+    .menu-items li:hover a .link-name, .menu-items li:hover a .material-icons{
+        color: white;
+        transition: none;
+    }
+
+</style>
 <nav>
     <div class="logo-name">
         <div class="logo-image">
@@ -9,7 +33,7 @@
         <span class="logo_name">Admin</span>
     </div>
 
-    <div class="menu-items">
+    <div class="menu-items" >
         <ul class="nav-links">
             <li><a href="admin-dashboard.php">
                 <i class="material-icons">home</i>

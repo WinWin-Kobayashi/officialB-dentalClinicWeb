@@ -1,3 +1,5 @@
+@import url('globalStyle.css');
+
 :root{
     /* ===== Colors ===== */
     --primary-color: #0E4BF1;
@@ -97,6 +99,7 @@ nav .menu-items{
     font-size: 18px;
     font-weight: 400;
     color: var(--black-light-color);    
+    color: var(--v-dark-purple);
     transition: var(--tran-05);
 }
 nav.close li a .link-name{

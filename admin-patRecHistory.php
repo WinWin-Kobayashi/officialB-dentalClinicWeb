@@ -26,6 +26,11 @@
             color: white;
         }
 
+        thead tr th{
+            background: var(--dark-purple);
+            border: var(--dark-purple);
+        }
+
         /* styles the modal in the tab Patient Records and History */
        .modal{
             padding: 1rem;
@@ -171,9 +176,10 @@
                             // echo "<td><a class='anchor3' href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>";
                             // echo "<td><a class='anchor1' href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>";
                             // echo "<td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>";
-                            echo "<td> <button class='button patientInfo' id='viewInfo' onclick='openviewPatientInfoModal(" . $row['id'] . ")'>Basic Info</button> </td>";
-                            echo "<td> <button class='button patientMedical' id='viewMedical' onclick='openviewMedicalInfoModal(" . $row['id'] . ")'>Medical Info</button> </td>";
+                            // echo "<td> <button class='button patientInfo' id='viewInfo' onclick='openviewPatientInfoModal(" . $row['id'] . ")'>Basic Info</button> </td>";
+                            // echo "<td> <button class='button patientMedical' id='viewMedical' onclick='openviewMedicalInfoModal(" . $row['id'] . ")'>Medical Info</button> </td>";
                             // echo "<td> <button class='button patientBooking' id='viewBooking' onclick='openviewBookingHistoryModal(" . $row['id'] . ")'>Booking History</button> </td>";
+                            echo "<td><a class='anchor3' href='p_treatment-records.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Treatment Records</a></td>";
                             echo "<td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>";
 
                             echo"</tr>";   

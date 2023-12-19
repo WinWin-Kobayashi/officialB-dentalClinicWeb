@@ -143,6 +143,12 @@ if ($resultPending) {
         select{
             color: var(--v-dark-purple);
         }
+
+        thead tr th{
+            background: var(--dark-purple);
+        }
+
+       
     </style>
 
 </head>
