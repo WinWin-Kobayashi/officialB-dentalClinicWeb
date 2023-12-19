@@ -24,7 +24,7 @@
                                 <i class='bx bx-info-circle info' id='viewInfo' onclick='openviewPatientInfoModal(" . $row['id'] . ")'></i>
                                 <i class='bx bxs-edit edit' id='editInfo' onclick='openeditPatientInfoModal(" . $row['id'] . ")'></i>
                                 <i class='bx bxs-trash delete' id='deleteInfo' onclick='opendeletePatientInfoModal(" . $row['id'] . ")'></i>
-s                            </div>
+                            </div>
                         </td>
                     </tr>"; // Closing </tr> tag added here
     }

@@ -84,7 +84,6 @@
                         <script>
                             alert('successfully added patient');
                             add_patient.close();
-                            return;
                         </script>
                     <?php
                 }
@@ -103,7 +102,7 @@
             <input type="text" id="pFirstName" name="firstName" placeholder="First Name"><br>
             <input type="text" id="pLastName" name="lastName" placeholder="Last Name"><br>
             <input type="date" id="pbirthdate" name="birthdate" placeholder="Birthdate"><br>
-            <select id="pgender" name="gender" placeholder="Gender">
+            <select id="pGender" name="gender" placeholder="Gender">
                 <option value="" selected disabled>Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>

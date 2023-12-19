@@ -77,14 +77,14 @@
 
         <!-- gender -->
         <label for="eGender"> <b>Gender:</b> </label>
-        <!-- <input type="text" id="eGender" name="gender" placeholder="Gender"><br> -->
+        <input type="text" id="eGender" name="eGender" placeholder="Gender"><br>
 
-        <select id="eGender" name="eGender" placeholder="Gender">
+        <!-- <select id="eGender" name="eGender" placeholder="Gender" type="text">
                 <option value="" selected disabled>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Other">Other</option>
-        </select><br>
+        </select><br> -->
 
 
         <!-- address -->

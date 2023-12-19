@@ -1,5 +1,3 @@
-
-
 <link rel="stylesheet" href="admin-sidebar.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -48,20 +46,20 @@
                 <span class="link-name">Records & History</span></a>
             </li>
 
-            <li><a href="admin-patients-list/add_patient_index.php">
+            <!-- <li><a href="admin-patients-list/add_patient_index.php">
+                <i class="material-icons">personal_injury</i>
+                <span class="link-name">Patients</span></a>
+            </li> -->
+
+            <li><a href="admin-p_management.php">
                 <i class="material-icons">personal_injury</i>
                 <span class="link-name">Patients</span></a>
             </li>
 
-            <li><a href="admin-p_management.php">
-                <i class="material-icons">personal_injury</i>
-                <span class="link-name">Patients2</span></a>
-            </li>
-
-            <li><a href="admin-treatment-records/add-treatment.php">
+            <!-- <li><a href="admin-treatment-records/add-treatment.php">
                 <i class="material-icons">timeline</i>
                 <span class="link-name">Dental Record</span></a>
-            </li>
+            </li> -->
 
             <li><a href="admin-chat.php">
                 <i class="material-icons">message</i>

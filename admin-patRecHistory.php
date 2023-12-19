@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="admin-patRecHistory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-oC1QBgqVlAq1J3Ml/73cViXcSfP+2BEz5LcTy5zMIcuciAAx5Bj3BWE2t0IhRFeM" crossorigin="anonymous">
+
 
     <!-- to enable live search -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -123,6 +125,19 @@
             border-radius: 5px;
             margin-left: 6px;
         }
+
+        .icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        #getName {
+            padding-left: 3rem; /* Adjust the left padding to leave space for the icon */
+        }
+
     </style>
 </head>
 <body>
@@ -133,15 +148,21 @@
             <h1>Patient Records and History</h1>
 
             <div class="row-container">
-                <div class="row one">
+                <!-- <div class="row one">
                     <h3><b>Search Patient:</b></h3>
-                </div>
+                </div> -->
 
                 <div class="row two">
                     <!-- get user input -->
-                    <div class="input-box">
-                        <input type="text" id="getName">
+                    <!-- <div class="input-box">
+                        <input type="text" id="getName" placeholder="Search patient">
+                    </div> -->
+
+                    <div class="input-box search-container">
+                        <i class="fa fa-search icon"></i>
+                        <input type="text" id="getName" placeholder="Search patient">
                     </div>
+
                 </div>
             </div>
            

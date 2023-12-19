@@ -211,6 +211,11 @@
             margin-right: 7px;
         }
 
+        thead tr th{
+            background: var(--dark-purple);
+            border: 2px solid var(--dark-purple);
+        }
+
     </style>
 </head>
 <body>
