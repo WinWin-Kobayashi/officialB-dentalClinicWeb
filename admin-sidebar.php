@@ -10,6 +10,10 @@
         color: var(--v-dark-purple);
     }
 
+    .top .sidebar-toggle:hover{
+        color: var(--dark-purple);
+    }
+
     .menu-items li:hover{
         background: var(--dark-purple);
         border-radius: 5px;
