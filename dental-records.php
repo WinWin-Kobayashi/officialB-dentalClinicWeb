@@ -1,7 +1,7 @@
 <?php 
     include('connection.php'); 
     session_start();
-    if($_SESSION['first_name'] == null){   
+    if($_SESSION['id'] == null){   
         header('location:login.php');
     }
 ?>
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <h3>My Dental Records</h3>
+    <h3>My Treatment Records</h3>
     <div class="table-container">
         <table class="table">
             <thead class="thead">
@@ -31,13 +31,17 @@
 
             <tbody>
                 <?php
+
+                    $msg = '';
+                    
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
 
-                    $active_gmail =  $_SESSION['active_gmail'];
+                    // $active_gmail =  $_SESSION['active_gmail'];
+                    $patient_id =  $_SESSION['id'];
 
-                    $sql = "SELECT * FROM dental_records WHERE active_gmail = '$active_gmail' ";
+                    $sql = "SELECT * FROM treatment_records WHERE patient_id = '$patient_id' ";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -45,7 +49,7 @@
                             echo "<tr>";
                                 echo "<td>" . $row["id"] . "</td>";
                                 echo "<td>" . date('F j, Y', strtotime($row['date'])) . "</td>";                           
-                                echo "<td>" . $row["tooth"] . "</td>";
+                                echo "<td>" . $row["tooth_number"] . "</td>";
                                 echo "<td>" . $row["procedures_performed"] . "</td>";
                                 echo "<td>" . $row["amount_charged"] . "</td>";
                                 echo "<td>" . $row["amount_paid"] . "</td>";

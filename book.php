@@ -1,5 +1,8 @@
 <?php 
     session_start();
+    if($_SESSION['id'] == null){   
+        header('location:login.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -120,7 +123,7 @@
         $insert = $mysqli->query("INSERT INTO appointments(time, date, first_name, last_name, service, active_gmail, contact_number) VALUES ('$time', '$date', '$first_name', '$last_name', '$service', '$active_gmail', '$contact_number')");
 
         // EXTRACT THE ID FROM THIS CURRENT INSERTED DATA
-        $select = mysqli_query($mysqli, "SELECT id from appointments WHERE active_gmail = '$active_gmail' AND service = '$service' ");
+        $select = mysqli_query($mysqli, "SELECT id from appointments WHERE active_gmail = '$active_gmail' AND screenshot = '' ");
         $row = mysqli_fetch_array($select);
         if(is_array($row)){
             $id = $row['id'];

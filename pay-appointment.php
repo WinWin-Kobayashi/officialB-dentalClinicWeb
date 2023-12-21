@@ -1,5 +1,10 @@
 <?php
     session_start();
+
+    if($_SESSION['id'] == null){   
+        header('location:login.php');
+    }
+    
     $id = $_GET['id']; //gets the appointment id from the book.php page 
 ?>
 

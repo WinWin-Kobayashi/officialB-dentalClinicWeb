@@ -55,15 +55,15 @@
     <div class="modal-container">
         <div class="text">Add Treatment Record Form<div>
 
-        <?php if(isset($_GET['first_name'])){
-            $first_name = $_GET['first_name'];
-            $last_name = $_GET['last_name'];
+        <?php if(isset($_GET['id'])){
+            // $first_name = $_GET['first_name'];
+            // $last_name = $_GET['last_name'];
             $id = $_GET['id'];
-            echo $first_name . ' ' . $last_name . '\'s ' .$id;
+            // echo $first_name . ' ' . $last_name . '\'s ' .$id;
         }?> 
 
         <form action="" style="width: 500px;" method="POST">
-            <input type="text" id="aPatientId" name="aPatientId" placeholder="Patient Id" value='<?php echo $id ?>' readonly><br>
+            <input type="hidden" id="aPatientId" name="aPatientId" placeholder="Patient Id" value='<?php echo $id ?>' readonly><br>
             <input type="date" id="aDate" name="aDate" placeholder="Treatment Date"><br>
             <input type="text" id="aToothNumber" name="aToothNumber" placeholder="Tooth Number"><br>
             <input type="text" id="aProceduresPerformed" name="aProceduresPerformed" placeholder="Procedures Performed"><br>
