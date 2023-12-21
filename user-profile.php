@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     if($_SESSION['id'] == null){   
         header('location:login.php');
     }
@@ -19,7 +18,6 @@
 
         <div class="retriever">
             <?php
-            session_start();
 
             // Create connection
             $conn = mysqli_connect('localhost', 'root', '', 'dental_clinic_db') or die ('Unable to connect');
