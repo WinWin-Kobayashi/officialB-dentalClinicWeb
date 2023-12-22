@@ -1,18 +1,21 @@
-<dialog id="cancelAppointment" class="modal">
-    <div>Cancel Me Senpai</div>
-    <form id="cancelForm" method="post">
+<dialog id="cancelAppointment" class="modal modal-view">
+    <div class="text">Confirm Cancellation</div>
+    <form id="cancelForm" method="post" style="width: 300px;">
         <input type="hidden" id="cancelAppointmentId" name="cancelAppointmentId" readonly>
-        <br>
         <label>Reason</label>
         <br>
         <select id="cancelReason" name="cancelReason" required>
-            <option value="Overbook">Overbook</option>
-            <option value="No doctor">No doctor</option>
+            <option value="Invalid screenshot">Invalid Screenshot</option>
+            <option value="Overbooking">Overbook</option>
+            <option value="Time slot taken">Time slot taken</option>
+            <option value="No doctor">No dentist</option>
+            <option value="Clinic is closed on booked date">Clinic is closed on booked date</option>
             <option value="Other">Other</option>
         </select>
         <br>
-        <button onclick="closeCancelModal()" type="button">Close</button>
-        <button type="submit" id="cancelBtn">Cancel</button>
+        <br>
+        <button onclick="closeCancelModal()" type="button" class="close-modal">Close</button>
+        <button type="submit" id="cancelBtn" class="okay-modal">OK</button>
     </form>
 </dialog>
 

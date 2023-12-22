@@ -1,27 +1,26 @@
-<dialog id="reschedAppointment" class="modal">
-    <div>Reschedule</div>
-    <form id="rescheduleForm">
+<dialog id="reschedAppointment" class="modal modal-view">
+    <div class="text">Reschedule</div>
+    <form id="rescheduleForm" class="rescheduleForm-modal">
         <!-- You can include the appointmentId here as a hidden input if needed -->
         <input type="hidden" id="reschedAppointmentId" name="reschedAppointmentId" readonly>
-        <br>
-        <label>From</label>
+        <label>From:</label>
         <br>
         <input type="date" id="dateInput" name="date" placeholder="Date" readonly>
         <br>
-        <label>To</label>
+        <label>To:</label>
         <br>
         <input type="date" id="newDate" name="newDate" required>
         <br>
-        <label>From</label>
+        <label>From:</label>
         <br>
         <input type="time" id="timeInput" name="time" placeholder="Time" readonly>
         <br>
-        <label>To</label>
+        <label>To:</label>
         <br>
         <input type="time" id="newTime" name="newTime" required>
         <br>
-        <button type="button" id="rescheduleBtn">Reschedule</button>
-        <button type="button" onclick="closeReschedModal()">Close</button>
+        <button type="button" id="rescheduleBtn" class="okay-modal">OK</button>
+        <button type="button" onclick="closeReschedModal()" class="close-modal">Close</button>
     </form>
 </dialog>
 

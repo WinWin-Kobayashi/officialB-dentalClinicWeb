@@ -64,18 +64,18 @@
 
         <form action="" style="width: 500px;" method="POST">
             <input type="hidden" id="aPatientId" name="aPatientId" placeholder="Patient Id" value='<?php echo $id ?>' readonly><br>
-            <input type="date" id="aDate" name="aDate" placeholder="Treatment Date"><br>
-            <input type="text" id="aToothNumber" name="aToothNumber" placeholder="Tooth Number"><br>
-            <input type="text" id="aProceduresPerformed" name="aProceduresPerformed" placeholder="Procedures Performed"><br>
+            <input type="date" id="aDate" name="aDate" placeholder="Treatment Date" required><br>
+            <input type="text" id="aToothNumber" name="aToothNumber" placeholder="Tooth Number" required><br>
+            <input type="text" id="aProceduresPerformed" name="aProceduresPerformed" placeholder="Procedures Performed" required><br>
 
-            <input type="text" id="aAmountCharged" name="aAmountCharged" placeholder="Amount Charged"><br>
-            <input type="text" id="aAmountPaid" name="aAmountPaid" placeholder="Amount Paid"><br>
+            <input type="text" id="aAmountCharged" name="aAmountCharged" placeholder="Amount Charged" required><br>
+            <input type="text" id="aAmountPaid" name="aAmountPaid" placeholder="Amount Paid" required><br>
 
-            <button type="submit" id="submitTreatmentRecord" class="okay-modal" name="submitTreatmentRecord">Add Treatment Record</button>
+            <button onclick="closeaddTreatmentRecordModal()" type="button" class="close-modal">Close</button>
+            <button type="submit" id="submitTreatmentRecord" class="okay-modal" name="submitTreatmentRecord">OK</button>
         </form>
     </div>
-
-    <button onclick="closeaddTreatmentRecordModal()" type="button" class="close-modal">Close</button>
+   
 </dialog>
 
 <script>

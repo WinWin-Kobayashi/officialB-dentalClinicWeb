@@ -2,7 +2,7 @@
     <!-- <div class="text">View Screenshot</div> -->
     <form id="viewScreenshotForm" method="POST">
         <input type="hidden" id="viewScreenshotId" name="viewScreenshotId" readonly>
-        <img id="screenshotImgView" alt="Screenshot" style="max-width: 100%; max-height: 550px;">
+        <img id="screenshotImgView" alt="Screenshot" style="max-width: 100%; max-height: 770px;">
         <br>
         <button onclick="closeViewScreenshotModal()" type="button" class="close-modal-full">Close</button>
     </form>
