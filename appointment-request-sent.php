@@ -39,9 +39,9 @@
 
             <div class="par three">
                 <p>
-                   Once you receive the Gmail notification, please<br>
-                   copy the <span>Appointement Ticket</span> code, and paste it
-                   in this booking history's date.
+                   Once you receive the Gmail notification of the approved appointment, please<br>
+                    <span>Arrive at the dental clinic an hour before your appointment schedule</span> for a better
+                    dental clinic experience. <b> Thank you! </b>
                 </p>
             </div>
 

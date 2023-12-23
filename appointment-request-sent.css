@@ -58,6 +58,7 @@ body {
     margin-top: 20px;
     align-self: flex-end;
     cursor: pointer;
+    width: 100%;
 }
 
 .wrapper button:hover, .wrapper button:active{
@@ -79,4 +80,8 @@ body {
 .wrapper p span{
     font-weight: 700;
     color: #FF002E; 
+}
+
+.button-con{
+    width: 100%;
 }

@@ -67,66 +67,54 @@ body{
     text-align: center;
 }
 
-.wrapper .btn-cancel, .wrapper .btn-okay{
-    width: calc(50% - 5px); /* Set the button width to 50% with a 5px gap in the middle */
-    height: 45px;
-    border: none;
-    outline: none;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    cursor: pointer;
-    font-size: 16.5px;
-    color: white;
-    font-weight: 600;
-    margin-top: 10px;
-}
-
-.wrapper .btn-cancel{
+.wrapper #cancelButton{
     background: var(--dark-purple);
-    margin-right: 5px; /* Add a margin to the right of the cancel button */
 }
 
-.wrapper .btn-okay{
-    background: var(--dark-pink);
+.row .btn-okay{
+    background: #90F2AC;
+    color: #0E6116;
     margin-left: 5px; /* Add a margin to the left of the okay button */
 }
 
-.step .step-content button{
-    padding: 7px 12px 7px 12px;
-    border-radius: 10px;
-    border: none;
-    background: var(--dark-purple);
-    color: white;
-    font-size: 15px;
-}
 
 .step .step-content h5{
     margin-top: 5px;
     font-size: 15px;
 }
 
-/* ADD HOVER AND ACTIVE EFFECT ON BUTTONS */
-.wrapper .btn-okay:hover,
-.wrapper .btn-cancel:hover,
-.wrapper .btn-okay:active,
-.wrapper .btn-cancel:active{
-    transform: scale(1.015);
-    transition: all 0.5s ease;
+.row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.wrapper .btn-okay:hover{
-    background: var(--pink);
-}
-
-.wrapper .btn-cancel:hover{
-    background: var(--v-dark-purple);
-}
-
-
-.step .step-content button:hover{
-    text-decoration: underline;
-    transform: scale(1.005);
+.row .btn{
+    width: 48%;
+    height: 80%;
+    border: none;
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.5s ease;
+    font-size: 16.5px;
 }
 
+.row #okayButton{
+    background: #90F2AC;
+    color: #0E6116;
+}
+
+.row #okayButton:hover{
+    background:  #0E6116;
+    color: white;
+}
+
+.row #cancelButton{
+    background: #FF6099;
+    color: white;
+}
+
+.row #cancelButton:hover{
+    background: #d92668;
+    color: white;
+}

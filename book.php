@@ -65,9 +65,14 @@
 
         <select class="input-box drop-down" id="service" required name="service" placeholder="Select Service">
             <option value="" disabled selected>Select Service</option>
-            <option value="Dental Checkup">Dental Checkup</option>
-            <option value="Tooth Extraction">Tooth Extraction</option>
-            <option value="Dental Cleaning">Dental Cleaning</option>
+            <option value="Radiographic Examination">Radiographic Examination</option>
+            <option value="Operculectomy">Operculectomy</option>
+            <option value="Dental Crowns">Dental Crowns</option>
+            <option value="Dental Bridges">Dental Bridges</option>
+            <option value="Pulpotomy and Root Canal Treatment">Pulpotomy and Root Canal Treatment</option>
+            <option value="Complete Denture">Complete Denture</option>
+            <option value="Dental Consultation or Check-up">Dental Consultation or Check-up</option>
+            <option value="Wisdom Tooth Removal">Wisdom Tooth Removal</option>
         </select>
 
         <div class="row">

@@ -49,14 +49,16 @@
                         <!-- <button type = "submit" name = "submit">Submit</button> -->
 
                         <div class="row">
-                            <button type="button" class="btn" id="cancelButton" name="cancel"">Cancel</button>
-                            <button type="submit" class="btn" id="okayButton" required name="submit-payment">Okay</button>
+                            <button type="button" class="btn-cancel" id="cancelButton" name="cancel">Cancel</button>
+                            <button type="submit" class="btn-okay" id="okayButton" required name="submit-payment">Okay</button>
                         </div>
 
                     </div>
                 </div>
                 
             </div>
+
+           
            
         </form> 
 
@@ -77,6 +79,8 @@
 
 
 <?php
+    // submit payment
+   
 
     require 'connection.php';
 
@@ -120,14 +124,16 @@
             $newImageName .= '.' . $imageExtension;
 
             move_uploaded_file($tmpName, 'screenshots/' . $newImageName);
+            // $query = "INSERT INTO tb_upload VALUES('', '', '$newImageName')";
             $query = "UPDATE appointments SET screenshot = '$newImageName', status = 'Pending' WHERE id = '$id' LIMIT 1";
+            // UPDATE appointments SET status = 'Pending' WHERE id = '$id' LIMIT 1
             mysqli_query($conn, $query);
             echo
 
             "
             <script>
                 alert('Successfully Added');
-                window.location.href = 'appointment-request-sent.php';
+                window.location.href = 'index-after.php';
             </script>
             ";
 
