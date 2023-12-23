@@ -10,6 +10,19 @@
 <head>
     <?php include('globalHead.php'); ?>
     <link rel="stylesheet" href="indexStyle.css">
+    <style>
+        .modal {
+        border: none;
+        font-size: 18px;
+        color: var(--v-dark-purple);
+        float: left;
+        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
+        border: 2px solid var(--dark-purple);
+        border-radius: 8px;
+        padding: 5px;
+    }
+    </style>
 </head>
 <body>
 
@@ -52,6 +65,9 @@
         </div>
 
     </header>
+
+    <!-- remind user for upcoming appoitments modal -->
+    <?php require_once('modal/appointment-reminder.php');?>
 
     <!-- HOME -->
     <section class="home" id="home">
