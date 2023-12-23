@@ -13,7 +13,7 @@ $current_time = time();
 if ($current_time - $lastDisplayTime >= 24 * 60 * 60) {
     $query = "SELECT *
               FROM appointments
-              WHERE active_gmail = ? AND date > NOW() AND status = 'accepted'
+              WHERE active_gmail = ? AND date >= NOW() AND status = 'accepted'
               ORDER BY date
               LIMIT 1";
 
@@ -29,7 +29,8 @@ if ($current_time - $lastDisplayTime >= 24 * 60 * 60) {
         echo '<p>Reminder</p>';
         echo '<p>Upcoming Appointments:</p>';
         while ($row = $result->fetch_assoc()) {
-            echo '<label>Date: ' . $row['date'] . ', Time: ' . $row['time'] . '</label><br>';
+            echo '<label>Date: ' . date('F j, Y', strtotime($row['date'])) . ',
+                         Time: ' . date('h:i A', strtotime($row['time'])). '</label><br>';
             echo '<label>Service: ' . $row['service'] . '</label><br>';
             echo '<hr>';
         }
