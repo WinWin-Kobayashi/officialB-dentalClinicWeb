@@ -624,3 +624,62 @@ section .contact{
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;} 
+
+
+  .modal{
+    padding: 1rem;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background: white;
+    border-radius: 0.25rem;
+    z-index: 10;
+    border: none;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px grey;
+}
+
+.close-modal-full{
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 5px; 
+    border: none; 
+    background: #FF6099; 
+    color: white; 
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+}
+
+.close-modal-full:hover{
+    background: #d92668;
+    color: white;
+}
+
+.modal-container{
+    color: var(--v-dark-purple);
+}
+
+.modal-container .main-text{
+    text-align: center;
+    color: red;
+    font-size: 26px;
+    margin-bottom: .7rem;
+}   
+
+.modal-container .main-text2{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: .7rem;
+}
+
+.modal-container label{
+    text-align: left;
+    font-size: 20px;
+}
+
+
+
+

@@ -25,16 +25,14 @@ if ($current_time - $lastDisplayTime >= 24 * 60 * 60) {
     if ($result->num_rows > 0) {
         $_SESSION['last_display_time'] = $current_time;
 
-        echo '<dialog id="myDialog" class="modal">';
-        echo '<p>Reminder</p>';
-        echo '<p>Upcoming Appointments:</p>';
+        echo '<dialog id="myDialog" class="modal modal-container">';
+        echo '<p class="main-text">Upcoming Appointment!</p>';
         while ($row = $result->fetch_assoc()) {
-            echo '<label>Date: ' . date('F j, Y', strtotime($row['date'])) . ',
-                         Time: ' . date('h:i A', strtotime($row['time'])). '</label><br>';
-            echo '<label>Service: ' . $row['service'] . '</label><br>';
-            echo '<hr>';
+            echo '<label> <b> Date: </b>' . date('F j, Y', strtotime($row['date'])) . '<br>' . 
+                         ' <b> Time: </b>' . date('h:i A', strtotime($row['time'])). '</label><br>';
+            echo '<label> <b> Service: </b>' . $row['service'] . '</label><br>';
         }
-        echo '<button id="closeDialog">Close</button>';
+        echo '<button id="closeDialog" class="close-modal-full">Close</button>';
         echo '</dialog>';
     }
 
