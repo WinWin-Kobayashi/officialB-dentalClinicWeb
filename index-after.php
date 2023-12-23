@@ -66,7 +66,8 @@
 
     </header>
 
-    <?php require_once('modal/reminder.php');?>
+    <!-- remind user for upcoming appoitments modal -->
+    <?php require_once('modal/appointment-reminder.php');?>
 
     <!-- HOME -->
     <section class="home" id="home">
