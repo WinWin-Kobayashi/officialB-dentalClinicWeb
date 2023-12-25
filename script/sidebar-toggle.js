@@ -3,10 +3,10 @@ const body = document.querySelector("body"),
       sidebar = body.querySelector("nav");
       sidebarToggle = body.querySelector(".sidebar-toggle");
 
-// let getStatus = localStorage.getItem("status");
-// if(getStatus && getStatus ==="close"){
-//     sidebar.classList.toggle("close");
-// }
+let getStatus = localStorage.getItem("status");
+if(getStatus && getStatus ==="close"){
+    sidebar.classList.toggle("close");
+}
 
 
 sidebarToggle.addEventListener("click", () => {
