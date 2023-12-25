@@ -25,6 +25,16 @@
         transition: none;
     }
 
+    .menu-items li.active {
+        background: var(--dark-purple);
+        border-radius: 5px;
+    }
+
+    .menu-items li.active a .link-name,
+    .menu-items li.active a .material-icons {
+        color: white;
+    }
+
 </style>
 <nav>
     <div class="logo-name">
@@ -80,7 +90,6 @@
             <div class="mode-toggle">
                 <span class="switch"></span>
             </div>
-        </li>
         </ul>
     </div>
 </nav>
@@ -91,4 +100,19 @@
     </div>
 <!-- </section> -->
 
+
+<script>
+    // MARK ACTIVE SIDE BAR
+    if (document.querySelector('.nav-links')) {
+        var currentUrl = window.location.href;
+
+        var menuLinks = document.querySelectorAll('.nav-links li a');
+
+        menuLinks.forEach(function(link) {
+            if (link.href === currentUrl) {
+                link.parentElement.classList.add('active');
+            }
+        });
+    }
+</script>
 <script src="script/sidebar-toggle.js"></script>
