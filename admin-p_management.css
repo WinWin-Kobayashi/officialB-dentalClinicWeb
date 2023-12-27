@@ -1,6 +1,6 @@
 @import url('globalStyle.css');
   
-body{
+#dashboard{
     background: var(--v-light-purple);
 }
 
@@ -9,7 +9,6 @@ body{
     flex-direction: row;
     justify-content: center;
     height: 100vh;
-    margin-left: 3rem;
 }
 
 .container{
@@ -18,7 +17,6 @@ body{
     flex-shrink: 0;
     margin-top: 2.3rem;
     border-radius: 5px;
-    margin-left: 9.5rem;
 }
 
 .container .row-container{
