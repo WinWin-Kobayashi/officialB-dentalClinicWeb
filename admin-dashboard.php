@@ -23,7 +23,7 @@ if ($resultPending) {
     <!-- <link rel="stylesheet" href="indexStyle.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body ">
+<body>
 
     <?php include('admin-sidebar.php');?>
 
