@@ -71,8 +71,8 @@ echo "
                 echo "<td> <b>" . date('h:i A', strtotime($row['time'])) . "</b> </td>";
                 echo "<td>" . $row['first_name'] . ' ' .$row['last_name'] . ' : <b> ' .$row['service'] . " </b> </td>";
                 echo "<td style='display: flex; flex-direction: row; width: 95%; justify-content: flex-end;'>
-                <button onclick=\"redirectToPage('cancel', {$row['id']})\" style='font-size: 18px; padding: 3px 6px 3px 6px; color: white; background: #FF6099; border: none; border-radius: 5px; cursor: pointer;'>Cancel</button>
-                <button onclick=\"redirectToPage('reschedule', {$row['id']})\" style='margin-left: 10px; font-size: var(--small-font); padding: 3px 6px 3px 6px; color: var(--v-dark-purple); background: #FFF27D; border: none; border-radius: 5px; cursor: pointer;'>Reschedule</button>
+                <button id='cancel' onclick='openCancelModal(" . $row['id'] . ")' style='font-size: 18px; padding: 3px 6px 3px 6px; color: white; background: #FF6099; border: none; border-radius: 5px; cursor: pointer;'>Cancel</button>
+                <button id='reschedule' onclick='openReschedModal(" . $row['id'] . ")' style='margin-left: 10px; font-size: var(--small-font); padding: 3px 6px 3px 6px; color: var(--v-dark-purple); background: #FFF27D; border: none; border-radius: 5px; cursor: pointer;'>Reschedule</button>
                 </td>";
             echo "</tr>";
         echo "</table>";

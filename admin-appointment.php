@@ -102,6 +102,9 @@ if ($resultAccepted && $resultCancelled) {
         </div>
     </section>
 
+    <?php require_once('modal/resched-appointment.php');?>
+    <?php require_once('modal/cancel-appointment.php');?>
+
     <script src="script/calendar.js"></script>
     <script>
        function toggleCollapsible(index) {
