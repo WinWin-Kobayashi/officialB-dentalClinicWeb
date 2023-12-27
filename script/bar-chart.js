@@ -36,13 +36,13 @@ var myBarChart = new Chart(ctx, {
             x: {
                 stacked: true,
                 ticks: {
-                    color: '#531A62' // text color
+                    color: '#531A62' // text color of x-axis
                 }
             },
             y: {
                 stacked: true,
                 ticks: {
-                    color: '#531A62' // text color
+                    color: '#531A62' // text color of y-axis
                 }
             }
         }
