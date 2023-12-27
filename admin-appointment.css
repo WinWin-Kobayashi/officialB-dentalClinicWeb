@@ -134,7 +134,7 @@ header .current-date{
 /* COLLAPSE */
 
 .collapsible {
-  background-color: white;
+  background-color: transparent;
   color: black;
   cursor: pointer;
   padding: 18px;
@@ -181,7 +181,7 @@ header .current-date{
   display: flex;
   justify-content: center;
   /* align-items: flex-start; */
-  top: 100px;
+  top: 70px;
 }
 
 .calendar-wrapper {
