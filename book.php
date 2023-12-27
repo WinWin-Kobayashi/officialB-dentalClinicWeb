@@ -10,6 +10,7 @@
 <head>
     <?php include('globalHead.php'); ?>
     <link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <style>
         select {
             width: 100%;
@@ -56,10 +57,10 @@
 
         <div class="row">
             <div class="input-box">
-                <input type="date" placeholder="Date" required name="date">
+                <input type="date" placeholder="Date" required name="date" id="selectedDateInput">
             </div>
             <div class="input-box">
-                <input type="time" placeholder="Time" required name="time">
+                <input type="time" placeholder="Time" required name="time" id="selectedTime">
             </div>
         </div>
 
@@ -75,6 +76,41 @@
             <option value="Wisdom Tooth Removal">Wisdom Tooth Removal</option>
         </select>
 
+        <div class="calendar-container">
+        <div class="wrap-date">
+            <header>
+              <p class="current-date"></p>
+              <div class="icons">
+                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                <span id="next" class="material-symbols-rounded">chevron_right</span>
+              </div>
+            </header>
+            <div class="calendar">
+              <ul class="weeks">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+              </ul>
+              <ul class="days"></ul>
+            </div>
+          </div>
+          <div class="wrap-time">
+            <header>
+              <select class="options-type">
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+              </select>
+            </header>
+            <div class="time-slot">
+              <ul class="radio-group" id="timeSlotsContainer"></ul>
+            </div>
+          </div> 
+        </div>
+
         <div class="row">
             <button type="button" class="btn-cancel" id="cancelButton">Cancel</button>
             <button type="submit" class="btn-okay" id="okayButton" required name="submit_book-info">Okay</button>
@@ -82,6 +118,7 @@
     </form>
 </div>
 
+<script src="script/date-time.js"></script>
 <script>
     // Get references to the Cancel and Okay buttons
     const cancelButton = document.getElementById("cancelButton");
