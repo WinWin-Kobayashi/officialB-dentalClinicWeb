@@ -1,13 +1,17 @@
 <?php
-// Include your database connection logic here
 $conn = mysqli_connect('localhost', 'root', '', 'dental_clinic_db') or die ('Unable to connect');
 
-// Assuming you have a M
-$query = "SELECT status, COUNT(*) as count FROM appointments GROUP BY status";
+// Adjust interval if want to include beyond 1 day
+$query = "SELECT status, COUNT(*) as count FROM appointments
+          WHERE date >= DATE_SUB(CURDATE(), INTERVAL 1 DAY)
+          AND status IN ('Accepted', 'Cancelled') GROUP BY status";
 $result = $conn->query($query);
 
 if ($result) {
-  $statusCounts = [];
+  $statusCounts = [
+    'Accepted' => 0,
+    'Cancelled' => 0
+  ];
   while ($row = $result->fetch_assoc()) {
     $statusCounts[$row['status']] = $row['count'];
   }

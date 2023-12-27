@@ -166,7 +166,7 @@ if ($resultPending) {
       .then(response => response.json())
       .then(data => {
         const defaultValues = {
-          'Pending': 0,
+        //   'Pending': 0,
           'Accepted': 0,
           'Cancelled': 0,
         };
