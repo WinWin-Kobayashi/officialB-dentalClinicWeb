@@ -1,7 +1,8 @@
 <?php 
+    ob_start(); // Start output buffering
     session_start();
-    if($_SESSION['id'] == null){   
-        header('location:login.php');
+    if ($_SESSION['id'] == null) {   
+        header('location: login.php');
     }
 ?>
 
@@ -185,4 +186,8 @@
         $mysqli->close();
     }
 
+?>
+
+<?php 
+    ob_end_flush(); // Send the buffered output
 ?>
