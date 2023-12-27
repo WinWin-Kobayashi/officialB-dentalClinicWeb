@@ -25,8 +25,12 @@
   --box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
+#dashboard{
+  background: var(--v-light-purple);
+}
+
 .wrapper{
-  width: 400px;
+  width: 450px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.12);
@@ -114,32 +118,101 @@ header .current-date{
     background: var(--dark-purple);
 }
 
-/* SIDELIST */
-.appointment-container {
-  z-index: 1000;
-  /* position: absolute; */
-  height: 100%;
-  width: 570px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  background: var(--v-light-purple);
-  padding-top: 50px;
-  padding-left: 20px;
-  /* border: 1px solid black; */
+/* INPUT DATE */
+
+#selectedDateInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 240px;
+  font-size: 30px;
+  padding: 10px; 
+  color: #333;
+}
+
+
+/* COLLAPSE */
+
+.collapsible {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+}
+
+.content-list {
+  position: relative;
+  width: 500px;
+  display: none;
+  overflow: hidden;
+}
+
+.content-list.show {
+  display: block;
+}
+
+.content-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.content-list li {
+  padding: 12px;
+  color: white;
+  background-color: var(--dark-purple);
+  transition: background-color 0.3s;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-list li:hover {
+  background-color: var(--dark-purple);
 }
 
 /* OTHER STYLE */
 
 .calendar-container {
-  position: absolute;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-start; */
   top: 100px;
-  left: 350px;
-  /* margin-left: 5rem; */
 }
 
-.appointment-container  .filtered-data{
-  /* margin-right: 3rem; */
-  /* position: absolute; */
-  right: 1rem;
+.calendar-wrapper {
+  position: relative;
+}
+
+.list-wrapper {
+  position: relative;
+  left: 50px;
+  width: 500px;
+  /* background-color: #005D99; */
+}
+
+.filter-status {
+  border: none;
+  font-size: 18px;
+  color: var(--v-dark-purple);
+  float: right;
+  /* width: 100%; */
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  border: 2px solid var(--dark-purple);
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2.5%;
+  justify-content: space-between;
+  /* width: 100px; */
+  /* margin-left: 9.5rem; */
 }
