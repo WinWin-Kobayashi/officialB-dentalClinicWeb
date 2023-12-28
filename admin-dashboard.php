@@ -160,35 +160,5 @@ if ($resultPending) {
         //     window.location.href = url;
         // }
     </script>
-    <script>
-    // Fetch Data
-    fetch('lib/getPieData.php')
-      .then(response => response.json())
-      .then(data => {
-        const defaultValues = {
-        //   'Pending': 0,
-          'Accepted': 0,
-          'Cancelled': 0,
-        };
-
-        const statusCounts = { ...defaultValues, ...data };
-        const labels = Object.keys(statusCounts);
-        const counts = Object.values(statusCounts);
-
-        // Create Pie
-        const ctx = document.getElementById('appointmentChart').getContext('2d');
-        new Chart(ctx, {
-          type: 'pie',
-          data: {
-            labels: labels,
-            datasets: [{
-              data: counts,
-              backgroundColor: ['#FFF27D', '#90F2AC', '#FF6099'], // pie color
-            }],
-          },
-        });
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  </script>
 </body>
 </html>
