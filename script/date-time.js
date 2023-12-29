@@ -14,34 +14,79 @@ const months = ["January", "February", "March", "April", "May", "June", "July",
 let selectedDate = date;
 
 const renderCalendar = () => {
-  let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
+  fetchAppointments()
+  .then(appointments => {
+    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
     lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(),
     lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
     lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-  let liTag = "";
+    let liTag = "";
 
-  for (let i = firstDayofMonth; i > 0; i--) {
-    liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-  }
+    for (let i = firstDayofMonth; i > 0; i--) {
+      liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+    }
 
-  for (let i = 1; i <= lastDateofMonth; i++) {
-    let isToday =
-      i === selectedDate.getDate() &&
-      currMonth === selectedDate.getMonth() &&
-      currYear === selectedDate.getFullYear()
-        ? "active"
-        : "";
-    liTag += `<li class="${isToday}" onclick="setActiveDate(${i})">${i}</li>`;
-  }
+    // For currdate and set time to midnight
+    let today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-  for (let i = lastDayofMonth; i < 6; i++) {
-    liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-  }
-  currentDate.innerText = `${months[currMonth]} ${currYear}`;
-  daysTag.innerHTML = liTag;
+    for (let i = 1; i <= lastDateofMonth; i++) {
+      let currDate = new Date(currYear, currMonth, i);
+      currDate.setHours(0, 0, 0, 0);
 
-  updateSelectedDateInput();
+      let isBeforeToday = currDate < today;
+      let isToday =
+        i === selectedDate.getDate() &&
+        currMonth === selectedDate.getMonth() &&
+        currYear === selectedDate.getFullYear()
+          ? "active"
+          : "";
+      
+      let tooltipText = '';
+
+      const appointmentData = appointments.find(appointment =>
+        appointment.date === formatDate(currDate));
+
+      if (appointmentData) {
+        tooltipText = `Number of Appointments on this Date\n ${appointmentData.appointment_count}`;
+      } else {
+        tooltipText = 'No Book: )';
+      }
+
+      let hasAppointment = appointments.some(appointment =>
+        appointment.date === formatDate(currDate));
+      
+      if (isBeforeToday) {
+        liTag += `<li class="${isToday} inactive ${hasAppointment ? 'has-appointment' : ''}">${i}</li>`;
+      } else {
+        liTag += `<li class="${isToday} ${hasAppointment ? 'has-appointment' : ''}"
+                  onclick="setActiveDate(${i})" title="${tooltipText}">${i}</li>`;
+      }
+    }
+
+    for (let i = lastDayofMonth; i < 6; i++) {
+      liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+    }
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+    daysTag.innerHTML = liTag;
+
+    updateSelectedDateInput();
+  });
 };
+
+// GO FETCH BOY!!
+async function fetchAppointments() {
+  const response = await fetch('lib/getAppointmentCount.php');
+  return await response.json();
+}
+
+// FORMAT DATE TO YYYY-MM-DD
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
 
 const setActiveDate = (day) => {
   // Adjust for timezone offset
@@ -51,6 +96,7 @@ const setActiveDate = (day) => {
   renderCalendar();
 };
 
+//Send the date "nudes" to input box
 const updateSelectedDateInput = () => {
   const selectedDateInput = document.getElementById("selectedDateInput");
   const formattedDate = selectedDate.toISOString().split('T')[0];

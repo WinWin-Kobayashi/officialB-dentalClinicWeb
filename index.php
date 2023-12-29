@@ -3,6 +3,7 @@
 <head>
     <?php include('globalHead.php'); ?>
     <link rel="stylesheet" href="indexStyle.css">
+    <link rel="shortcut icon" href="img/mayollogo.png">
 </head>
 <body>
 

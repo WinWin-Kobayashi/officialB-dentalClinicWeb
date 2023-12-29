@@ -80,7 +80,7 @@
         <div class="calendar-container">
         <div class="wrap-date">
             <header>
-              <p class="current-date"></p>
+              <p class="current-date" title=""></p>
               <div class="icons">
                 <span id="prev" class="material-symbols-rounded">chevron_left</span>
                 <span id="next" class="material-symbols-rounded">chevron_right</span>

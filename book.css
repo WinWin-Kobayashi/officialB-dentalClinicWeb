@@ -124,25 +124,25 @@ body{
     padding: 0 10px;
     justify-content: center;
     /* background: #9B59B6; */
-  }
+}
 
 .wrap-date{
     width: 300px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 1px 1px 1px rgba(0,0,0,0.12);
-  }
-  .wrap-date header{
+}
+.wrap-date header{
     color: #333;
     display: flex;
     align-items: center;
     padding: 25px 30px 10px;
     justify-content: space-between;
-  }
-  header .icons{
+}
+header .icons{
     display: flex;
-  }
-  header .icons span{
+}
+header .icons span{
     height: 38px;
     width: 38px;
     margin: 0 1px;
@@ -153,51 +153,51 @@ body{
     font-size: 20px;
     user-select: none;
     border-radius: 50%;
-  }
-  .icons span:last-child{
+}
+.icons span:last-child{
     margin-right: -10px;
-  }
-  header .icons span:hover{
+}
+header .icons span:hover{
     background: #f2f2f2;
-  }
-  header .current-date{
+}
+header .current-date{
     font-size: 20px;
     font-weight: 200;
-  }
-  .calendar{
+}
+.calendar{
     padding: 5px;
-  }
-  .calendar ul{
+}
+.calendar ul{
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     text-align: center;
-  }
-  .calendar .days{
+}
+.calendar .days{
     margin-bottom: 5px;
-  }
-  .calendar li{
+}
+.calendar li{
     color: #333;
     width: calc(100% / 7);
     font-size: 1rem;
-  }
-  .calendar .weeks li{
+}
+.calendar .weeks li{
     font-weight: 200;
     cursor: default;
-  }
-  .calendar .days li{
+}
+.calendar .days li{
     z-index: 1;
     cursor: pointer;
     position: relative;
     margin-top: 10px;
-  }
-  .days li.inactive{
+}
+.days li.inactive{
     color: #aaa;
-  }
-  .days li.active{
+}
+.days li.active{
     color: #fff;
-  }
-  .days li::before{
+}
+.days li::before{
     position: absolute;
     content: "";
     left: 50%;
@@ -207,91 +207,91 @@ body{
     z-index: -1;
     border-radius: 50%;
     transform: translate(-50%, -50%);
-  }
-  .days li.active::before{
+}
+.days li.active::before{
     background: var(--dark-purple);
-  }
-  .days li:not(.active):hover::before{
+}
+.days li:not(.active):hover::before{
     background: #f2f2f2;
-  }
+}
   
   
   
   
-  /* RADIO */
+/* RADIO */
   
-  .wrap-time {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
+.wrap-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
     
-    .wrap-time header {
-      display: flex;
-      gap: 10px;
-    }
+.wrap-time header {
+    display: flex;
+    gap: 10px;
+}
   
-    .time-slot {
-      width: 220px;
-      padding-left: 20px;
-    }
+.time-slot {
+    width: 220px;
+    padding-left: 20px;
+}
     
-    .options-type {
-      padding: 10px;
-      border: 2px solid rgba(0, 0, 0, 0.12);
-      border-radius: 10px;
-      background-color: #fff;
-      color: #333;
-      font-size: 20px;
-      cursor: pointer;
-    }
+.options-type {
+    padding: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+}
     
-    .radio-group {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+.radio-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
     
-    .radio-group li {
-      display: flex;
-      align-items: center;
-      flex: 1 0 calc(50% - 5px);
-      box-sizing: border-box;
-    }
+.radio-group li {
+    display: flex;
+    align-items: center;
+    flex: 1 0 calc(50% - 5px);
+    box-sizing: border-box;
+}
     
-    .radio-label {
-      margin-left: 8px;
-    }
+.radio-label {
+    margin-left: 8px;
+}
     
-    .radio-group input[type="radio"] {
-      display: none;
-    }
+.radio-group input[type="radio"] {
+    display: none;
+}
     
-    .radio-group input[type="radio"] + label {
-      cursor: pointer;
-      display: inline-block;
-      width: 100%;
-      padding: 10px;
-      border: 2px solid var(--dark-purple);
-      border-radius: 5px;
-      background-color: #fff;
-      color: #333;
-      font-size: 16px;
-      transition: background-color 0.3s, color 0.3s;
-    }
+.radio-group input[type="radio"] + label {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--dark-purple);
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
     
-    .radio-group input[type="radio"]:checked + label {
-      background-color: var(--dark-purple);
-      color: #fff;
-    }
+.radio-group input[type="radio"]:checked + label {
+    background-color: var(--dark-purple);
+    color: #fff;
+}
 
-    .radio-group input[type="radio"]:hover + label {
-        background-color: var(--dark-purple);
-        color: #fff;
-    }
+.radio-group input[type="radio"]:hover + label {
+    background-color: var(--dark-purple);
+    color: #fff;
+}
       
     
