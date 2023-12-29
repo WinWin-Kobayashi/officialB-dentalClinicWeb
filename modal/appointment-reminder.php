@@ -7,13 +7,14 @@ if ($mysqli->connect_error) {
 
 $activeGmail = $_SESSION['active_gmail'];
 
-$lastDisplayTime = isset($_SESSION['last_display_time']) ? $_SESSION['last_display_time'] : 0;
-$current_time = time();
+//UNCOMMNET THIS TO NOT SHOW THE MODAL FOR 24 HOUR - NOT WORKING THOU
+// $lastDisplayTime = isset($_SESSION['last_display_time']) ? $_SESSION['last_display_time'] : 0;
+// $current_time = time();
 
-if ($current_time - $lastDisplayTime >= 24 * 60 * 60) {
+// if ($current_time - $lastDisplayTime >= 24 * 60 * 60) {
     $query = "SELECT *
               FROM appointments
-              WHERE active_gmail = ? AND date >= NOW() AND status = 'accepted'
+              WHERE active_gmail = ? AND date >= CURDATE() AND status = 'Accepted'
               ORDER BY date
               LIMIT 1";
 
@@ -23,7 +24,7 @@ if ($current_time - $lastDisplayTime >= 24 * 60 * 60) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        $_SESSION['last_display_time'] = $current_time;
+        // $_SESSION['last_display_time'] = $current_time;
 
         echo '<dialog id="myDialog" class="modal modal-container">';
         echo '<p class="main-text">Upcoming Appointment!</p>';
@@ -37,7 +38,7 @@ if ($current_time - $lastDisplayTime >= 24 * 60 * 60) {
     }
 
     $stmt->close();
-}
+// }
 
 $mysqli->close();
 ?>
