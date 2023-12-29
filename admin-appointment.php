@@ -104,10 +104,13 @@ if ($resultAccepted && $resultCancelled) {
             <div class="list-wrapper">
                 <div class="row">
                     <input type="date" id="selectedDateInput" disabled oninput="fetchAppointments()">
-                    <select name="" id="" class="filter-status">
-                        <option value="">Accepted</option>
-                        <option value="">Canceled</option>
-                    </select>
+                    <!-- NOT WORKING YET -->
+                    <form action="fetch_daily_appointments.php" method="post">
+                        <select name="" id="" class="filter-status">
+                            <option value="">Accepted</option>
+                            <option value="">Canceled</option>
+                        </select>
+                    </form>
                 </div>
                 <div class="time-slots" id="appointmentContainer"></div>
             </div>

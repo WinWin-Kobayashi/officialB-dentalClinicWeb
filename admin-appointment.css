@@ -40,6 +40,7 @@
   align-items: center;
   padding: 25px 30px 10px;
   justify-content: space-between;
+  color: var(--v-dark-purple);
 }
 header .icons{
   display: flex;
@@ -79,7 +80,7 @@ header .current-date{
   margin-bottom: 15px;
 }
 .calendar li{
-  color: #333;
+  color: var(--v-dark-purple);
   width: calc(100% / 7);
   font-size: 1.07rem;
 }
@@ -116,6 +117,7 @@ header .current-date{
 .days li:not(.active):hover::before{
     transition: all 0.5s ease;
     background: var(--dark-purple);
+    /* color: #fff; */
 }
 
 /* INPUT DATE */
@@ -127,7 +129,7 @@ header .current-date{
   width: 240px;
   font-size: 30px;
   padding: 10px; 
-  color: #333;
+  color: var(--v-dark-purple);
 }
 
 
@@ -182,6 +184,7 @@ header .current-date{
   justify-content: center;
   /* align-items: flex-start; */
   top: 70px;
+  left: -25px;
 }
 
 .calendar-wrapper {
