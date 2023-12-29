@@ -163,7 +163,8 @@
         $contact_number = $mysqli->real_escape_string($contact_number);
 
         // Insert record into the database
-        $insert = $mysqli->query("INSERT INTO appointments(time, date, first_name, last_name, service, active_gmail, contact_number) VALUES ('$time', '$date', '$first_name', '$last_name', '$service', '$active_gmail', '$contact_number')");
+        $insert = $mysqli->query("INSERT INTO appointments(time, date, first_name, last_name, service, active_gmail, contact_number, status)
+                                  VALUES ('$time', '$date', '$first_name', '$last_name', '$service', '$active_gmail', '$contact_number', 'Pending')");
 
         // EXTRACT THE ID FROM THIS CURRENT INSERTED DATA
         $select = mysqli_query($mysqli, "SELECT id from appointments WHERE active_gmail = '$active_gmail' AND screenshot = '' ");
