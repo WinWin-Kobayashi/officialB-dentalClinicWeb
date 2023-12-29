@@ -43,24 +43,31 @@ const renderCalendar = () => {
           : "";
       
       let tooltipText = '';
+      let hasAppointment = '';
+      let disableClick = false;
 
       const appointmentData = appointments.find(appointment =>
         appointment.date === formatDate(currDate));
-
       if (appointmentData) {
-        tooltipText = `Number of Appointments on this Date\n ${appointmentData.appointment_count}`;
+        tooltipText = `${appointmentData.appointment_count} Appointments on this Date`;
+
+
+        // IF APPOINTMENT IS GREATER THAN 3 CHANGE COLOR TO RED
+        hasAppointment = appointmentData.appointment_count > 2 ?
+        'red-appointment' : 'green-appointment';
+
+        // DISABLE IF ITS RED
+        disableClick = hasAppointment === 'red-appointment';
+      
       } else {
         tooltipText = 'No Book 😁';
       }
-
-      let hasAppointment = appointments.some(appointment =>
-        appointment.date === formatDate(currDate));
       
       if (isBeforeToday) {
-        liTag += `<li class="${isToday} inactive ${hasAppointment ? 'has-appointment' : ''}">${i}</li>`;
+        liTag += `<li class="${isToday} inactive">${i}</li>`;
       } else {
-        liTag += `<li class="${isToday} ${hasAppointment ? 'has-appointment' : ''}"
-                  onclick="setActiveDate(${i})" title="${tooltipText}">${i}</li>`;
+        liTag += `<li class="${isToday} ${hasAppointment ? hasAppointment : ''}"
+                  onclick="${disableClick ? '' : `setActiveDate(${i})`}" title="${tooltipText}">${i}</li>`;
       }
     }
 

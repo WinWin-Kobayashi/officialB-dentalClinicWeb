@@ -297,7 +297,14 @@ header .current-date{
 
 /* IF HAS APPOINTMENT MARK GREEN */
 /* TODO: adjust width since so fat */
-.has-appointment {
-  background: lightgreen;
-  border-radius: 50%;
+/* to change the compare value */
+/* Line 55 - Its date time js */
+.green-appointment {
+    background: lightgreen;
+    border-radius: 50%;
+}
+
+.red-appointment {
+    background: lightcoral;
+    border-radius: 50%;
 }
