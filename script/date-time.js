@@ -50,7 +50,7 @@ const renderCalendar = () => {
       if (appointmentData) {
         tooltipText = `Number of Appointments on this Date\n ${appointmentData.appointment_count}`;
       } else {
-        tooltipText = 'No Book: )';
+        tooltipText = 'No Book 😁';
       }
 
       let hasAppointment = appointments.some(appointment =>

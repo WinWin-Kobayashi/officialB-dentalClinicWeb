@@ -294,4 +294,10 @@ header .current-date{
     color: #fff;
 }
       
-    
+
+/* IF HAS APPOINTMENT MARK GREEN */
+/* TODO: adjust width since so fat */
+.has-appointment {
+  background: lightgreen;
+  border-radius: 50%;
+}
