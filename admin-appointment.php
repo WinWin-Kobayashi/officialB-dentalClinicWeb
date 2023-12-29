@@ -76,17 +76,30 @@ if ($resultAccepted && $resultCancelled) {
                         <ul class="days"></ul>
                     </div>
                 </div>
-            </div>
 
-            <!-- // NEED STYLE TO DISPLAY
-            <div>
-                <div class="cancellations">Cancelled: 
-                    <?php echo $cancelledCount; ?>
+                <!-- NEED STYLE-->
+                <div>
+                    <div class="pendind">
+                        <span>
+                            <i class="material-icons">pending_actions</i>
+                            Pending: <?php echo $pendingCount; ?>
+                        </span>
+                    </div>
+                    <div class="accepted">
+                        <span>
+                            <i class="material-icons">task</i>
+                            Accepted: <?php echo $acceptedCount; ?>
+                        </span>
+                    </div>
+                    <div class="cancellations">
+                        <span>
+                            <i class="material-icons">disabled_by_default</i>
+                            Cancelled: <?php echo $cancelledCount; ?>
+                        </span>
+                    </div>
                 </div>
-                <div class="accepted">Accepted:
-                    <?php echo $acceptedCount; ?>
-                </div>
-            </div> -->
+
+            </div>
 
             <div class="list-wrapper">
                 <div class="row">

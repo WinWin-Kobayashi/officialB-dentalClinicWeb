@@ -34,7 +34,7 @@ $countStmt = $conn->prepare($countSql);
 // Display the new time as a collapsible header with right arrow icon and item count
 echo "
 <button type='button' class='collapsible' onclick='toggleCollapsible($collapsibleIndex)' style='position: relative; width: 500px; border-top: 1px solid #ccc;'>
-    <h3 style='color: purple; margin-top: 1px; display: flex; justify-content: space-between; align-items: center; padding-top: 5px;'>
+    <h3 style='color: var(--v-dark-purple); margin-top: 1px; display: flex; justify-content: space-between; align-items: center; padding-top: 5px;'>
         <span>$appointmentTime</span>";
 
 // Bind parameters for the count query
@@ -51,10 +51,10 @@ if ($countResult->num_rows > 0) {
             <span style='font-size: 14px;'>$appointmentCount</span>
             <i class='material-icons' style='margin-left: 5px;'>keyboard_arrow_down</i>
         </span>";
-} else {
-    // if no apointments 404
-    echo "<span>No appointments</span>";
 }
+// else {
+//     echo "<span>No appointments</span>";
+// }
 
 echo "
     </h3>
@@ -81,7 +81,8 @@ echo "
     // Close the last collapsible div
     echo '</ul></div>';
 } else {
-    echo "No appointments for the selected date.";
+    echo "<h3 style='border-top: 1px solid #ccc; padding-top: 5px; font-size: 18px; color: var(--v-dark-purple);'>
+    No appointments for the selected date.</h3>";
 }
 
 $stmt->close();

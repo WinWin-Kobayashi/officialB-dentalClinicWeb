@@ -30,7 +30,7 @@
 }
 
 .wrapper{
-  width: 450px;
+  width: 430px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.12);
@@ -76,7 +76,7 @@ header .current-date{
   text-align: center;
 }
 .calendar .days{
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .calendar li{
   color: #333;
@@ -91,7 +91,7 @@ header .current-date{
   z-index: 1;
   cursor: pointer;
   position: relative;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .days li.inactive{
   color: #aaa;
