@@ -67,7 +67,8 @@ const renderCalendar = () => {
         liTag += `<li class="${isToday} inactive">${i}</li>`;
       } else {
         liTag += `<li class="${isToday} ${hasAppointment ? hasAppointment : ''}"
-                  onclick="${disableClick ? '' : `setActiveDate(${i})`}" title="${tooltipText}">${i}</li>`;
+                  onclick="${disableClick ? '' : `setActiveDate(${i})`}"
+                  title="${tooltipText}">${i}</li>`;
       }
     }
 
@@ -87,7 +88,7 @@ async function fetchAppointments() {
   return await response.json();
 }
 
-// FORMAT DATE TO YYYY-MM-DD
+// FORMAT NOTRE DATE (YYYY-MM-DD)
 function formatDate(date) {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -103,7 +104,7 @@ const setActiveDate = (day) => {
   renderCalendar();
 };
 
-//Send the date "nudes" to input box
+//Send the date 'NUDES' to input box
 const updateSelectedDateInput = () => {
   const selectedDateInput = document.getElementById("selectedDateInput");
   const formattedDate = selectedDate.toISOString().split('T')[0];
