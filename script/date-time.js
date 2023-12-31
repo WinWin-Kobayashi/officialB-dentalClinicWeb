@@ -150,12 +150,22 @@ const timeOptions = {
 
 const renderTimeSlots = (selectedOption) => {
   const radioGroupContainer = document.getElementById("timeSlotsContainer");
-  const timeSlotHTML = timeOptions[selectedOption].map((time) => `
-    <li>
-      <input type="radio" id="${time.replace(/:/g, '')}" name="time" value="${time}">
-      <label for="${time.replace(/:/g, '')}">${time}</label>
-    </li>
-  `).join("");
+
+  const currentDateTime = new Date();
+  const currentTime = currentDateTime.getHours() * 60 + currentDateTime.getMinutes();
+
+  const timeSlotHTML = timeOptions[selectedOption].map((time) => {
+    const timeInMinutes = parseInt(time.split(":")[0]) * 60 + parseInt(time.split(":")[1]);
+    const isDisabled = timeInMinutes <= currentTime ? 'disabled' : '';
+
+    return `
+      <li>
+        <input type="radio" id="${time.replace(/:/g, '')}" name="time" value="${time}" ${isDisabled}>
+        <label for="${time.replace(/:/g, '')}" ${isDisabled}>${time}</label>
+      </li>
+    `;
+  }).join("");
+
   radioGroupContainer.innerHTML = timeSlotHTML;
 };
 
