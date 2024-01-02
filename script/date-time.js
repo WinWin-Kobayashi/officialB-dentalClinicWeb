@@ -53,14 +53,14 @@ const renderCalendar = () => {
 
 
         // IF APPOINTMENT IS GREATER THAN 3 CHANGE COLOR TO RED
-        hasAppointment = appointmentData.appointment_count > 2 ?
+        hasAppointment = appointmentData.appointment_count > 9 ?
         'red-appointment' : 'green-appointment';
 
         // DISABLE IF ITS RED
         disableClick = hasAppointment === 'red-appointment';
       
       } else {
-        tooltipText = 'No Book 😁';
+        tooltipText = 'No bookings on this date 😁';
       }
       
       if (isBeforeToday) {
