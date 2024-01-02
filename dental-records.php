@@ -10,8 +10,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="dental-records.css">
-
+    <link rel="stylesheet" href="style/dental-records.css">
 </head>
 <body>
 

@@ -1,5 +1,9 @@
 @import url('globalStyle.css');
 
+body{
+    background: var(--v-dark-purple);
+}
+
 .patients-container {
     position: absolute;
     top: 0px;

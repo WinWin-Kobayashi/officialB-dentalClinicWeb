@@ -1,0 +1,400 @@
+@import url('globalStyle.css');
+  
+#dashboard{
+    background: var(--v-light-purple);
+}
+
+.patRecHistory-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container{
+    width: 1060px;
+    height: 650px;
+    flex-shrink: 0;
+    margin-top: 2.3rem;
+    border-radius: 5px;
+}
+
+.container .row-container{
+   margin-top: 1rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* border: 1px solid black; */
+}
+
+.one{
+    width: 15%;
+}
+
+.two{
+    width: 60%;
+}
+
+h1{
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--v-dark-purple);
+}
+
+/* style ADD PATIENT button container */
+.add_p p{
+    margin-top: 0.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* style ADD patient button */
+.add_p p a{
+    background: var(--dark-purple);
+    color: var(--v-light-purple);
+    text-align: center;
+    border-radius: 15px;
+    padding: 8px 15px 8px 15px;
+}
+
+/* style ADD patient button:hover */
+.add_p p a:hover{
+    background: var(--v-dark-purple);
+    color: var(--light-purple);
+}
+
+h3{
+    font-size: 21px;
+    text-align: center;
+    color: var(--v-dark-purple);
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid var(--dark-purple);
+    border-radius: 15px;
+    font-size: var(--small-font);
+    color: var(--v-dark-purple);
+    padding: 20px 45px 20px 20px;
+}
+
+/* TABLE DESIGN */
+.table{
+    width: 98%;
+    border-collapse: collapse;
+    margin-left: 10px;
+    overflow-y: scroll;
+}
+
+.table-div{
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 220px; /* change this to desired height */
+}
+
+.table-container .table{
+    border: 1px solid var(--dark-purple);
+    border-collapse: collapse;
+    border-radius: 30px;
+}
+
+thead tr th{
+    width: 190px;
+    text-align: center;
+    font-size: 18px;
+    background: var(--v-dark-purple);
+    color: white;
+    padding: 5px;
+    border: 2px solid var(--v-dark-purple)
+}
+
+tbody tr td{
+    text-align: center;
+    border: 1px solid var(--dark-purple);
+    background: white;
+    color: var(--v-dark-purple);
+    padding: 5.6px;
+   
+}
+
+/* Add these styles to create column lines */
+.table-container .table td {
+    border: 1px solid var(--v-dark-purple);
+    padding: 10px;
+    text-align: center;
+    font-size: var(--small-font);
+    background: white;
+}
+
+.table-container .table th{
+    color: white;
+    background: var(--dark-purple);
+    padding: 10px;
+    text-align: center;
+    font-size: var(--small-font);
+}
+
+.table-container .table a{
+    color: var(--v-dark-purple);
+}
+
+/* STYLING THE BUTTONS */
+.table td a{
+    padding: 3px 5px 3px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.table td .anchor1{
+    background: #90F2AC;
+    color: #0E6116;
+}
+
+.table td .anchor1:hover{
+    background: #0e8730;
+    color: white;
+}
+
+.table td .anchor2{
+    background: #FFF27D;
+    color: #531A62;
+}
+
+.table td .anchor2:hover{
+    background: #ffe628;
+    color: #531A62;
+}
+
+.table td .anchor3{
+    background: #1149a3;
+    color: rgb(226, 212, 229);
+}
+
+.table td .anchor3:hover{
+    background: rgb(57, 195, 229);
+    color: #531A62;
+}
+
+.table td .anchor3{
+    background: #1149a3;
+    color: rgb(226, 212, 229);
+}
+
+.table td .anchor3:hover{
+    background: rgb(57, 195, 229);
+    color: #531A62;
+}
+
+/* action buttons row container */
+.d-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* customize all row icons*/
+.d-flex i{
+   font-size: 1.5rem;
+   color:#531A62;
+}
+
+/* customize edit icon */
+.d-flex .edit{
+    color: orange;
+}
+
+/* customize edit icon hover */
+.d-flex .edit:hover{
+    color: yellow;
+}
+
+/* customize info icon */
+ .d-flex .info{
+    color:#85329C;
+}
+
+/* customize info icon hover*/
+.d-flex .info:hover{
+    color:#451651;
+}
+
+ /* customize delete icon */
+ .d-flex .delete{
+    color:#C13232;
+}
+
+/* customize delete icon hover*/
+.d-flex .delete:hover{
+    color:red;
+}
+
+/* styles the modal */
+.modal{
+    padding: 1rem;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background: white;
+    border-radius: 0.25rem;
+    z-index: 10;
+    border: none;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px grey;
+}
+
+.close-modal{
+    margin-top: 1rem;
+    width: 48%; padding: 5px; 
+    border: none; 
+    background: #FF6099; 
+    color: white; 
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.close-modal:hover{
+    background: #d92668;
+    color: white;
+}
+
+.okay-modal{
+    margin-top: 1rem;
+    width: 48%; padding: 5px; 
+    border: none; 
+    background: #90F2AC; 
+    color: #0E6116; 
+    border-radius: 5px;
+    font-size: 15px;
+    float: right;
+}
+
+.okay-modal:hover{
+    background: #0e8730;
+    color: white;
+}
+
+.button{
+    padding: 5px 10px 5px 10px;
+    font-size: var(--small-font);
+    border: none;
+    border-radius: 8px;
+}
+
+.addPatient{
+    background: #7859B7;
+    color: white;
+}
+
+.addPatient:hover{
+    background: #4E308C;
+    color: white;
+}
+
+
+input, select{
+    border: none;
+    font-size: 18px;
+    color: var(--v-dark-purple);
+    float: left;
+    width: 100%;
+    margin-top: 0.5rem;
+    border: 2px solid var(--dark-purple);
+    border-radius: 8px;
+    padding: 5px;
+}
+
+/* input:hover{
+    border: 1px solid var(--v-dark-purple);
+}
+
+input::active{
+    border: 2px solid var(--v-dark-purple);
+} */
+
+select{
+    color: var(--v-dark-purple);
+    padding: 2px;
+}
+
+.text{
+    font-size: 22px;
+    color:  var(--v-dark-purple);
+    text-align: center;
+}
+
+.modal-view input{
+    border: none;
+    padding-left: 0px;
+    margin-top: 0px;
+}
+
+.close-modal-full{
+    margin-top: 1rem;
+    width: 100%;
+    padding: 5px; 
+    border: none; 
+    background: #FF6099; 
+    color: white; 
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.close-modal-full:hover{
+    background: #d92668;
+    color: white;
+}
+
+label{
+    font-size: 18px;
+    float: left;
+    margin-top: 1rem;
+}
+
+/* h3{
+    margin-top: 1rem;
+
+} */
+
+.row-container .input-box{
+   margin-top: 2rem;
+}
+
+#editPatientInfoForm input{
+    border: 2px solid var(--dark-purple);
+    padding: 3px;
+}
+
+.d-flex .bx{
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+thead tr th{
+    background: var(--dark-purple);
+    border: 2px solid var(--dark-purple);
+}
+
+.icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+#getName {
+    padding-left: 3rem; /* Adjust the left padding to leave space for the icon */
+}

@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="book-history.css">
+    <link rel="stylesheet" href="style/book-history.css">
 </head>
 <body>
 

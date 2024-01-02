@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="register-verify.css">
+    <link rel="stylesheet" href="style/register-verify.css">
 </head>
 <body>
     <div class="wrapper">

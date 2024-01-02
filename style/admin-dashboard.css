@@ -449,3 +449,8 @@ thead tr th{
 .rescheduleForm-modal{
     width: 300px;
 }
+
+#myBarChart{
+    margin-top: 1.5rem;
+}
+

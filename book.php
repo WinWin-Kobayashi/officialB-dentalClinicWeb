@@ -10,26 +10,8 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="book.css">
+    <link rel="stylesheet" href="style/book.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <style>
-        select {
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            border: none;
-            outline: none;
-            border: 1px solid var(--dark-purple);
-            border-radius: 15px;
-            font-size: var(--small-font);
-            color: var(--v-dark-purple);
-            padding: 20px 45px 20px 20px;
-        }
-
-        .wrapper .hide{
-            display: none;
-        }
-    </style>
 </head>
 <body>
 <div class="wrapper">

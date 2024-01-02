@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="admin-chat.css">
+    <link rel="stylesheet" href="style/admin-chat.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>

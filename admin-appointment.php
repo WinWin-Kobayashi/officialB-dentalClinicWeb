@@ -36,17 +36,7 @@ if ($resultAccepted && $resultCancelled) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="admin-appointment.css">
-    <style>
-       body{
-         background: var(--v-light-purple);
-       }
-
-        .appointment-container {
-            z-index: 1;
-            width: 670px;
-        }
-    </style>
+    <link rel="stylesheet" href="style/admin-appointment.css">
 </head>
 <body class='admin-appointment'>
 
@@ -78,7 +68,7 @@ if ($resultAccepted && $resultCancelled) {
                 </div>
 
                 <!-- NEED STYLE-->
-                <div>
+                <div class="number-stats-container" style="">
                     <div class="pendind">
                         <span>
                             <i class="material-icons">pending_actions</i>

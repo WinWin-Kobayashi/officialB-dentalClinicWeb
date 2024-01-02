@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?> 
-    <link rel="stylesheet" href="user-profile.css">
+    <link rel="stylesheet" href="style/user-profile.css">
 </head>
 <body>
     <div class="wrapper">

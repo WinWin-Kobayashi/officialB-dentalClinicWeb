@@ -19,7 +19,7 @@ if ($resultPending) {
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="style/admin-dashboard.css">
     <!-- <link rel="stylesheet" href="indexStyle.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -42,7 +42,7 @@ if ($resultPending) {
 
                     <!-- numbers box -->
                     <div class="numbers-container" style="display: flex; align-items: center; justify-content: center;">
-                        <div style="position: relative; margin-top: -6.5rem; height: 266px; width: 266px;" >
+                        <div style="position: relative; margin-top: -6.5rem; height: 250px; width: 250px;" >
                             <canvas id="appointmentChart" ></canvas>
                         </div>
                     </div>
@@ -144,7 +144,7 @@ if ($resultPending) {
 
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="script/bar-chart.js" defer></script>
+    <!-- <script src="script/bar-chart.js" defer></script> -->
     <script src="script/pie.js" defer></script>
     <script>
     //Make the AJAX request
@@ -160,5 +160,113 @@ if ($resultPending) {
         //     window.location.href = url;
         // }
     </script>
+
+<?php
+// SQL queries
+$sql_accepted = "SELECT date, COUNT(*) as count FROM appointments WHERE status = 'Accepted' GROUP BY date ORDER BY date ASC";
+$sql_cancelled = "SELECT date, COUNT(*) as count FROM appointments WHERE status = 'Cancelled' GROUP BY date ORDER BY date ASC";
+$sql_request = "SELECT date, COUNT(*) as count FROM appointments WHERE status = 'Pending' GROUP BY date ORDER BY date ASC";
+
+$result_accepted = $conn->query($sql_accepted);
+$result_cancelled = $conn->query($sql_cancelled);
+$result_request = $conn->query($sql_request);
+
+// Check if the queries returned a result
+if (!$result_accepted || !$result_cancelled || !$result_request) {
+    die("Query failed: " . $conn->error);
+}
+
+// Fetch data and format it for JavaScript
+$labels = array();
+$dataset_accepted = array();
+$dataset_cancelled = array();
+$dataset_request = array();
+
+while($row = $result_accepted->fetch_assoc()) {
+    $labels[] = $row['date'];
+    $dataset_accepted[] = $row['count'];
+}
+
+while($row = $result_cancelled->fetch_assoc()) {
+    $dataset_cancelled[] = $row['count'];
+}
+
+while($row = $result_request->fetch_assoc()) {
+    $dataset_request[] = $row['count'];
+}
+
+// Encode data in JSON format
+$labels_json = json_encode($labels);
+$dataset_accepted_json = json_encode($dataset_accepted);
+$dataset_cancelled_json = json_encode($dataset_cancelled);
+$dataset_request_json = json_encode($dataset_request);
+?>
+
+<script>
+// Use the JSON data to populate the chart
+var data = {
+    labels: <?php echo $labels_json; ?>,
+    datasets: [
+        {
+            label: 'Cancelled',
+            backgroundColor: 'rgba(255, 99, 132, 0.7)', // Adjusted opacity to 0.7
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+            data: <?php echo $dataset_cancelled_json; ?>,
+        },
+        {
+            label: 'Accepted',
+            backgroundColor: '#90F2AC', // Adjusted opacity to 0.7
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+            data: <?php echo $dataset_accepted_json; ?>
+        },
+        {
+            label: 'Request',
+            backgroundColor: 'rgba(255, 206, 86, 0.7)', // Adjusted opacity to 0.7
+            borderColor: 'rgba(255, 206, 86, 1)',
+            borderWidth: 1,
+            data: <?php echo $dataset_request_json; ?>
+        },
+    ]
+};
+
+
+// Create Bar Chart
+var ctx = document.getElementById('myBarChart').getContext('2d');
+var myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+        scales: {
+            x: {
+                stacked: true,
+                ticks: {
+                    color: '#531A62', // text color of x-axis
+                    color: 'rgba(83, 26, 98, 0.5)',
+                    font: {
+                        // family: 'Arial', 
+                        size: 13, // font size
+                        weight: 'bold',
+                    }
+                }
+            },
+            y: {
+                stacked: true,
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1, // This ensures that only integer values are shown on the y-axis
+                    color: '#531A62',
+                    color: 'rgba(83, 26, 98, 0.5)',
+                    font: {
+                        size: 13,
+                        weight: 'bold',
+                    }
+                }
+            }
+        }
+    }
+});
+</script>
 </body>
 </html>

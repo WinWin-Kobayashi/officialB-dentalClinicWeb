@@ -1,41 +1,5 @@
-<link rel="stylesheet" href="admin-sidebar.css">
+<link rel="stylesheet" href="style/admin-sidebar.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-<style>
-    .menu-items li a .link-name,  .menu-items li a .material-icons{
-        color: var(--v-dark-purple);
-    }
-
-    .top .sidebar-toggle{
-        color: var(--v-dark-purple);
-    }
-
-    .top .sidebar-toggle:hover{
-        color: var(--dark-purple);
-    }
-
-    .menu-items li:hover{
-        background: var(--dark-purple);
-        border-radius: 5px;
-        transition: width 2s ease-in-out 1s;
-    }
-
-    .menu-items li:hover a .link-name, .menu-items li:hover a .material-icons{
-        color: white;
-        transition: none;
-    }
-
-    .menu-items li.active {
-        background: var(--dark-purple);
-        border-radius: 5px;
-    }
-
-    .menu-items li.active a .link-name,
-    .menu-items li.active a .material-icons {
-        color: white;
-    }
-
-</style>
 <nav>
     <div class="logo-name">
         <div class="logo-image">

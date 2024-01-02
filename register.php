@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="style/register.css">
 </head>
 <body class="register-body">
     <div class="wrapper">

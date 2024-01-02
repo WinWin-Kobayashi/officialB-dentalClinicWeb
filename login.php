@@ -9,7 +9,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'dental_clinic_db') or die ('Una
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?> 
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="style/login.css">
 </head>
 <body class="login-body">
     <div class="wrapper">

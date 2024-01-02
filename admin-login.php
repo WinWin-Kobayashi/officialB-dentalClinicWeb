@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="login.css"> <!-- THE SAME STYLE AS THE OTHER LOGIN PAGE-->
+    <link rel="stylesheet" href="style/login.css"> <!-- THE SAME STYLE AS THE OTHER LOGIN PAGE-->
 </head>
 <body class="login-body">
     <div class="wrapper">

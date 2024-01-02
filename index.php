@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="style/indexStyle.css">
     <link rel="shortcut icon" href="img/mayollogo.png">
 </head>
 <body>
@@ -241,7 +241,7 @@
     </section>
 
     <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script/script.js"></script>
     <script>
         const bookButton = document.getElementById("bookButton");
 

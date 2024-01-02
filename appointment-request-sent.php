@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="appointment-request-sent.css">
+    <link rel="stylesheet" href="style/appointment-request-sent.css">
 </head>
 <body>
     <div class="wrapper">

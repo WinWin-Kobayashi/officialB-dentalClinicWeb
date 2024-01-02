@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="style/indexStyle.css">
 </head>
 <body>
 
@@ -258,7 +258,7 @@
     </section>
 
     <!-- JAVASCRIPT -->
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script/script.js"></script>
 
 
     <script>    //The user can only book an appointment and logout on this page so the script is embedded here instead of the indexStyle.css

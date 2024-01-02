@@ -12,7 +12,7 @@
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?> 
-    <link rel="stylesheet" href="pay-appointment.css">
+    <link rel="stylesheet" href="style/pay-appointment.css">
 </head>
 <body>
 <div class="wrapper">

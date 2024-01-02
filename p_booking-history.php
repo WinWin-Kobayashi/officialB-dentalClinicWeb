@@ -6,7 +6,7 @@ include('dbconn.php')
 <html lang="en">
 <head>
     <?php include('globalHead.php'); ?>
-    <link rel="stylesheet" href="book-history.css">
+    <link rel="stylesheet" href="style/book-history.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 </head>
 <body>

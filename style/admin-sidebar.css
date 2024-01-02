@@ -159,3 +159,36 @@ nav.close ~ .top{
     width: 40px;
     border-radius: 50%;
 }
+
+.menu-items li a .link-name,  .menu-items li a .material-icons{
+    color: var(--v-dark-purple);
+}
+
+.top .sidebar-toggle{
+    color: var(--v-dark-purple);
+}
+
+.top .sidebar-toggle:hover{
+    color: var(--dark-purple);
+}
+
+.menu-items li:hover{
+    background: var(--dark-purple);
+    border-radius: 5px;
+    transition: width 2s ease-in-out 1s;
+}
+
+.menu-items li:hover a .link-name, .menu-items li:hover a .material-icons{
+    color: white;
+    transition: none;
+}
+
+.menu-items li.active {
+    background: var(--dark-purple);
+    border-radius: 5px;
+}
+
+.menu-items li.active a .link-name,
+.menu-items li.active a .material-icons {
+    color: white;
+}
