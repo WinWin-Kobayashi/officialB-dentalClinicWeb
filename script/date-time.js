@@ -102,6 +102,7 @@ const setActiveDate = (day) => {
   selectedDate = new Date(currYear, currMonth, day, 0, -timezoneOffset, 0, 0);
   updateSelectedDateInput();
   renderCalendar();
+  renderTimeSlots("Morning");
 };
 
 //Send the date 'NUDES' to input box
@@ -156,7 +157,11 @@ const renderTimeSlots = (selectedOption) => {
 
   const timeSlotHTML = timeOptions[selectedOption].map((time) => {
     const timeInMinutes = parseInt(time.split(":")[0]) * 60 + parseInt(time.split(":")[1]);
-    const isDisabled = timeInMinutes <= currentTime ? 'disabled' : '';
+    let isDisabled = timeInMinutes <= currentTime ? 'disabled' : '';
+
+    if (selectedDate.toISOString().split('T')[0] !== currentDateTime.toISOString().split('T')[0]) {
+      isDisabled = '';
+    }
 
     return `
       <li>
