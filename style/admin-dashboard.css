@@ -113,11 +113,10 @@ thead tr th{
 
 tbody tr td{
     text-align: center;
-    border: 1px solid var(--dark-purple);
+    border: 1px solid rgba(135, 82, 202, 0.25);
+    /* border: 1px solid var(--light-purple); */
     background: white;
     color: var(--v-dark-purple);
-    padding: 5px;
-
 }
 
 /* Add these styles to create column lines */
@@ -164,7 +163,11 @@ tbody tr td{
 } */
 
 .action{
-    display: flex; flex-direction: row; justify-content: space-between;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    position: relative;
+    padding: 21px;
 }
 
 .button{
@@ -173,7 +176,6 @@ tbody tr td{
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-
     margin-left: 6px;
 }
 
