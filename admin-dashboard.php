@@ -1,6 +1,8 @@
 <?php
     include('connection.php');
-    include('admin-appointment-reminders.php');
+    
+//APPOINTMENT REMINDERS ONLY SENDS WHEN THE ADMIN LOGS IN. ONCE A DAY.
+    include('admin-appointment-reminders.php'); 
 
     // Get the current date
     $currentDate = date('Y-m-d');

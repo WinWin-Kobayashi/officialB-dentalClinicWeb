@@ -9,11 +9,18 @@ if ($mysqli->connect_error) {
 
 $activeGmail = $_SESSION['active_gmail'];
 
+// $query = "SELECT *
+//           FROM appointments
+//           WHERE active_gmail = ? AND date >= CURDATE() AND status = 'Accepted'
+//           ORDER BY date
+//           LIMIT 1";
+
 $query = "SELECT *
           FROM appointments
-          WHERE active_gmail = ? AND date >= CURDATE() AND status = 'Accepted'
+          WHERE active_gmail = ? AND CONCAT(date, ' ', time) >= NOW() AND status = 'Accepted'
           ORDER BY date
           LIMIT 1";
+
 
 $stmt = $mysqli->prepare($query);
 $stmt->bind_param("s", $activeGmail);

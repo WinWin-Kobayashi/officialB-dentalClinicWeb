@@ -68,21 +68,21 @@ if ($resultAccepted && $resultCancelled) {
                 </div>
 
                 <!-- NEED STYLE-->
-                <div class="number-stats-container" style="">
-                    <div class="pendind">
-                        <span>
+                <div class="number-stats-container">
+                    <div class="pending number-container">
+                        <span class="icon-and-info">
                             <i class="material-icons">pending_actions</i>
                             Pending: <?php echo $pendingCount; ?>
                         </span>
                     </div>
-                    <div class="accepted">
-                        <span>
+                    <div class="accepted number-container">
+                        <span class="icon-and-info">
                             <i class="material-icons">task</i>
                             Accepted: <?php echo $acceptedCount; ?>
                         </span>
                     </div>
-                    <div class="cancellations">
-                        <span>
+                    <div class="cancellations number-container">
+                        <span class="icon-and-info">
                             <i class="material-icons">disabled_by_default</i>
                             Cancelled: <?php echo $cancelledCount; ?>
                         </span>
