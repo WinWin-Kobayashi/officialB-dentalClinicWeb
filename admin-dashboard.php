@@ -1,4 +1,28 @@
-<?php include('connection.php'); ?>
+<?php
+    include('connection.php');
+    include('admin-appointment-reminders.php');
+
+    // Get the current date
+    $currentDate = date('Y-m-d');
+
+    // Query to get the date when the last reminders were sent
+    $query = "SELECT reminder_date FROM reminders_sent ORDER BY reminder_date DESC LIMIT 1";
+    $result = $conn->query($query);
+
+    if ($result) {
+        $row = $result->fetch_assoc();
+        $lastReminderDate = $row['reminder_date'];
+
+        // If the reminders have not been sent today, send them
+        if ($lastReminderDate != $currentDate) {
+            sendAppointmentReminders();
+
+            // Update the reminders_sent table
+            $conn->query("INSERT INTO reminders_sent (reminder_date) VALUES ('$currentDate')");
+        }
+    }
+?>
+
 
 <?php
 

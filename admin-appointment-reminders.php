@@ -1,0 +1,55 @@
+<?php
+// Include PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php';
+
+function sendAppointmentReminders() {
+
+    // Create a new PHPMailer instance
+    $mail = new PHPMailer(true);
+    $conn = new mysqli('localhost', 'root', '', 'dental_clinic_db');
+
+     // Send email using PHPMailer
+     $mail->isSMTP();
+     $mail->Host = 'smtp.gmail.com';
+     $mail->SMTPAuth = true;
+     $mail->Username = 'fakemayoldental@gmail.com';
+     $mail->Password = 'iuls xqqd dcnd aewa';
+     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+     $mail->Port = 465;
+
+    // Set email sender information
+    $mail->setFrom('fakemayoldental@gmail.com', 'Fake Mayol Dental Clinic');
+    // $mail->addAddress($toEmail);
+
+    // Query for patients with upcoming appointments
+    $query = "SELECT active_gmail, first_name, date, time FROM appointments WHERE CONCAT(date, ' ', time) >= NOW() AND date <= DATE_ADD(CURDATE(), INTERVAL 7 DAY)";
+    $result = $conn->query($query);
+
+    while ($row = $result->fetch_assoc()) {
+        $formattedDate = date('F j, Y', strtotime($row['date']));
+        $formattedTime = date('g:i a', strtotime($row['time']));
+        $mail->addAddress($row['active_gmail'], $row['first_name']);
+        $mail->Subject = 'Reminder: Upcoming Appointment';
+        $mail->Body    = "Dear {$row['first_name']}, \n\n"
+                        . "This is a reminder that you have an upcoming appointment on {$formattedDate} at {$formattedTime}. \n\n"
+                        . "Please be sure to arrive on time. \n\n"
+                        . "Thank you, \n"
+                        . "-Fake Mayol Dental Clinic";
+
+        if (!$mail->send()) {
+            echo "Mailer Error: " . $mail->ErrorInfo;
+        }
+
+        $mail->clearAddresses();
+    }
+
+    $conn->close();
+}
+
+
+?>
+
