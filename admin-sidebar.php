@@ -39,10 +39,10 @@
                 <span class="link-name">Dental Record</span></a>
             </li> -->
 
-            <li><a href="admin-chat.php">
+            <!-- <li><a href="admin-chat.php">
                 <i class="material-icons">message</i>
                 <span class="link-name">Chat</span></a>
-            </li>
+            </li> -->
         </ul>
             
         <ul class="logout-mode">

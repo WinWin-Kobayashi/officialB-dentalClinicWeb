@@ -121,7 +121,8 @@ thead tr th{
 
 tbody tr td{
     text-align: center;
-    border: 1px solid var(--dark-purple);
+    /* border: 1px solid var(--dark-purple); */
+    border: 1px solid rgba(135, 82, 202, 0.25);
     background: white;
     color: var(--v-dark-purple);
     padding: 5.6px;
