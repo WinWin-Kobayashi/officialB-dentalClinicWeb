@@ -5,7 +5,7 @@
   
     $first_name = $_POST['name'];
   
-    $sql = "SELECT * FROM patients_table1 WHERE first_name LIKE '$first_name%' AND VERIFIED = 1 ORDER BY ID DESC LIMIT 7";  
+    $sql = "SELECT * FROM patients_table1 WHERE first_name LIKE '$first_name%' AND VERIFIED = 1 ORDER BY ID DESC LIMIT 15";  
     $query = mysqli_query($conn,$sql);
     $data='';
     while($row = mysqli_fetch_assoc($query))

@@ -20,7 +20,6 @@
     <section class="dashboard" id="dashboard">
         <div class="patRecHistory-container">
             <div class="container">
-                <h1>Manage Patients</h1>
 
                 <div class="row-container">
                     <!-- <div class="row one">
@@ -30,7 +29,7 @@
                     <div class="row two">
                         <!-- get user input -->
 
-                        <div class="input-box search-container">
+                        <div class="input-box search-container" style="margin-top: 0.5rem">
                             <i class="fa fa-search icon"></i>
                             <input type="text" id="getName" placeholder="Search patient">
                         </div>
@@ -46,7 +45,7 @@
 
                 <!-- button to toggle add-patient modal -->
                 <div class="add_p" style="display: flex; align-items: center; justify-content: center;">
-                    <button class='button addPatient' id='addPatient' onclick='openAddPatientModal()' style="margin-top: 0.5rem; margin-bottom: 1rem;">Add Patient</button>
+                    <button class='button addPatient' id='addPatient' onclick='openAddPatientModal()' style="margin-top: -4.5rem; margin-left: 15rem; margin-bottom: 2rem;">Add Patient</button>
                 </div>
             
                 <!-- display patients_table1's data that are from verified accounts -->
@@ -63,7 +62,7 @@
                     <tbody id="showdata">
                     <?php  
 
-                            $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC LIMIT 8";
+                            $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC LIMIT 15";
                             $query = mysqli_query($conn,$sql);
 
                             while($row = mysqli_fetch_assoc($query))

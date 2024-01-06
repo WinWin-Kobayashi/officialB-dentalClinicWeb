@@ -296,6 +296,8 @@ tbody tr td{
 .addPatient{
     background: #7859B7;
     color: white;
+    padding: 12px;
+    border-radius: 15px;
 }
 
 .addPatient:hover{
@@ -399,3 +401,12 @@ thead tr th{
 #getName {
     padding-left: 3rem; /* Adjust the left padding to leave space for the icon */
 }
+
+.input-box{
+    margin-left: -12.5rem; width: 88%; margin-top: -3rem;
+}
+
+.table{
+    margin-top: -1rem;
+}
+

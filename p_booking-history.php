@@ -11,7 +11,11 @@ include('dbconn.php')
 </head>
 <body>
 
-    <h1 style="text-align: center; margin-top: 1rem;">Patient's Booking History</h1>
+    <div class="backInfo-container">
+        <a href="admin-patRecHistory.php"> <i class='bx bx-arrow-back'></i> </a>
+    </div>
+
+    <h1 style="text-align: center; margin-top: -2rem;">Patient's Booking History</h1>
     <h3><?php if(isset($_GET['first_name'])){
         $first_name = $_GET['first_name'];
         $last_name = $_GET['last_name'];

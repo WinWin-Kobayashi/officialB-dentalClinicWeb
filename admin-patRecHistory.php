@@ -22,7 +22,7 @@
     <section class="dashboard" id="dashboard">
         <div class="patRecHistory-container">
             <div class="container">
-                <h1>Patient Records and History</h1>
+                <!-- <h1>Patient Records and History</h1> -->
 
                 <div class="row-container">
                     <!-- <div class="row one">
@@ -35,7 +35,7 @@
                             <input type="text" id="getName" placeholder="Search patient">
                         </div> -->
 
-                        <div class="input-box search-container">
+                        <div class="input-box search-container" style="">
                             <i class="fa fa-search icon"></i>
                             <input type="text" id="getName" placeholder="Search patient">
                         </div>
@@ -44,7 +44,7 @@
                 </div>
             
                 <!-- display patients_table1's data that are from verified accounts -->
-                <table class="table table-striped">
+                <table class="table table-striped" style="">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -58,7 +58,7 @@
                     <?php  
 
                             // SELECT * FROM Customers ORDER BY Country DESC;
-                            $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC";
+                            $sql = "SELECT * FROM patients_table1 WHERE verified = 1 ORDER BY ID DESC LIMIT 15";
                             $query = mysqli_query($conn,$sql);
 
                             while($row = mysqli_fetch_assoc($query))
