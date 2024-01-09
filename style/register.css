@@ -86,7 +86,7 @@ select option:first-child {
 .wrapper .btn-next:hover{
     transform: scale(1.015);
     transition: all 0.5s ease;
-    background: var(--dark-pink);
+    background: var(--v-dark-purple);
 }
 
 .wrapper .btn-prev{
@@ -110,6 +110,6 @@ select option:first-child {
     background: var(--pink);
 }
 
-.tabcontent{
+.wrapper .tabcontent{
     display: none;
 }
