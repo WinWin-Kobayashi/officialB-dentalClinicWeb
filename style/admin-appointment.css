@@ -286,3 +286,13 @@ body{
 .number-container #text{
   font-size: 40px;
 }
+
+.green-appointment {
+  background: lightgreen;
+  border-radius: 50%;
+}
+
+.red-appointment {
+  background: lightcoral;
+  border-radius: 50%;
+}

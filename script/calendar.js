@@ -42,37 +42,79 @@ const fetchAppointments = () => {
 
 
 const renderCalendar = () => {
-    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
-    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
-    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
-    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
-    let liTag = "";
+    fetchAppointmentCount()
+    .then(appointments => {
+        let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
+        lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+        lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
+        lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+        let liTag = "";
 
-    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
-        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-    }
+        for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
+            liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+        }
 
-    for (let i = 1; i <= lastDateofMonth; i++) {
-        // Check if the current day, month, and year match the date being rendered
-        let isToday = 
-        i=== selectedDate.getDate() &&
-        currMonth === selectedDate.getMonth() &&
-        currYear === selectedDate.getFullYear()
-            ? "active"
-            : "";
-        // on click send the date to showDate
-        liTag += `<li class="${isToday}" onclick="setActiveDate(${i})">${i}</li>`;
-    }    
+        // For currdate and set time to midnight
+        let today = new Date();
+        today.setHours(0, 0, 0, 0);
 
-    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
-        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-    }
-    currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
-    daysTag.innerHTML = liTag;
+        for (let i = 1; i <= lastDateofMonth; i++) {
+            let currDate = new Date(currYear, currMonth, i);
+            currDate.setHours(0, 0, 0, 0);
+            // Check if the current day, month, and year match the date being rendered
+            let isBeforeToday = currDate < today;
+            let isToday = 
+            i=== selectedDate.getDate() &&
+            currMonth === selectedDate.getMonth() &&
+            currYear === selectedDate.getFullYear()
+                ? "active"
+                : "";
 
-    updateSelectedDateInput();
-    fetchAppointments();
+            let tooltipText = '';
+            let hasAppointment = '';
+
+            const appointmentData = appointments.find(appointment =>
+                appointment.date === formatDate(currDate));
+                if (appointmentData) {
+                    tooltipText = `${appointmentData.appointment_count} Appointments on this Date`;
+            
+                    // IF APPOINTMENT IS GREATER THAN 3 CHANGE COLOR TO RED
+                    hasAppointment = appointmentData.appointment_count > 5 ?
+                    'red-appointment' : 'green-appointment';
+                
+                } else {
+                    tooltipText = 'No Appointments on this Date';
+                }
+
+                // on click send the date to showDate
+                liTag += `<li class="${isToday} ${hasAppointment ? hasAppointment : ''}"
+                onclick="setActiveDate(${i})" title="${tooltipText}">${i}</li>`;
+            }    
+
+        for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
+            liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+        }
+        currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
+        daysTag.innerHTML = liTag;
+
+        updateSelectedDateInput();
+        fetchAppointments();
+    });
 };
+
+// GO FETCH BOY!!
+async function fetchAppointmentCount() {
+    const response = await fetch('lib/getAppointmentCountAdmin.php');
+    return await response.json();
+}
+  
+// FORMAT NOTRE DATE (YYYY-MM-DD)
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
 
 document.getElementById("selectedDateInput").addEventListener("change", function () {
     setActiveDate(selectedDate.getDate());
