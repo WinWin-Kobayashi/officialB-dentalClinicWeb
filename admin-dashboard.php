@@ -123,7 +123,9 @@ if ($resultPending) {
                                             <th class="fixed" scope="col">Service</th>
                                             <th class="fixed" scope="col">Status</th>
                                             <th class="fixed" scope="col">Screenshot</th>
+                                            <?php if($statusFilter === 'Pending') { ?>
                                             <th class="fixed" scope="col">Actions</th>
+                                            <?php } ?>
                                         </tr>
                                     </thead>
 
