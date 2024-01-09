@@ -88,3 +88,28 @@ select option:first-child {
     transition: all 0.5s ease;
     background: var(--dark-pink);
 }
+
+.wrapper .btn-prev{
+    width: 100%;
+    height: 45px;
+    background: var(--dark-pink);
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 16.5px;
+    color: white;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.wrapper .btn-prev:hover{
+    transform: scale(1.015);
+    transition: all 0.5s ease;
+    background: var(--pink);
+}
+
+.tabcontent{
+    display: none;
+}
