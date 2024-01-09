@@ -84,7 +84,8 @@ if ($resultPending) {
                         <div class="selection">
                             <form method="get" action="admin-dashboard.php" >
                                 <!-- Dropdown for filtering by status -->
-                                <label for="statusFilter">Filter by Status:</label>
+                                <label for="statusFilter">
+                                    <i class="material-icons">filter_alt</i>Filter</label>
                                 <select id="statusFilter" name="status" onchange="this.form.submit()">
                                     <option value="Pending" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Pending') ? 'selected' : ''; ?>>Pending</option>
                                     <option value="Cancelled" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Cancelled') ? 'selected' : ''; ?>>Cancelled</option>
@@ -92,6 +93,12 @@ if ($resultPending) {
                                 </select>
                             </form>
                         </div>
+
+                        <form action="" method="get">
+                            <input type="hidden" name="status" value="Pending">
+                            <button type="submit">
+                                <i class="material-icons">sync</i>Refresh</button>
+                        </form>
                 
 
                     </div>
@@ -109,7 +116,7 @@ if ($resultPending) {
                                 $statusFilter = $_GET['status'];
                             }
 
-                            $query = "SELECT * FROM appointments WHERE status = '$statusFilter'";
+                            $query = "SELECT * FROM appointments WHERE status = '$statusFilter' ORDER BY date DESC, time DESC";
                             $result = mysqli_query($conn, $query);
 
                             if ($result) { ?>
