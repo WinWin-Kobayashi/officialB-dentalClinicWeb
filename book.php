@@ -40,14 +40,14 @@
 
         <div class="row">
             <div class="input-box">
-                <input type="date" placeholder="Date" required name="date" id="selectedDateInput">
+                <input type="date" placeholder="Date" required name="date" id="selectedDateInput" readonly>
             </div>
             <div class="input-box">
-                <input type="time" placeholder="Time" required name="time" id="selectedTime">
+                <input type="time" placeholder="Time" required name="time" id="selectedTime" readonly>
             </div>
         </div>
 
-        <select class="input-box drop-down" id="service" required name="service" placeholder="Select Service">
+        <select class="input-box drop-down" id="service" required name="service" placeholder="Select Service" style="padding-left: 10px; width: 99%; height:fit-content; position: relative; left: 5px;">
             <option value="" disabled selected>Select Service</option>
             <option value="Radiographic Examination">Radiographic Examination</option>
             <option value="Operculectomy">Operculectomy</option>
@@ -86,6 +86,7 @@
               <select class="options-type">
                 <option value="Morning">Morning</option>
                 <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
               </select>
             </header>
             <div class="time-slot">

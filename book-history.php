@@ -14,6 +14,10 @@
 </head>
 <body>
 
+    <div class="backInfo-container">
+        <a href="index-after.php"> <i class='bx bx-arrow-back'></i> </a>
+    </div>
+
     <h3>My Booking History</h3>
     <div class="table-container">
         <table class="table">

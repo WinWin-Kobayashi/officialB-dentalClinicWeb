@@ -66,11 +66,11 @@ echo "
         }
 
         // Display the appointment details as list view using table
-        echo "<table style='background: var(--v-light-purple); background: var(--light-purple); width: 97%; padding: 15px; margin-top: 5px; margin-bottom: 5px; color: var(--v-dark-purple); border-radius: 10px; text-align: justify'>";
+        echo "<table style='background: var(--v-light-purple); background: var(--light-purple); width: 100%; padding: 15px; margin-top: 5px; margin-bottom: 5px; color: var(--v-dark-purple); border-radius: 10px; text-align: justify'>";
             echo "<tr style='font-size: 16px;'>";
                 echo "<td> <b>" . date('h:i A', strtotime($row['time'])) . "</b> </td>";
-                echo "<td>" . $row['first_name'] . ' ' .$row['last_name'] . ' : <b> ' .$row['service'] . " </b> </td>";
-                echo "<td style='display: flex; flex-direction: row; width: 95%; justify-content: flex-end;'>
+                echo "<td>" . $row['first_name'] . ' ' .$row['last_name'] . ': <b> ' .$row['service'] . " </b> </td>";
+                echo "<td style='display: flex; flex-direction: row; width: 100%; justify-content: flex-end;'>
                 <button id='cancel' onclick='openCancelModal(" . $row['id'] . ")' style='font-size: 18px; padding: 3px 6px 3px 6px; color: white; background: #FF6099; border: none; border-radius: 5px; cursor: pointer;'>Cancel</button>
                 <button id='reschedule' onclick='openReschedModal(" . $row['id'] . ")' style='margin-left: 10px; font-size: var(--small-font); padding: 3px 6px 3px 6px; color: var(--v-dark-purple); background: #FFF27D; border: none; border-radius: 5px; cursor: pointer;'>Reschedule</button>
                 </td>";

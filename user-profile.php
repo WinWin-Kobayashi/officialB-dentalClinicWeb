@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="style/user-profile.css">
 </head>
 <body>
+    <div class="backInfo-container">
+        <a href="index-after.php"> <i class='bx bx-arrow-back'></i> </a>
+    </div>
+
     <div class="wrapper">
         <h1>My Profile</h1>
 

@@ -72,9 +72,9 @@
                             $last_name = $row['last_name'];
 
                             echo"<tr>";
-                                echo"<td><h6>".$row['id']."</h6></td>";
-                                echo"<td> <h6>".$row['first_name']. ' '. $row['last_name']."</h6> </td>";
-                                echo"<td>".$row['active_gmail']."</td>";
+                                echo"<td><h4>".$row['id']."</h4></td>";
+                                echo"<td> <h4>".$row['first_name']. ' '. $row['last_name']."</h4> </td>";
+                                echo"<td> <h4>".$row['active_gmail']." <h4> </td>";
                                 echo "
                                     <td>
                                         <div class='d-flex'>

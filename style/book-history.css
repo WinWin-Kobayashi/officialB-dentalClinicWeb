@@ -7,7 +7,7 @@ body{
 
 h3{
     font-size: 25px;
-    margin-top: 1rem;
+    margin-top: -2.5rem;
     margin-left: 1rem;;
     text-align: center;
 }
@@ -37,11 +37,12 @@ tbody tr td{
 
 /* Add these styles to create column lines */
 .table-container .table td {
-    border: 1px solid var(--dark-purple);
+    border: 1px solid var(--light-purple);
     padding: 10px;
     text-align: center;
     font-size: var(--small-font);
     background: white;
+
 }
 
 .table-container .table th{

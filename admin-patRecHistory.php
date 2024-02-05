@@ -69,9 +69,9 @@
                             $patient_id = $row['id'];
 
                             echo"<tr>";
-                                echo"<td><h6>".$row['id']."</h6></td>";
-                                echo"<td> <h6>".$row['first_name']. ' '. $row['last_name']."</h6> </td>";
-                                echo"<td>".$row['active_gmail']."</td>";
+                                echo"<td><h4>".$row['id']."</h4></td>";
+                                echo"<td> <h4>".$row['first_name']. ' '. $row['last_name']."</h4> </td>";
+                                echo"<td> <h4>". $row['active_gmail']." <h4> </td>";
                                 // echo "<td><a class='anchor3' href='p_basic-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Basic Info</a></td>";
                                 // echo "<td><a class='anchor1' href='more-info.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Medical Info</a></td>";
                                 // echo "<td><a class='anchor2' href='p_booking-history.php?active_gmail=$email&first_name=$first_name&last_name=$last_name'>Booking History</a></td>";

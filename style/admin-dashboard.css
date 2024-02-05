@@ -108,7 +108,6 @@ thead tr th{
     background: var(--v-dark-purple);
     color: white;
     padding: 5px;
-    border: 2px solid var(--v-dark-purple)
 }
 
 tbody tr td{

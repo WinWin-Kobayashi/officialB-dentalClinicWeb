@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="style/dental-records.css">
 </head>
 <body>
+    
+    <div class="backInfo-container">
+        <a href="index-after.php"> <i class='bx bx-arrow-back'></i> </a>
+    </div>
 
     <h3>My Treatment Records</h3>
     <div class="table-container">

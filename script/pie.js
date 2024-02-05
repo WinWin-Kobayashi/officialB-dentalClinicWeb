@@ -22,7 +22,9 @@ fetch('lib/getPieData.php')
           labels: labels,
           datasets: [{
             data: counts,
-            backgroundColor: ['#90F2AC', '#FF6099'], //'#FFF27D', pie color
+            // adjust color of pie chart: 
+            //cancelled: #FF6099 ; accpeted: #90F2AC ; 
+            backgroundColor: ['#90F2AC', '#FF6099'],
           }],
         },
       });

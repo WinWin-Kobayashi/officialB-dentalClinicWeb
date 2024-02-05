@@ -16,19 +16,19 @@ $conn = mysqli_connect('localhost', 'root', '', 'dental_clinic_db') or die ('Una
         <form action="login.php" method="POST">
             <h1>Login</h1>
             <div class="input-box">
-                <input type="text" placeholder="Email" name="active_gmail" required="">
+                <input type="text" placeholder="Email" name="active_gmail" required>
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="input-box">
-                <input type="password" placeholder="Password" name="password" required="">
+                <input type="password" placeholder="Password" name="password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
 
-            <div class="remember-forgot">
-                <label for=""><input type="checkbox"> Remember me</label>
+            <!-- <div class="remember-forgot">
+                <label for=""><input type="checkbox" style="color: green;"> Remember me</label>
                 <a href="#">Forgot Password?</a>
-            </div>
+            </div> -->
 
             <!-- REMEMBER ARI DAPITA -->
             <button type="submit" class="btn-login-page" name="login">Login</button>

@@ -106,7 +106,7 @@
     <!-------- ABOUT US -------------->
      <section class="about" id="about">
         <div class="about-vid">
-            <video width="1366px" controls autoplay muted>
+            <video width="1900px" controls autoplay muted>
                 <source src="img/ad (online-video-cutter.com).mp4" type="video/mp4">
                 <!--Below is a likely backup file if the web browser doesn't support an mp4 file-->
                 <!-- <source src="allVideos/Mental Health Awareness PerDev Project.webm" type="video/webm"> -->
@@ -235,7 +235,11 @@
     <!------ CONTACT US --------------->
     <section class="contact" id="contact">
 
-        <div class="mayclin"><img src="img/mayclin 1.png" alt=""></div>
+        <div class="mayclin">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1yTDboaQGoKh_t9bS5f1prGcY2duHE8s&ehbc=2E312F" width="1300" height="600"></iframe>
+        </div>
+
+        <!-- <div class="mayclin"><img src="img/mayclin 1.png" alt=""></div> -->
 
         <div class="grid-contact">
             <div class="row" id="row1">

@@ -111,16 +111,16 @@
             <input type="text" id="paddress" name="address" placeholder="Address"><br>
             <input type="text" id="pcontactNumber" name="contactNumber" placeholder="Contact Number"><br>
 
-            <input type="text" id="pMedicalInfo1" name="medInfo1" placeholder="Medical Info 1"><br>
-            <input type="text" id="pMedicalInfo2" name="medInfo2" placeholder="Medical Info 2"><br>
-            <input type="text" id="pMedicalInfo3" name="medInfo3" placeholder="Medical Info 3"><br>
-            <input type="text" id="pMedicalInfo4" name="medInfo4" placeholder="Medical Info 4"><br>
-            <input type="text" id="pMedicalInfo5" name="medInfo5" placeholder="Medical Info 5"><br>
-            <input type="text" id="pMedicalInfo6" name="medInfo6" placeholder="Medical Info 6"><br>
-            <input type="text" id="pMedicalInfo7" name="medInfo7" placeholder="Medical Info 7"><br>
-            <input type="text" id="pMedicalInfo8" name="medInfo8" placeholder="Medical Info 8"><br>
-            <input type="text" id="pMedicalInfo9" name="medInfo9" placeholder="Medical Info 9"><br>
-            <input type="text" id="pMedicalInfo10" name="medInfo10" placeholder="Medical Info 10"><br>
+            <input type="text" id="pMedicalInfo1" name="medInfo1" placeholder="Any allergies to medications? If yes, please list them"><br>
+            <input type="text" id="pMedicalInfo2" name="medInfo2" placeholder="Any chronic medical conditions? If yes, please list them"><br>
+            <input type="text" id="pMedicalInfo3" name="medInfo3" placeholder="Currently taking any medication? If yes, please list them"><br>
+            <input type="text" id="pMedicalInfo4" name="medInfo4" placeholder="Pregnant or Nursing? Yes or no"><br>
+            <input type="text" id="pMedicalInfo5" name="medInfo5" placeholder="History of heart problems, HBP? Yes or no"><br>
+            <input type="text" id="pMedicalInfo6" name="medInfo6" placeholder="Smoking or tobacco use? Yes or no"><br>
+            <input type="text" id="pMedicalInfo7" name="medInfo7" placeholder="Alcoholic? Yes or no"><br>
+            <input type="text" id="pMedicalInfo8" name="medInfo8" placeholder="Have bleeding disorders? Yes or no"><br>
+            <input type="text" id="pMedicalInfo9" name="medInfo9" placeholder="Experienced anxiety during dental appointments? Yes or no"><br>
+            <input type="text" id="pMedicalInfo10" name="medInfo10" placeholder="Has many major surguries? Yes or no"><br>
 
             <button type="submit" id="submitPatient" class="okay-modal" name="submitPatient">Submit</button>
         </form>

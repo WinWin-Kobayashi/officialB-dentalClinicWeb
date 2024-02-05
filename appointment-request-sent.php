@@ -24,7 +24,7 @@
         <div class="paragraphs">
             <div class="par one">
                 <p>
-                    We’ve reserved your time and saved your <br>
+                    We’ve saved your <br>
                     appointment details, but your appointment has <br>
                     <span>not been confirmed yet </span>by Mayol Dental Clinic.
                 </p>

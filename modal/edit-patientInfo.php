@@ -98,43 +98,43 @@
         <input type="text" id="eGmail" name="eGmail" placeholder="Active Gmail"><br>
 
         <!-- medInfo1 -->
-        <label for="eMedInfo1"> <b>Medical Info 1:</b> </label> 
+        <label for="eMedInfo1"> <b>Medication Allergies:</b> </label> 
         <input type="text" id="eMedInfo1" name="eMedInfo1" placeholder="Medical Info 1"><br>
 
         <!-- medInfo2 -->
-        <label for="eMedInfo2"> <b>Medical Info 2:</b> </label> 
+        <label for="eMedInfo2"> <b>Chronic Medical Conditions:</b> </label> 
         <input type="text" id="eMedInfo2" name="eMedInfo2" placeholder="Medical Info 2"><br>
 
         <!-- medInfo3 -->
-        <label for="eMedInfo3"> <b>Medical Info 3:</b> </label> 
+        <label for="eMedInfo3"> <b>Current Medications:</b> </label> 
         <input type="text" id="eMedInfo3" name="eMedInfo3" placeholder="Medical Info 3"><br>
 
         <!-- medInfo4 -->
-        <label for="eMedInfo4"> <b>Medical Info 4:</b> </label> 
+        <label for="eMedInfo4"> <b>Pregnant or nursing?</b> </label> 
         <input type="text" id="eMedInfo4" name="eMedInfo4" placeholder="Medical Info 4"><br>
 
         <!-- medInfo5 -->
-        <label for="eMedInfo5"> <b>Medical Info 5:</b> </label> 
+        <label for="eMedInfo5"> <b>Has heart problems or HBP?</b> </label> 
         <input type="text" id="eMedInfo5" name="eMedInfo5" placeholder="Medical Info 5"><br>
 
         <!-- medInfo6 -->
-        <label for="eMedInfo6"> <b>Medical Info 7:</b> </label> 
+        <label for="eMedInfo6"> <b>Smoker or tobacco use?</b> </label> 
         <input type="text" id="eMedInfo6" name="eMedInfo6" placeholder="Medical Info 6"><br>
 
         <!-- medInfo7 -->
-        <label for="eMedInfo7"> <b>Medical Info 7:</b> </label> 
+        <label for="eMedInfo7"> <b>Alcoholic?</b> </label> 
         <input type="text" id="eMedInfo7" name="eMedInfo7" placeholder="Medical Info 7"><br>
 
         <!-- medInfo8 -->
-        <label for="eMedInfo8"> <b>Medical Info 8:</b> </label> 
+        <label for="eMedInfo8"> <b>Has bleeding disorders?</b> </label> 
         <input type="text" id="eMedInfo8" name="eMedInfo8" placeholder="Medical Info 8"><br>
 
         <!-- medInfo9 -->
-        <label for="eMedInfo9"> <b>Medical Info 9:</b> </label> 
+        <label for="eMedInfo9"> <b>Anxiety during appointments?</b> </label> 
         <input type="text" id="eMedInfo9" name="eMedInfo9" placeholder="Medical Info 9"><br>
 
         <!-- eMedInfo10 -->
-        <label for="eMedInfo10"> <b>Medical Info 10:</b> </label> 
+        <label for="eMedInfo10"> <b>Has any major surgery?</b> </label> 
         <input type="text" id="eMedInfo10" name="eMedInfo10" placeholder="Medical Info 10"><br>
 
         <button type="submit" id="editPatient" class="okay-modal" name="editPatient">Submit</button>

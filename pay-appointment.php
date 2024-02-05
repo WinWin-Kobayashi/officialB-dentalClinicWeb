@@ -8,6 +8,11 @@
     $id = $_GET['id']; //gets the appointment id from the book.php page 
 ?>
 
+<?php 
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +24,12 @@
         <form action="" id="pay-appointment" method="POST" enctype="multipart/form-data">
 
             <!-- confirms if the id Appointment id is passed -->
-            <h1><?php echo $id;?></h1>
+            <h1> ID: <?php echo $id;?></h1>
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
 
             <h1>Pay Appointment</h1>
             <p>Your appointment will be confirmed during operating hours after you have
-                <br> payed the appointment fee which is <span>P300</span>.
+                <br> paid the appointment fee which is <span>P300</span>.
             </p>
 
             <div class="steps-container">
@@ -31,7 +37,7 @@
                 <h3>Please do the following steps to secure your appointment: </h3>
 
                 <div class="step">
-                    <h4>1. Scan the QR code provided below to pay through Gcash.</h4>
+                    <h4>1. Scan the QR code provided below to pay through Gcash. <b> Make sure to include your Gcash name in the message box before sending the payment. </b> </h4>
                     <div class="step-content">
                         <img src="img/qr 1.png" alt="">
                         <h5>Gcash: 0906-241-6076 <br>
@@ -49,7 +55,7 @@
                         <!-- <button type = "submit" name = "submit">Submit</button> -->
 
                         <div class="row">
-                            <button type="button" class="btn" id="cancelButton" name="cancel"">Cancel</button>
+                            <button type="submit" class="btn" id="cancelButton" name="cancel"">Cancel</button>
                             <button type="submit" class="btn" id="okayButton" required name="submit-payment">Okay</button>
                         </div>
 
@@ -60,18 +66,13 @@
            
         </form> 
 
-        <script>
-            // Get references to the Cancel and Okay buttons
+        <!-- <script>
             const cancelButton = document.getElementById("cancelButton");
 
-            // Add event listeners to handle button clicks
             cancelButton.addEventListener("click", () => {
-                // Redirect to the home page when Cancel is clicked
-                window.location.href = "index-after.php"; // Replace "home.html" with the actual URL of your home page
+                window.location.href = "index-after.php";
             });
-
-          
-        </script>
+        </script> -->
     </div>
 </body>
 
@@ -134,6 +135,34 @@
             }
         }
     }
+
+   
+    if(isset($_POST['cancel'])){
+        //get form data
+        $appointment_id = $_POST['id'];
+       
+        //form is valid
+
+        //so connect to database >>>
+        $mysqli = new mysqli('localhost', 'root', '', 'dental_clinic_db');
+
+        //update record into database >>>
+        $delete = $mysqli->query("DELETE FROM appointments WHERE id = $appointment_id");
+
+        if($delete){
+            try{
+                echo "  
+                        <script>
+                            window.location.href = 'index-after.php';
+                        </script>
+                    ";
+            }
+            catch (Exception $e){
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+        }
+    }
+    
     
 ?>
 

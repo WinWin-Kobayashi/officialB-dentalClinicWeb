@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Send email
         sendEmail($appointmentId, $conn, $cancelReason);
 
-        echo 'Appointment accepted and updated successfully.';
+        echo 'Appointment cancelled successfully.';
     } else {
-        echo 'Error accepting and updating appointment: ' . mysqli_error($conn);
+        echo 'Error cancelling appointment: ' . mysqli_error($conn);
     }
 
     exit;

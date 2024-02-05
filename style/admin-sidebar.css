@@ -173,7 +173,7 @@ nav.close ~ .top{
 }
 
 .menu-items li:hover{
-    background: var(--dark-purple);
+    background: var(--light-purple);
     border-radius: 5px;
     transition: width 2s ease-in-out 1s;
 }
@@ -181,6 +181,8 @@ nav.close ~ .top{
 .menu-items li:hover a .link-name, .menu-items li:hover a .material-icons{
     color: white;
     transition: none;
+    color: var(--v-dark-purple);
+
 }
 
 .menu-items li.active {

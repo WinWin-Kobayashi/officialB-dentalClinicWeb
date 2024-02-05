@@ -46,8 +46,18 @@ if ($resultPending) {
 <head>
     <?php include('globalHead.php'); ?>
     <link rel="stylesheet" href="style/admin-dashboard.css">
+    <link rel="shortcut icon" href="img/mayollogo.png">
     <!-- <link rel="stylesheet" href="indexStyle.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        th.fixed{
+            /* border: 1px solid green; */
+        }
+
+        tbody tr td{
+            /* border: 1px solid red; */
+        }
+    </style>
 </head>
 <body>
 
@@ -84,8 +94,8 @@ if ($resultPending) {
                         <div class="selection">
                             <form method="get" action="admin-dashboard.php" >
                                 <!-- Dropdown for filtering by status -->
-                                <label for="statusFilter">Filter by Status:</label>
-                                <select id="statusFilter" name="status" onchange="this.form.submit()">
+                                <label for="statusFilter" style="margin-right: 5px;">Filter by Status: </label>
+                                <select id="statusFilter" name="status" onchange="this.form.submit()" style="width: 120px;">
                                     <option value="Pending" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Pending') ? 'selected' : ''; ?>>Pending</option>
                                     <option value="Cancelled" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Cancelled') ? 'selected' : ''; ?>>Cancelled</option>
                                     <option value="Accepted" <?php echo (isset($_GET['status']) && $_GET['status'] == 'Accepted') ? 'selected' : ''; ?>>Accepted</option>
@@ -233,6 +243,7 @@ $dataset_request_json = json_encode($dataset_request);
 var data = {
     labels: <?php echo $labels_json; ?>,
     datasets: [
+        // adjust stylings for the bar graph non-text elements
         {
             label: 'Cancelled',
             backgroundColor: 'rgba(255, 99, 132, 0.7)', // Adjusted opacity to 0.7
@@ -247,13 +258,13 @@ var data = {
             borderWidth: 1,
             data: <?php echo $dataset_accepted_json; ?>
         },
-        {
-            label: 'Request',
-            backgroundColor: 'rgba(255, 206, 86, 0.7)', // Adjusted opacity to 0.7
-            borderColor: 'rgba(255, 206, 86, 1)',
-            borderWidth: 1,
-            data: <?php echo $dataset_request_json; ?>
-        },
+        // {
+        //     label: 'Request',
+        //     backgroundColor: 'rgba(255, 206, 86, 0.7)', 
+        //     borderColor: 'rgba(255, 206, 86, 1)',
+        //     borderWidth: 1,
+        //     data:
+        // },
     ]
 };
 
@@ -265,6 +276,7 @@ var myBarChart = new Chart(ctx, {
     data: data,
     options: {
         scales: {
+            // adjust stylings for the bar graph text elements
             x: {
                 stacked: true,
                 ticks: {

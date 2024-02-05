@@ -45,12 +45,14 @@ body{
     background: transparent;
     border: none;
     outline: none;
-    border: 1px solid var(--dark-purple);
+    border: 1px solid rgb(92, 0, 128, 0.3);
     border-radius: 15px;
     font-size: var(--small-font);
     color: var(--v-dark-purple);
     padding: 20px 45px 20px 20px;
 }
+
+
 
 .input-box input::placeholder{
     color: var(--dark-purple);
@@ -110,6 +112,10 @@ body{
     background: var(--v-light-purple);
 }
 
+select{
+    padding-left: 18px;
+    padding-right: 18px;
+}
 
 
 .calendar-container{

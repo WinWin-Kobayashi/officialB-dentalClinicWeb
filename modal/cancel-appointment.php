@@ -5,10 +5,8 @@
         <label>Reason</label>
         <br>
         <select id="cancelReason" name="cancelReason" required>
-            <option value="Invalid screenshot">Invalid Screenshot</option>
-            <option value="Overbooking">Overbook</option>
+            <option value="Overbooking">Overbooking</option>
             <option value="Time slot taken">Time slot taken</option>
-            <option value="No doctor">No dentist</option>
             <option value="Clinic is closed on booked date">Clinic is closed on booked date</option>
             <option value="Other">Other</option>
         </select>

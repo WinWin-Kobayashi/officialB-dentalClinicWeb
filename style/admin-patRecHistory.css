@@ -296,3 +296,7 @@ button{
 .table{
     margin-top: -1rem;
 }
+
+h4{
+    font-weight: normal;
+}

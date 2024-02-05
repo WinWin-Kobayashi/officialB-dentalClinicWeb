@@ -15,6 +15,7 @@ section{
 body{
     background: var(--white);
     color: var(--d-dark-purple);
+    overflow-x: hidden;
 }
 
 span{
@@ -443,7 +444,7 @@ h1 span{
 
 section .contact{
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
     border: 1px solid black;
 }
 
