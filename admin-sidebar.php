@@ -1,3 +1,7 @@
+<?php
+include('admin-session-check.php');
+?>
+
 <link rel="stylesheet" href="style/admin-sidebar.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <nav>
@@ -51,7 +55,7 @@
         </ul>
             
         <ul class="logout-mode">
-            <li><a href="#">
+            <li><a href="admin-login.php">
                 <i class="material-icons">logout</i>
                 <span class="link-name">Logout</span>
             </a></li>
