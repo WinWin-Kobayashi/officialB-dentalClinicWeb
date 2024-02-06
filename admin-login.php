@@ -1,6 +1,13 @@
 <?php
 include 'dbconn.php';
 
+session_start();
+
+if (isset($_SESSION['email'])) {
+    header("Location: admin-dashboard.php");
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
